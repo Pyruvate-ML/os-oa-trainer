@@ -2,7 +2,350 @@
   "subjectId": "os",
   "subjectName": "Operating Systems",
   "chapterId": "ch07",
-  "chapterName": "Synchronization",
-  "mcq": [],
+  "chapterName": "synchronization",
+  "mcq": [
+    {
+      "id": "os-ch07-001",
+      "stemEn": "Which of the following statements about a critical section is correct?",
+      "stemCn": "下列对临界区的论述中，正确的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "A critical section is the section of code in a process used to access shared resources.",
+          "textCn": "临界区是指进程中用于访问共享资源的那段代码"
+        },
+        {
+          "key": "B",
+          "textEn": "A critical section is the section of code in a process used to implement process synchronization.",
+          "textCn": "临界区是指进程中用于实现进程同步的那段代码"
+        },
+        {
+          "key": "C",
+          "textEn": "A critical section is the section of code in a process used to implement process mutual exclusion.",
+          "textCn": "临界区是指进程中用于实现进程互斥的那段代码"
+        },
+        {
+          "key": "D",
+          "textEn": "A critical section is the section of code in a process used to implement process communication.",
+          "textCn": "临界区是指进程中用于实现进程通信的那段代码"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "临界区是进程中访问临界资源或共享资源的代码段。互斥、同步是对临界区访问进行控制的手段，不是临界区本身的定义。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-002",
+      "stemEn": "If the initial value of a semaphore is 3, and after multiple P/V operations its current value is -1, this indicates that the number of processes waiting to enter the critical section is ().",
+      "stemCn": "若一个信号量的初值为 3，经过多次 P/V 操作以后当前值为 -1，此表示等待进入临界区的进程数是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "4",
+          "textCn": "4"
+        },
+        {
+          "key": "B",
+          "textEn": "3",
+          "textCn": "3"
+        },
+        {
+          "key": "C",
+          "textEn": "1",
+          "textCn": "1"
+        },
+        {
+          "key": "D",
+          "textEn": "2",
+          "textCn": "2"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "记录型信号量为负数时，其绝对值表示等待该资源的进程数。当前值为 -1，说明有 1 个进程正在等待。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-003",
+      "stemEn": "For a semaphore K associated with a resource, the initial value is 3 and the current value is 1. If M denotes the number of available instances of the resource and N denotes the number of processes waiting for the resource, then M and N are respectively ().",
+      "stemCn": "设与某资源关联的信号量 K 初值为 3，当前值为 1。若 M 表示该资源的可用个数，N 表示等待该资源的进程数，则 M、N 分别是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "1, 0",
+          "textCn": "1、0"
+        },
+        {
+          "key": "B",
+          "textEn": "1, 2",
+          "textCn": "1、2"
+        },
+        {
+          "key": "C",
+          "textEn": "0, 1",
+          "textCn": "0、1"
+        },
+        {
+          "key": "D",
+          "textEn": "2, 0",
+          "textCn": "2、0"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "信号量当前值为正数时，表示当前可用资源数。K=1 说明还有 1 个资源可用，没有进程等待该资源。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-004",
+      "stemEn": "A P operation may lead to ().",
+      "stemCn": "P 操作可能导致（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Creation of a new process",
+          "textCn": "新进程创建"
+        },
+        {
+          "key": "B",
+          "textEn": "Termination of a process",
+          "textCn": "进程结束"
+        },
+        {
+          "key": "C",
+          "textEn": "Blocking of a process",
+          "textCn": "进程阻塞"
+        },
+        {
+          "key": "D",
+          "textEn": "A process becoming ready",
+          "textCn": "进程就绪"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "P 操作用于申请资源，若申请后信号量小于 0，说明资源不足，当前进程会进入阻塞状态。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-005",
+      "stemEn": "When a V operation wakes up a waiting process, the awakened process becomes in the () state.",
+      "stemCn": "用 V 操作唤醒一个等待进程时，被唤醒进程的变为（）状态。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Ready",
+          "textCn": "就绪"
+        },
+        {
+          "key": "B",
+          "textEn": "Waiting",
+          "textCn": "等待"
+        },
+        {
+          "key": "C",
+          "textEn": "Completed",
+          "textCn": "完成"
+        },
+        {
+          "key": "D",
+          "textEn": "Running",
+          "textCn": "运行"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "V 操作释放资源并可能唤醒等待进程。被唤醒的进程只是具备运行条件，还需等待 CPU 调度，因此进入就绪状态。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-006",
+      "stemEn": "When semaphores are used to implement mutual exclusion, the initial value of the mutex semaphore is ().",
+      "stemCn": "在用信号量机制实现互斥时，互斥信号量的初值为（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "3",
+          "textCn": "3"
+        },
+        {
+          "key": "B",
+          "textEn": "0",
+          "textCn": "0"
+        },
+        {
+          "key": "C",
+          "textEn": "1",
+          "textCn": "1"
+        },
+        {
+          "key": "D",
+          "textEn": "2",
+          "textCn": "2"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "互斥信号量用于控制同一时刻只有一个进程进入临界区，因此初值应为 1，表示最初临界区可被一个进程进入。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-007",
+      "stemEn": "There are three processes sharing the same program segment, and at most two processes are allowed to enter this segment each time. If the PV operation synchronization mechanism is used, the possible range of semaphore S is ().",
+      "stemCn": "有三个进程共享同一程序段，而每次只允许两个进程进入该程序段，若用 PV 操作同步机制，则信号量 S 的取值范围是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "3, 2, 1, 0",
+          "textCn": "3，2，1，0"
+        },
+        {
+          "key": "B",
+          "textEn": "1, 0, -1, -2",
+          "textCn": "1，0，-1，-2"
+        },
+        {
+          "key": "C",
+          "textEn": "2, 1, 0, -1, -2",
+          "textCn": "2，1，0，-1，-2"
+        },
+        {
+          "key": "D",
+          "textEn": "2, 1, 0, -1",
+          "textCn": "2，1，0，-1"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "每次最多允许两个进程进入，因此信号量初值为 2。三个进程竞争时，最多有一个进程等待，所以最小值为 -1，取值范围为 2、1、0、-1。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-008",
+      "stemEn": "For two concurrent processes, a mutex semaphore has an initial value of 1. If mutex = 0, then ().",
+      "stemCn": "对于两个并发进程，设互斥信号量为 mutex，初值为 1，若 mutex = 0，则（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "One process is in the critical section and the other process is waiting to enter.",
+          "textCn": "表示有一个进程进入临界区，另一个进程等待进入"
+        },
+        {
+          "key": "B",
+          "textEn": "Two processes are in the critical section.",
+          "textCn": "表示有两个进程进入临界区"
+        },
+        {
+          "key": "C",
+          "textEn": "No process is in the critical section.",
+          "textCn": "表示没有进程进入临界区"
+        },
+        {
+          "key": "D",
+          "textEn": "One process is in the critical section.",
+          "textCn": "表示有一个进程进入临界区"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "互斥信号量初值为 1，执行一次 P 操作后变为 0，表示已有一个进程进入临界区。若还有进程等待，信号量会继续变为负数。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-009",
+      "stemEn": "After executing a P operation on semaphore S, the condition for making a process enter the waiting queue is ().",
+      "stemCn": "对信号量 S 执行 P 操作后，使进程进入等待队列的条件是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "S.value > 0",
+          "textCn": "S.value > 0"
+        },
+        {
+          "key": "B",
+          "textEn": "S.value < 0",
+          "textCn": "S.value < 0"
+        },
+        {
+          "key": "C",
+          "textEn": "S.value <= 0",
+          "textCn": "S.value <= 0"
+        },
+        {
+          "key": "D",
+          "textEn": "S.value >= 0",
+          "textCn": "S.value >= 0"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "记录型信号量的 P 操作先使 S.value 减 1，若结果小于 0，说明资源不足，进程进入等待队列。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-010",
+      "stemEn": "In an operating system, the reason for synchronizing concurrent processes is ().",
+      "stemCn": "在操作系统中，要对并发进程进行同步的原因是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Processes have structural properties.",
+          "textCn": "进程具有结构性"
+        },
+        {
+          "key": "B",
+          "textEn": "Processes must finish within a limited time.",
+          "textCn": "进程必须在有限的时间内完成"
+        },
+        {
+          "key": "C",
+          "textEn": "Concurrent processes are asynchronous.",
+          "textCn": "并发进程是异步的"
+        },
+        {
+          "key": "D",
+          "textEn": "Processes have dynamic properties.",
+          "textCn": "进程具有动态性"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "并发进程的执行速度和推进顺序具有不确定性，即异步性。为了保证相关操作按正确次序执行，需要进行进程同步。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "os-ch07-tf-001",
+      "stemEn": "A critical section is the area where a critical resource is located.",
+      "stemCn": "临界区就是临界资源所在的区域。",
+      "answer": "F",
+      "explanationCn": "临界区是访问临界资源的代码段，不是临界资源本身所在的物理或存储区域。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-tf-002",
+      "stemEn": "A semaphore is an integer variable, and it can be directly incremented by 1 or decremented by 1.",
+      "stemCn": "信号量是一个整型变量，可以直接对其进行加 1 和减 1 的操作。",
+      "answer": "F",
+      "explanationCn": "信号量虽然包含整数值，但只能通过原子性的 P、V 操作访问和修改，不能由进程随意直接加减。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-tf-003",
+      "stemEn": "The V operation indicates applying for a resource.",
+      "stemCn": "V 操作表示申请一个资源。",
+      "answer": "F",
+      "explanationCn": "P 操作表示申请资源，V 操作表示释放资源，并可能唤醒等待该资源的进程。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-tf-004",
+      "stemEn": "When a process accessing a critical resource is blocked because it requests an I/O operation, it allows other processes to enter its critical section.",
+      "stemCn": "一个正在访问临界资源的进程因为申请 I/O 操作而阻塞时，它允许其他进程进入其临界区。",
+      "answer": "F",
+      "explanationCn": "进程在临界区内即使因 I/O 阻塞，也仍占有临界资源或相关互斥访问权，通常不能允许其他进程直接进入该临界区。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch07-tf-005",
+      "stemEn": "PV operations are atomic operations.",
+      "stemCn": "PV 操作是原子操作。",
+      "answer": "T",
+      "explanationCn": "P、V 操作必须不可分割地执行，否则会破坏信号量的正确性，导致互斥或同步失效。",
+      "explanationEn": ""
+    }
+  ],
   "terms": []
 }

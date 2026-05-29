@@ -3,6 +3,12 @@
     {
       "id": "coa",
       "name": "Computer Organization",
+      "chapters": [
+        {
+          "id": "ch01",
+          "name": "Data Representation"
+        }
+      ],
       "mcq": [
         {
           "id": "coa-ch01-001",
@@ -73,6 +79,60 @@
     {
       "id": "os",
       "name": "Operating Systems",
+      "chapters": [
+        {
+          "id": "ch01",
+          "name": "introduction"
+        },
+        {
+          "id": "ch02",
+          "name": "operating-system structures"
+        },
+        {
+          "id": "ch03",
+          "name": "Operating System Structure"
+        },
+        {
+          "id": "ch04",
+          "name": "processes"
+        },
+        {
+          "id": "ch05",
+          "name": "threads"
+        },
+        {
+          "id": "ch06",
+          "name": "process scheduling"
+        },
+        {
+          "id": "ch07",
+          "name": "synchronization"
+        },
+        {
+          "id": "ch08",
+          "name": "deadlocks"
+        },
+        {
+          "id": "ch09",
+          "name": "memory management"
+        },
+        {
+          "id": "ch10",
+          "name": "Virtual Memory"
+        },
+        {
+          "id": "ch11",
+          "name": "File System"
+        },
+        {
+          "id": "ch12",
+          "name": "Secondary Storage"
+        },
+        {
+          "id": "ch13",
+          "name": "IO System"
+        }
+      ],
       "mcq": [
         {
           "id": "os-ch01-001",
@@ -1193,6 +1253,966 @@
           "answerKey": "A",
           "explanationCn": "调度算法通常追求减少等待时间、提高吞吐量、改善响应时间和提高 CPU 利用率。增加就绪队列等待时间不是正确准则。",
           "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-001",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "Which of the following statements about a critical section is correct?",
+          "stemCn": "下列对临界区的论述中，正确的是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "A critical section is the section of code in a process used to access shared resources.",
+              "textCn": "临界区是指进程中用于访问共享资源的那段代码"
+            },
+            {
+              "key": "B",
+              "textEn": "A critical section is the section of code in a process used to implement process synchronization.",
+              "textCn": "临界区是指进程中用于实现进程同步的那段代码"
+            },
+            {
+              "key": "C",
+              "textEn": "A critical section is the section of code in a process used to implement process mutual exclusion.",
+              "textCn": "临界区是指进程中用于实现进程互斥的那段代码"
+            },
+            {
+              "key": "D",
+              "textEn": "A critical section is the section of code in a process used to implement process communication.",
+              "textCn": "临界区是指进程中用于实现进程通信的那段代码"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "临界区是进程中访问临界资源或共享资源的代码段。互斥、同步是对临界区访问进行控制的手段，不是临界区本身的定义。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-002",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "If the initial value of a semaphore is 3, and after multiple P/V operations its current value is -1, this indicates that the number of processes waiting to enter the critical section is ().",
+          "stemCn": "若一个信号量的初值为 3，经过多次 P/V 操作以后当前值为 -1，此表示等待进入临界区的进程数是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "4",
+              "textCn": "4"
+            },
+            {
+              "key": "B",
+              "textEn": "3",
+              "textCn": "3"
+            },
+            {
+              "key": "C",
+              "textEn": "1",
+              "textCn": "1"
+            },
+            {
+              "key": "D",
+              "textEn": "2",
+              "textCn": "2"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "记录型信号量为负数时，其绝对值表示等待该资源的进程数。当前值为 -1，说明有 1 个进程正在等待。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-003",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "For a semaphore K associated with a resource, the initial value is 3 and the current value is 1. If M denotes the number of available instances of the resource and N denotes the number of processes waiting for the resource, then M and N are respectively ().",
+          "stemCn": "设与某资源关联的信号量 K 初值为 3，当前值为 1。若 M 表示该资源的可用个数，N 表示等待该资源的进程数，则 M、N 分别是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "1, 0",
+              "textCn": "1、0"
+            },
+            {
+              "key": "B",
+              "textEn": "1, 2",
+              "textCn": "1、2"
+            },
+            {
+              "key": "C",
+              "textEn": "0, 1",
+              "textCn": "0、1"
+            },
+            {
+              "key": "D",
+              "textEn": "2, 0",
+              "textCn": "2、0"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "信号量当前值为正数时，表示当前可用资源数。K=1 说明还有 1 个资源可用，没有进程等待该资源。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-004",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "A P operation may lead to ().",
+          "stemCn": "P 操作可能导致（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Creation of a new process",
+              "textCn": "新进程创建"
+            },
+            {
+              "key": "B",
+              "textEn": "Termination of a process",
+              "textCn": "进程结束"
+            },
+            {
+              "key": "C",
+              "textEn": "Blocking of a process",
+              "textCn": "进程阻塞"
+            },
+            {
+              "key": "D",
+              "textEn": "A process becoming ready",
+              "textCn": "进程就绪"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "P 操作用于申请资源，若申请后信号量小于 0，说明资源不足，当前进程会进入阻塞状态。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-005",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "When a V operation wakes up a waiting process, the awakened process becomes in the () state.",
+          "stemCn": "用 V 操作唤醒一个等待进程时，被唤醒进程的变为（）状态。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Ready",
+              "textCn": "就绪"
+            },
+            {
+              "key": "B",
+              "textEn": "Waiting",
+              "textCn": "等待"
+            },
+            {
+              "key": "C",
+              "textEn": "Completed",
+              "textCn": "完成"
+            },
+            {
+              "key": "D",
+              "textEn": "Running",
+              "textCn": "运行"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "V 操作释放资源并可能唤醒等待进程。被唤醒的进程只是具备运行条件，还需等待 CPU 调度，因此进入就绪状态。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-006",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "When semaphores are used to implement mutual exclusion, the initial value of the mutex semaphore is ().",
+          "stemCn": "在用信号量机制实现互斥时，互斥信号量的初值为（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "3",
+              "textCn": "3"
+            },
+            {
+              "key": "B",
+              "textEn": "0",
+              "textCn": "0"
+            },
+            {
+              "key": "C",
+              "textEn": "1",
+              "textCn": "1"
+            },
+            {
+              "key": "D",
+              "textEn": "2",
+              "textCn": "2"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "互斥信号量用于控制同一时刻只有一个进程进入临界区，因此初值应为 1，表示最初临界区可被一个进程进入。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-007",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "There are three processes sharing the same program segment, and at most two processes are allowed to enter this segment each time. If the PV operation synchronization mechanism is used, the possible range of semaphore S is ().",
+          "stemCn": "有三个进程共享同一程序段，而每次只允许两个进程进入该程序段，若用 PV 操作同步机制，则信号量 S 的取值范围是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "3, 2, 1, 0",
+              "textCn": "3，2，1，0"
+            },
+            {
+              "key": "B",
+              "textEn": "1, 0, -1, -2",
+              "textCn": "1，0，-1，-2"
+            },
+            {
+              "key": "C",
+              "textEn": "2, 1, 0, -1, -2",
+              "textCn": "2，1，0，-1，-2"
+            },
+            {
+              "key": "D",
+              "textEn": "2, 1, 0, -1",
+              "textCn": "2，1，0，-1"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "每次最多允许两个进程进入，因此信号量初值为 2。三个进程竞争时，最多有一个进程等待，所以最小值为 -1，取值范围为 2、1、0、-1。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-008",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "For two concurrent processes, a mutex semaphore has an initial value of 1. If mutex = 0, then ().",
+          "stemCn": "对于两个并发进程，设互斥信号量为 mutex，初值为 1，若 mutex = 0，则（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "One process is in the critical section and the other process is waiting to enter.",
+              "textCn": "表示有一个进程进入临界区，另一个进程等待进入"
+            },
+            {
+              "key": "B",
+              "textEn": "Two processes are in the critical section.",
+              "textCn": "表示有两个进程进入临界区"
+            },
+            {
+              "key": "C",
+              "textEn": "No process is in the critical section.",
+              "textCn": "表示没有进程进入临界区"
+            },
+            {
+              "key": "D",
+              "textEn": "One process is in the critical section.",
+              "textCn": "表示有一个进程进入临界区"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "互斥信号量初值为 1，执行一次 P 操作后变为 0，表示已有一个进程进入临界区。若还有进程等待，信号量会继续变为负数。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-009",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "After executing a P operation on semaphore S, the condition for making a process enter the waiting queue is ().",
+          "stemCn": "对信号量 S 执行 P 操作后，使进程进入等待队列的条件是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "S.value > 0",
+              "textCn": "S.value > 0"
+            },
+            {
+              "key": "B",
+              "textEn": "S.value < 0",
+              "textCn": "S.value < 0"
+            },
+            {
+              "key": "C",
+              "textEn": "S.value <= 0",
+              "textCn": "S.value <= 0"
+            },
+            {
+              "key": "D",
+              "textEn": "S.value >= 0",
+              "textCn": "S.value >= 0"
+            }
+          ],
+          "answerKey": "B",
+          "explanationCn": "记录型信号量的 P 操作先使 S.value 减 1，若结果小于 0，说明资源不足，进程进入等待队列。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-010",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "In an operating system, the reason for synchronizing concurrent processes is ().",
+          "stemCn": "在操作系统中，要对并发进程进行同步的原因是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Processes have structural properties.",
+              "textCn": "进程具有结构性"
+            },
+            {
+              "key": "B",
+              "textEn": "Processes must finish within a limited time.",
+              "textCn": "进程必须在有限的时间内完成"
+            },
+            {
+              "key": "C",
+              "textEn": "Concurrent processes are asynchronous.",
+              "textCn": "并发进程是异步的"
+            },
+            {
+              "key": "D",
+              "textEn": "Processes have dynamic properties.",
+              "textCn": "进程具有动态性"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "并发进程的执行速度和推进顺序具有不确定性，即异步性。为了保证相关操作按正确次序执行，需要进行进程同步。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-001",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "Which of the following situations may lead to deadlock?",
+          "stemCn": "下列情况可能导致死锁的是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Multiple processes compete for resources and circular waiting occurs.",
+              "textCn": "多个进程竞争资源出现了循环等待"
+            },
+            {
+              "key": "B",
+              "textEn": "Multiple processes compete to use shared devices.",
+              "textCn": "多个进程竞争使用共享型的设备"
+            },
+            {
+              "key": "C",
+              "textEn": "A process enters an infinite loop.",
+              "textCn": "一个进程进入死循环"
+            },
+            {
+              "key": "D",
+              "textEn": "A process releases resources.",
+              "textCn": "进程释放资源"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "死锁的典型表现是多个进程互相等待对方占有的资源，形成循环等待。共享型设备竞争或进程死循环本身不一定构成死锁。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-002",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "In an operating system, deadlock refers to ().",
+          "stemCn": "在操作系统中，死锁出现是指（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "A serious failure occurs in the computer system.",
+              "textCn": "计算机系统发生重大故障"
+            },
+            {
+              "key": "B",
+              "textEn": "The number of resources is far less than the number of processes.",
+              "textCn": "资源个数远远小于进程数"
+            },
+            {
+              "key": "C",
+              "textEn": "Several processes wait indefinitely for other processes to release the resources they occupy because of competing for resources.",
+              "textCn": "若干进程因竞争资源而无限等待其他进程释放已占有的资源"
+            },
+            {
+              "key": "D",
+              "textEn": "The resources requested by processes at the same time exceed the total number of resources.",
+              "textCn": "进程同时申请的资源数超过资源总数"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "死锁是指一组进程因互相等待对方释放资源而长期阻塞，若无外力干预无法继续推进。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-003",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "Allocating all resources at once can prevent deadlock because it destroys which of the four necessary conditions for deadlock?",
+          "stemCn": "一次分配所有资源的方法可以预防死锁的发生，它破坏的死锁四个必要条件中的（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Mutual exclusion",
+              "textCn": "互斥"
+            },
+            {
+              "key": "B",
+              "textEn": "Circular wait",
+              "textCn": "环路等待"
+            },
+            {
+              "key": "C",
+              "textEn": "No preemption",
+              "textCn": "非剥夺"
+            },
+            {
+              "key": "D",
+              "textEn": "Hold and wait",
+              "textCn": "请求并保持"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "一次性分配所有资源要求进程在运行前申请完所需资源，运行中不再边占有边等待新资源，因此破坏了请求并保持条件。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-004",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "Deadlock avoidance is implemented by taking measures based on ().",
+          "stemCn": "死锁的避免是根据（）采取措施实现的。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Allocating enough system resources",
+              "textCn": "配置足够的系统资源"
+            },
+            {
+              "key": "B",
+              "textEn": "Destroying one of the four necessary conditions for deadlock",
+              "textCn": "破坏死锁的四个必要条件之一"
+            },
+            {
+              "key": "C",
+              "textEn": "Making the process execution order reasonable",
+              "textCn": "使进程的推进顺序合理"
+            },
+            {
+              "key": "D",
+              "textEn": "Preventing the system from entering an unsafe state",
+              "textCn": "防止系统进入不安全状态"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "死锁避免不是直接破坏必要条件，而是在资源分配前判断系统是否会进入不安全状态，从而避免可能导致死锁的分配。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-005",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "Which of the following descriptions about a resource-allocation graph is correct?",
+          "stemCn": "以下有关资源分配图的描述中正确的是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Directed edges include allocation edges from processes to resource classes and request edges from resource classes to processes.",
+              "textCn": "有向边包括进程指向资源类的分配边和资源类指向进程申请边两类"
+            },
+            {
+              "key": "B",
+              "textEn": "Circular nodes represent resource classes.",
+              "textCn": "圆圈节点表示资源类"
+            },
+            {
+              "key": "C",
+              "textEn": "Rectangular boxes represent processes, and dots inside them represent processes requesting the same type of resource.",
+              "textCn": "矩形框表示进程，其中圆点表示申请同一类资源的各个进程"
+            },
+            {
+              "key": "D",
+              "textEn": "A resource-allocation graph is a directed graph used to represent the state between system resources and processes at a certain time.",
+              "textCn": "资源分配图是一个有向图，用于表示某时刻系统资源与进程之间的状态"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "资源分配图用有向图描述进程与资源之间的申请和分配关系。通常圆圈表示进程，矩形表示资源类，边的方向也有固定含义。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-006",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "The relationship between deadlock and a safe state is ().",
+          "stemCn": "死锁与安全状态的关系是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "An unsafe state is a deadlock state.",
+              "textCn": "不安全状态就是死锁状态"
+            },
+            {
+              "key": "B",
+              "textEn": "A safe state may become a deadlock state.",
+              "textCn": "安全状态有可能成为死锁状态"
+            },
+            {
+              "key": "C",
+              "textEn": "A deadlock state must be an unsafe state.",
+              "textCn": "死锁状态一定是不安全状态"
+            },
+            {
+              "key": "D",
+              "textEn": "A deadlock state may be a safe state.",
+              "textCn": "死锁状态有可能是安全状态"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "死锁状态一定是不安全状态，但不安全状态不一定已经发生死锁，它只是可能发展为死锁。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-007",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "Among the following solutions to deadlock, which belongs to deadlock avoidance?",
+          "stemCn": "在下列死锁的解决方法中，属于死锁避免策略的是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Resource ordered allocation method",
+              "textCn": "资源有序分配法"
+            },
+            {
+              "key": "B",
+              "textEn": "Deadlock detection method",
+              "textCn": "死锁检测法"
+            },
+            {
+              "key": "C",
+              "textEn": "Destroying the non-preemption condition",
+              "textCn": "破坏不可剥夺条件"
+            },
+            {
+              "key": "D",
+              "textEn": "Banker's algorithm",
+              "textCn": "银行家算法"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "银行家算法在资源分配前进行安全性检查，避免系统进入不安全状态，因此属于死锁避免方法。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-008",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "Which of the following is usually not used to recover from deadlock?",
+          "stemCn": "解除死锁通常不采用的方法是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Preempt resources from deadlocked processes.",
+              "textCn": "从死锁进程处抢夺资源"
+            },
+            {
+              "key": "B",
+              "textEn": "Preempt resources from non-deadlocked processes.",
+              "textCn": "从非死锁进程处抢夺资源"
+            },
+            {
+              "key": "C",
+              "textEn": "Terminate all deadlocked processes.",
+              "textCn": "终止所有死锁进程"
+            },
+            {
+              "key": "D",
+              "textEn": "Terminate one deadlocked process.",
+              "textCn": "终止一个死锁进程"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "解除死锁常用资源剥夺或终止进程等方法，但通常不直接终止所有死锁进程，因为代价过大，实际可逐个终止或选择性恢复。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-009",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "Among the four necessary conditions for deadlock, the one that cannot be destroyed is ().",
+          "stemCn": "死锁的四个必要条件中，无法破坏的是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "No preemption",
+              "textCn": "非剥夺"
+            },
+            {
+              "key": "B",
+              "textEn": "Mutual exclusion",
+              "textCn": "互斥"
+            },
+            {
+              "key": "C",
+              "textEn": "Hold and wait",
+              "textCn": "请求并保持"
+            },
+            {
+              "key": "D",
+              "textEn": "Circular wait",
+              "textCn": "环路等待"
+            }
+          ],
+          "answerKey": "B",
+          "explanationCn": "许多资源本身具有互斥使用特性，例如打印机等独占设备，这一条件通常无法从根本上破坏。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-010",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "If three concurrent processes in a system each require four identical resources, the minimum number of resources that guarantees no deadlock is ().",
+          "stemCn": "某系统中有三个并发进程都需要四个同类资源，该系统不会发生死锁的最少资源是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "9",
+              "textCn": "9"
+            },
+            {
+              "key": "B",
+              "textEn": "12",
+              "textCn": "12"
+            },
+            {
+              "key": "C",
+              "textEn": "11",
+              "textCn": "11"
+            },
+            {
+              "key": "D",
+              "textEn": "10",
+              "textCn": "10"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "若有 n 个进程，每个最多需要 m 个同类资源，则避免死锁的最少资源数为 n(m-1)+1。本题为 3×(4-1)+1=10。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-001",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "The process of converting logical addresses used in a job space into physical memory addresses is called ().",
+          "stemCn": "把作业空间中使用的逻辑地址变为内存中物理地址称为（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Physicalization",
+              "textCn": "物理化"
+            },
+            {
+              "key": "B",
+              "textEn": "Logicalization",
+              "textCn": "逻辑化"
+            },
+            {
+              "key": "C",
+              "textEn": "Relocation",
+              "textCn": "重定位"
+            },
+            {
+              "key": "D",
+              "textEn": "Loading",
+              "textCn": "加载"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "重定位就是把程序中的逻辑地址转换为内存中的物理地址，使程序能够在实际内存位置运行。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-002",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "Memory protection needs to be completed by () to ensure that a process space is not illegally accessed.",
+          "stemCn": "内存保护需要由（）完成，以保证进程空间不被非法访问。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Operating system",
+              "textCn": "操作系统"
+            },
+            {
+              "key": "B",
+              "textEn": "Hardware mechanism",
+              "textCn": "硬件机构"
+            },
+            {
+              "key": "C",
+              "textEn": "Operating system or hardware mechanism independently",
+              "textCn": "操作系统或者硬件机构独立完成"
+            },
+            {
+              "key": "D",
+              "textEn": "Cooperation between operating system and hardware mechanism",
+              "textCn": "操作系统和硬件机构合作"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "内存保护既需要操作系统设置访问权限和边界信息，也需要硬件在地址访问时进行检查，因此通常由二者配合完成。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-003",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "Dynamic relocation is performed during the () of a job.",
+          "stemCn": "动态重定位是在作业的（）中进行的。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Compilation process",
+              "textCn": "编译过程"
+            },
+            {
+              "key": "B",
+              "textEn": "Linking process",
+              "textCn": "链接过程"
+            },
+            {
+              "key": "C",
+              "textEn": "Loading process",
+              "textCn": "装入过程"
+            },
+            {
+              "key": "D",
+              "textEn": "Execution process",
+              "textCn": "执行过程"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "动态重定位是在程序执行时才把逻辑地址转换为物理地址，通常依靠重定位寄存器等硬件支持完成。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-004",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "Which storage management method does not produce external fragmentation?",
+          "stemCn": "不会产生外碎片的存储管理是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "None of them",
+              "textCn": "都不会"
+            },
+            {
+              "key": "B",
+              "textEn": "Segmented storage management",
+              "textCn": "分段式存储管理"
+            },
+            {
+              "key": "C",
+              "textEn": "Dynamic partition allocation management",
+              "textCn": "动态分区分配管理"
+            },
+            {
+              "key": "D",
+              "textEn": "Paged storage management",
+              "textCn": "分页式存储管理"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "分页以固定大小的页框为单位离散分配，不要求连续内存，因此不会产生外部碎片，但可能产生页内碎片。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-005",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "In partition management, when the best-fit allocation algorithm is used, idle partitions are registered in the free partition table in the order of ().",
+          "stemCn": "分区管理中采用“最佳适应”分配算法时，把空闲区按（）次序登记在空闲区表中。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Increasing length",
+              "textCn": "长度递增"
+            },
+            {
+              "key": "B",
+              "textEn": "Decreasing length",
+              "textCn": "长度递减"
+            },
+            {
+              "key": "C",
+              "textEn": "Decreasing address",
+              "textCn": "地址递减"
+            },
+            {
+              "key": "D",
+              "textEn": "Increasing address",
+              "textCn": "地址递增"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "最佳适应算法每次选择能满足要求的最小空闲分区，因此空闲区表通常按分区长度递增排列，便于快速找到最合适的空闲区。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-006",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "Pages in a paging system are perceived by ().",
+          "stemCn": "分页系统中的页面是被（）感知的。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Operating system",
+              "textCn": "操作系统所感知的"
+            },
+            {
+              "key": "B",
+              "textEn": "Compiler system",
+              "textCn": "编译系统所感知的"
+            },
+            {
+              "key": "C",
+              "textEn": "Linker loader",
+              "textCn": "链接装配程序所感知的"
+            },
+            {
+              "key": "D",
+              "textEn": "User",
+              "textCn": "用户所感知的"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "分页是操作系统和硬件进行内存管理的方式，对用户通常是透明的，用户并不直接感知页的划分。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-007",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "For relocatable storage management, it should ().",
+          "stemCn": "对重定位存储管理方式，应（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Set two relocation registers for each program",
+              "textCn": "为每道程序设置两个重定位寄存器"
+            },
+            {
+              "key": "B",
+              "textEn": "Set one relocation register in the whole system",
+              "textCn": "在整个系统中设置一个重定位寄存器"
+            },
+            {
+              "key": "C",
+              "textEn": "Set one relocation register for each program and its data",
+              "textCn": "为每道程序和数据都设置一个重定位寄存器"
+            },
+            {
+              "key": "D",
+              "textEn": "Set one relocation register for each program",
+              "textCn": "为每道程序设置一个重定位寄存器"
+            }
+          ],
+          "answerKey": "B",
+          "explanationCn": "CPU 同一时刻只执行一个进程的指令，系统只需设置一个重定位寄存器，在进程切换时重新装入对应的重定位值即可。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-008",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "In paged storage management, memory is allocated ().",
+          "stemCn": "在分页存储管理中，内存的分配是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Allocated according to the size of logical records",
+              "textCn": "以逻辑记录大小进行分配"
+            },
+            {
+              "key": "B",
+              "textEn": "Allocated according to the size of the job",
+              "textCn": "以作业的大小分配"
+            },
+            {
+              "key": "C",
+              "textEn": "Allocated in units of page frames",
+              "textCn": "以页框为单位进行分配"
+            },
+            {
+              "key": "D",
+              "textEn": "Allocated according to physical segments",
+              "textCn": "以物理段进行分配"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "分页管理中逻辑地址按页划分，物理内存按页框划分，内存分配以页框为基本单位。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-009",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "In segmented storage management, ().",
+          "stemCn": "在分段存储管理方式中，（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Every segment has equal length",
+              "textCn": "每段是等长的"
+            },
+            {
+              "key": "B",
+              "textEn": "Segments must be non-contiguous",
+              "textCn": "段与段之间必定不连续"
+            },
+            {
+              "key": "C",
+              "textEn": "Segments must be contiguous",
+              "textCn": "段与段之间必定连续"
+            },
+            {
+              "key": "D",
+              "textEn": "Storage is allocated in units of segments, and each segment is a contiguous storage area",
+              "textCn": "以段为单位，每段是一个连续存储区"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "分段管理以逻辑段为单位分配内存，每个段内部必须连续，但不同段之间不要求连续。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-010",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "A computer using dynamic partition storage management has a main memory capacity of 55 MB, initially empty. Using the best-fit algorithm, the allocation and release sequence is: allocate 15 MB, allocate 30 MB, release 15 MB, allocate 8 MB, allocate 6 MB. At this time, the size of the largest free partition in main memory is ().",
+          "stemCn": "某基于动态分区存储管理的计算机，其主存容量为55MB（初始为空），采用最佳适配（Best Fit）算法，分配和释放的顺序为：分配15MB，分配30MB，释放15MB，分配8MB，分配6MB，此时主存中最大空闲分区的大小是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "9 MB",
+              "textCn": "9MB"
+            },
+            {
+              "key": "B",
+              "textEn": "15 MB",
+              "textCn": "15MB"
+            },
+            {
+              "key": "C",
+              "textEn": "10 MB",
+              "textCn": "10MB"
+            },
+            {
+              "key": "D",
+              "textEn": "7 MB",
+              "textCn": "7MB"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "初始55MB，分配15MB和30MB后剩10MB；释放15MB后有15MB和10MB两个空闲区。最佳适应分配8MB选10MB区剩2MB，再分配6MB选15MB区剩9MB，所以最大空闲区为9MB。",
+          "explanationEn": ""
         }
       ],
       "tf": [
@@ -1294,6 +2314,156 @@
           "stemCn": "同一个进程内的多个线程之间共享进程的资源。",
           "answer": "T",
           "explanationCn": "同一进程内的线程共享进程的地址空间、打开文件等资源，但每个线程有自己的线程控制信息和运行栈等。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-tf-001",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "A critical section is the area where a critical resource is located.",
+          "stemCn": "临界区就是临界资源所在的区域。",
+          "answer": "F",
+          "explanationCn": "临界区是访问临界资源的代码段，不是临界资源本身所在的物理或存储区域。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-tf-002",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "A semaphore is an integer variable, and it can be directly incremented by 1 or decremented by 1.",
+          "stemCn": "信号量是一个整型变量，可以直接对其进行加 1 和减 1 的操作。",
+          "answer": "F",
+          "explanationCn": "信号量虽然包含整数值，但只能通过原子性的 P、V 操作访问和修改，不能由进程随意直接加减。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-tf-003",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "The V operation indicates applying for a resource.",
+          "stemCn": "V 操作表示申请一个资源。",
+          "answer": "F",
+          "explanationCn": "P 操作表示申请资源，V 操作表示释放资源，并可能唤醒等待该资源的进程。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-tf-004",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "When a process accessing a critical resource is blocked because it requests an I/O operation, it allows other processes to enter its critical section.",
+          "stemCn": "一个正在访问临界资源的进程因为申请 I/O 操作而阻塞时，它允许其他进程进入其临界区。",
+          "answer": "F",
+          "explanationCn": "进程在临界区内即使因 I/O 阻塞，也仍占有临界资源或相关互斥访问权，通常不能允许其他进程直接进入该临界区。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch07-tf-005",
+          "chapterId": "ch07",
+          "chapterName": "synchronization",
+          "stemEn": "PV operations are atomic operations.",
+          "stemCn": "PV 操作是原子操作。",
+          "answer": "T",
+          "explanationCn": "P、V 操作必须不可分割地执行，否则会破坏信号量的正确性，导致互斥或同步失效。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-tf-001",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "The fundamental cause of deadlock is resource competition and improper process advancing order.",
+          "stemCn": "产生死锁的根本原因是资源竞争和进程推进顺序非法。",
+          "answer": "T",
+          "explanationCn": "死锁通常由系统资源竞争以及进程推进顺序不当共同造成，进程互相等待资源而无法继续执行。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-tf-002",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "Deadlock can be resolved by resource preemption, and it can also be resolved by terminating processes.",
+          "stemCn": "采用资源剥夺可以解除死锁，还可以采用终止进程的方法解除死锁。",
+          "answer": "T",
+          "explanationCn": "死锁解除常见方法包括剥夺部分资源、终止一个或多个死锁进程，使系统打破循环等待。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-tf-003",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "If a cycle appears in a resource-allocation graph, deadlock must occur.",
+          "stemCn": "资源分配图中出现环路，则一定会死锁。",
+          "answer": "F",
+          "explanationCn": "当每类资源只有一个实例时，出现环通常意味着死锁；但若资源类有多个实例，出现环不一定发生死锁。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-tf-004",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "Deadlock means that all processes in the system are in the blocked state.",
+          "stemCn": "死锁是指系统中的全部进程都处于阻塞状态。",
+          "answer": "F",
+          "explanationCn": "死锁只要求一组进程互相等待而无法推进，并不一定是系统中所有进程都阻塞。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch08-tf-005",
+          "chapterId": "ch08",
+          "chapterName": "deadlocks",
+          "stemEn": "To avoid deadlock, processes should request resources one by one in a certain order.",
+          "stemCn": "为了避免死锁的发生，各进程应该按序逐个申请资源。",
+          "answer": "F",
+          "explanationCn": "资源有序分配法要求进程按统一资源编号顺序申请资源，但并不是简单地“逐个申请”就能避免死锁；若顺序不统一仍可能死锁。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-tf-001",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "Static relocation completes address translation when the program is loaded into memory.",
+          "stemCn": "静态重定位是程序在装入内存时完成地址变换。",
+          "answer": "T",
+          "explanationCn": "静态重定位在程序装入时一次性完成逻辑地址到物理地址的转换，装入后地址通常不再改变。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-tf-002",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "In paged memory management, the CPU needs only one memory access to fetch a data item from memory each time.",
+          "stemCn": "在分页内存管理中，CPU每次从内存中取一个数据需要1次内存访问。",
+          "answer": "F",
+          "explanationCn": "普通分页中需要先访问内存中的页表，再访问实际数据，通常需要两次内存访问；若有TLB命中则可减少页表访问开销。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-tf-003",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "In paging, each process has a page table, and the page table resides in memory.",
+          "stemCn": "分页时，每个进程拥有一个页表，且页表驻留在内存中。",
+          "answer": "T",
+          "explanationCn": "分页系统中每个进程通常有自己的页表，用于记录逻辑页到物理页框的映射，页表一般存放在内存中。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-tf-004",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "During static relocation, logical addresses and physical addresses are the same.",
+          "stemCn": "静态重定位时，逻辑地址和物理地址是相同的。",
+          "answer": "F",
+          "explanationCn": "静态重定位是在装入时把逻辑地址转换为物理地址，二者并不必然相同，只是转换工作提前完成。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch09-tf-005",
+          "chapterId": "ch09",
+          "chapterName": "memory management",
+          "stemEn": "Introducing a TLB is to solve the problem of two memory accesses in paging.",
+          "stemCn": "引入TLB是为了解决分页时两次内存访问的问题。",
+          "answer": "T",
+          "explanationCn": "TLB用于缓存近期使用的页表项，命中时可直接得到页框号，减少普通分页中先查页表再访问数据的额外访存开销。",
           "explanationEn": ""
         }
       ],

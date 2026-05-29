@@ -227,6 +227,7 @@ async function main() {
       bySubject.set(chunk.subjectId, {
         id: chunk.subjectId,
         name: chunk.subjectName,
+        chapters: [],
         mcq: [],
         tf: [],
         terms: []
@@ -234,6 +235,15 @@ async function main() {
     }
 
     const target = bySubject.get(chunk.subjectId);
+    if (chunk.chapterId) {
+      const exists = target.chapters.some((item) => item.id === chunk.chapterId);
+      if (!exists) {
+        target.chapters.push({
+          id: chunk.chapterId,
+          name: chunk.chapterName || chunk.chapterId
+        });
+      }
+    }
     if (Array.isArray(chunk.mcq)) target.mcq.push(...chunk.mcq);
     if (Array.isArray(chunk.tf)) target.tf.push(...chunk.tf);
     if (Array.isArray(chunk.terms)) target.terms.push(...chunk.terms);
@@ -242,6 +252,7 @@ async function main() {
   const subjects = [...bySubject.values()]
     .map((subject) => ({
       ...subject,
+      chapters: [...subject.chapters].sort((a, b) => a.id.localeCompare(b.id)),
       mcq: sortByChapterThenId(subject.mcq),
       tf: sortByChapterThenId(subject.tf),
       terms: sortByChapterThenId(subject.terms)

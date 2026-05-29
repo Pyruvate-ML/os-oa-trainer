@@ -2,7 +2,350 @@
   "subjectId": "os",
   "subjectName": "Operating Systems",
   "chapterId": "ch08",
-  "chapterName": "Deadlock",
-  "mcq": [],
+  "chapterName": "deadlocks",
+  "mcq": [
+    {
+      "id": "os-ch08-001",
+      "stemEn": "Which of the following situations may lead to deadlock?",
+      "stemCn": "下列情况可能导致死锁的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Multiple processes compete for resources and circular waiting occurs.",
+          "textCn": "多个进程竞争资源出现了循环等待"
+        },
+        {
+          "key": "B",
+          "textEn": "Multiple processes compete to use shared devices.",
+          "textCn": "多个进程竞争使用共享型的设备"
+        },
+        {
+          "key": "C",
+          "textEn": "A process enters an infinite loop.",
+          "textCn": "一个进程进入死循环"
+        },
+        {
+          "key": "D",
+          "textEn": "A process releases resources.",
+          "textCn": "进程释放资源"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "死锁的典型表现是多个进程互相等待对方占有的资源，形成循环等待。共享型设备竞争或进程死循环本身不一定构成死锁。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-002",
+      "stemEn": "In an operating system, deadlock refers to ().",
+      "stemCn": "在操作系统中，死锁出现是指（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "A serious failure occurs in the computer system.",
+          "textCn": "计算机系统发生重大故障"
+        },
+        {
+          "key": "B",
+          "textEn": "The number of resources is far less than the number of processes.",
+          "textCn": "资源个数远远小于进程数"
+        },
+        {
+          "key": "C",
+          "textEn": "Several processes wait indefinitely for other processes to release the resources they occupy because of competing for resources.",
+          "textCn": "若干进程因竞争资源而无限等待其他进程释放已占有的资源"
+        },
+        {
+          "key": "D",
+          "textEn": "The resources requested by processes at the same time exceed the total number of resources.",
+          "textCn": "进程同时申请的资源数超过资源总数"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "死锁是指一组进程因互相等待对方释放资源而长期阻塞，若无外力干预无法继续推进。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-003",
+      "stemEn": "Allocating all resources at once can prevent deadlock because it destroys which of the four necessary conditions for deadlock?",
+      "stemCn": "一次分配所有资源的方法可以预防死锁的发生，它破坏的死锁四个必要条件中的（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Mutual exclusion",
+          "textCn": "互斥"
+        },
+        {
+          "key": "B",
+          "textEn": "Circular wait",
+          "textCn": "环路等待"
+        },
+        {
+          "key": "C",
+          "textEn": "No preemption",
+          "textCn": "非剥夺"
+        },
+        {
+          "key": "D",
+          "textEn": "Hold and wait",
+          "textCn": "请求并保持"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "一次性分配所有资源要求进程在运行前申请完所需资源，运行中不再边占有边等待新资源，因此破坏了请求并保持条件。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-004",
+      "stemEn": "Deadlock avoidance is implemented by taking measures based on ().",
+      "stemCn": "死锁的避免是根据（）采取措施实现的。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Allocating enough system resources",
+          "textCn": "配置足够的系统资源"
+        },
+        {
+          "key": "B",
+          "textEn": "Destroying one of the four necessary conditions for deadlock",
+          "textCn": "破坏死锁的四个必要条件之一"
+        },
+        {
+          "key": "C",
+          "textEn": "Making the process execution order reasonable",
+          "textCn": "使进程的推进顺序合理"
+        },
+        {
+          "key": "D",
+          "textEn": "Preventing the system from entering an unsafe state",
+          "textCn": "防止系统进入不安全状态"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "死锁避免不是直接破坏必要条件，而是在资源分配前判断系统是否会进入不安全状态，从而避免可能导致死锁的分配。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-005",
+      "stemEn": "Which of the following descriptions about a resource-allocation graph is correct?",
+      "stemCn": "以下有关资源分配图的描述中正确的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Directed edges include allocation edges from processes to resource classes and request edges from resource classes to processes.",
+          "textCn": "有向边包括进程指向资源类的分配边和资源类指向进程申请边两类"
+        },
+        {
+          "key": "B",
+          "textEn": "Circular nodes represent resource classes.",
+          "textCn": "圆圈节点表示资源类"
+        },
+        {
+          "key": "C",
+          "textEn": "Rectangular boxes represent processes, and dots inside them represent processes requesting the same type of resource.",
+          "textCn": "矩形框表示进程，其中圆点表示申请同一类资源的各个进程"
+        },
+        {
+          "key": "D",
+          "textEn": "A resource-allocation graph is a directed graph used to represent the state between system resources and processes at a certain time.",
+          "textCn": "资源分配图是一个有向图，用于表示某时刻系统资源与进程之间的状态"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "资源分配图用有向图描述进程与资源之间的申请和分配关系。通常圆圈表示进程，矩形表示资源类，边的方向也有固定含义。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-006",
+      "stemEn": "The relationship between deadlock and a safe state is ().",
+      "stemCn": "死锁与安全状态的关系是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "An unsafe state is a deadlock state.",
+          "textCn": "不安全状态就是死锁状态"
+        },
+        {
+          "key": "B",
+          "textEn": "A safe state may become a deadlock state.",
+          "textCn": "安全状态有可能成为死锁状态"
+        },
+        {
+          "key": "C",
+          "textEn": "A deadlock state must be an unsafe state.",
+          "textCn": "死锁状态一定是不安全状态"
+        },
+        {
+          "key": "D",
+          "textEn": "A deadlock state may be a safe state.",
+          "textCn": "死锁状态有可能是安全状态"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "死锁状态一定是不安全状态，但不安全状态不一定已经发生死锁，它只是可能发展为死锁。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-007",
+      "stemEn": "Among the following solutions to deadlock, which belongs to deadlock avoidance?",
+      "stemCn": "在下列死锁的解决方法中，属于死锁避免策略的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Resource ordered allocation method",
+          "textCn": "资源有序分配法"
+        },
+        {
+          "key": "B",
+          "textEn": "Deadlock detection method",
+          "textCn": "死锁检测法"
+        },
+        {
+          "key": "C",
+          "textEn": "Destroying the non-preemption condition",
+          "textCn": "破坏不可剥夺条件"
+        },
+        {
+          "key": "D",
+          "textEn": "Banker's algorithm",
+          "textCn": "银行家算法"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "银行家算法在资源分配前进行安全性检查，避免系统进入不安全状态，因此属于死锁避免方法。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-008",
+      "stemEn": "Which of the following is usually not used to recover from deadlock?",
+      "stemCn": "解除死锁通常不采用的方法是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Preempt resources from deadlocked processes.",
+          "textCn": "从死锁进程处抢夺资源"
+        },
+        {
+          "key": "B",
+          "textEn": "Preempt resources from non-deadlocked processes.",
+          "textCn": "从非死锁进程处抢夺资源"
+        },
+        {
+          "key": "C",
+          "textEn": "Terminate all deadlocked processes.",
+          "textCn": "终止所有死锁进程"
+        },
+        {
+          "key": "D",
+          "textEn": "Terminate one deadlocked process.",
+          "textCn": "终止一个死锁进程"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "解除死锁常用资源剥夺或终止进程等方法，但通常不直接终止所有死锁进程，因为代价过大，实际可逐个终止或选择性恢复。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-009",
+      "stemEn": "Among the four necessary conditions for deadlock, the one that cannot be destroyed is ().",
+      "stemCn": "死锁的四个必要条件中，无法破坏的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "No preemption",
+          "textCn": "非剥夺"
+        },
+        {
+          "key": "B",
+          "textEn": "Mutual exclusion",
+          "textCn": "互斥"
+        },
+        {
+          "key": "C",
+          "textEn": "Hold and wait",
+          "textCn": "请求并保持"
+        },
+        {
+          "key": "D",
+          "textEn": "Circular wait",
+          "textCn": "环路等待"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "许多资源本身具有互斥使用特性，例如打印机等独占设备，这一条件通常无法从根本上破坏。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-010",
+      "stemEn": "If three concurrent processes in a system each require four identical resources, the minimum number of resources that guarantees no deadlock is ().",
+      "stemCn": "某系统中有三个并发进程都需要四个同类资源，该系统不会发生死锁的最少资源是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "9",
+          "textCn": "9"
+        },
+        {
+          "key": "B",
+          "textEn": "12",
+          "textCn": "12"
+        },
+        {
+          "key": "C",
+          "textEn": "11",
+          "textCn": "11"
+        },
+        {
+          "key": "D",
+          "textEn": "10",
+          "textCn": "10"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "若有 n 个进程，每个最多需要 m 个同类资源，则避免死锁的最少资源数为 n(m-1)+1。本题为 3×(4-1)+1=10。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "os-ch08-tf-001",
+      "stemEn": "The fundamental cause of deadlock is resource competition and improper process advancing order.",
+      "stemCn": "产生死锁的根本原因是资源竞争和进程推进顺序非法。",
+      "answer": "T",
+      "explanationCn": "死锁通常由系统资源竞争以及进程推进顺序不当共同造成，进程互相等待资源而无法继续执行。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-tf-002",
+      "stemEn": "Deadlock can be resolved by resource preemption, and it can also be resolved by terminating processes.",
+      "stemCn": "采用资源剥夺可以解除死锁，还可以采用终止进程的方法解除死锁。",
+      "answer": "T",
+      "explanationCn": "死锁解除常见方法包括剥夺部分资源、终止一个或多个死锁进程，使系统打破循环等待。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-tf-003",
+      "stemEn": "If a cycle appears in a resource-allocation graph, deadlock must occur.",
+      "stemCn": "资源分配图中出现环路，则一定会死锁。",
+      "answer": "F",
+      "explanationCn": "当每类资源只有一个实例时，出现环通常意味着死锁；但若资源类有多个实例，出现环不一定发生死锁。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-tf-004",
+      "stemEn": "Deadlock means that all processes in the system are in the blocked state.",
+      "stemCn": "死锁是指系统中的全部进程都处于阻塞状态。",
+      "answer": "F",
+      "explanationCn": "死锁只要求一组进程互相等待而无法推进，并不一定是系统中所有进程都阻塞。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch08-tf-005",
+      "stemEn": "To avoid deadlock, processes should request resources one by one in a certain order.",
+      "stemCn": "为了避免死锁的发生，各进程应该按序逐个申请资源。",
+      "answer": "F",
+      "explanationCn": "资源有序分配法要求进程按统一资源编号顺序申请资源，但并不是简单地“逐个申请”就能避免死锁；若顺序不统一仍可能死锁。",
+      "explanationEn": ""
+    }
+  ],
   "terms": []
 }

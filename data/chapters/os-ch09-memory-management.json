@@ -2,7 +2,350 @@
   "subjectId": "os",
   "subjectName": "Operating Systems",
   "chapterId": "ch09",
-  "chapterName": "Memory Management",
-  "mcq": [],
+  "chapterName": "memory management",
+  "mcq": [
+    {
+      "id": "os-ch09-001",
+      "stemEn": "The process of converting logical addresses used in a job space into physical memory addresses is called ().",
+      "stemCn": "把作业空间中使用的逻辑地址变为内存中物理地址称为（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Physicalization",
+          "textCn": "物理化"
+        },
+        {
+          "key": "B",
+          "textEn": "Logicalization",
+          "textCn": "逻辑化"
+        },
+        {
+          "key": "C",
+          "textEn": "Relocation",
+          "textCn": "重定位"
+        },
+        {
+          "key": "D",
+          "textEn": "Loading",
+          "textCn": "加载"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "重定位就是把程序中的逻辑地址转换为内存中的物理地址，使程序能够在实际内存位置运行。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-002",
+      "stemEn": "Memory protection needs to be completed by () to ensure that a process space is not illegally accessed.",
+      "stemCn": "内存保护需要由（）完成，以保证进程空间不被非法访问。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Operating system",
+          "textCn": "操作系统"
+        },
+        {
+          "key": "B",
+          "textEn": "Hardware mechanism",
+          "textCn": "硬件机构"
+        },
+        {
+          "key": "C",
+          "textEn": "Operating system or hardware mechanism independently",
+          "textCn": "操作系统或者硬件机构独立完成"
+        },
+        {
+          "key": "D",
+          "textEn": "Cooperation between operating system and hardware mechanism",
+          "textCn": "操作系统和硬件机构合作"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "内存保护既需要操作系统设置访问权限和边界信息，也需要硬件在地址访问时进行检查，因此通常由二者配合完成。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-003",
+      "stemEn": "Dynamic relocation is performed during the () of a job.",
+      "stemCn": "动态重定位是在作业的（）中进行的。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Compilation process",
+          "textCn": "编译过程"
+        },
+        {
+          "key": "B",
+          "textEn": "Linking process",
+          "textCn": "链接过程"
+        },
+        {
+          "key": "C",
+          "textEn": "Loading process",
+          "textCn": "装入过程"
+        },
+        {
+          "key": "D",
+          "textEn": "Execution process",
+          "textCn": "执行过程"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "动态重定位是在程序执行时才把逻辑地址转换为物理地址，通常依靠重定位寄存器等硬件支持完成。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-004",
+      "stemEn": "Which storage management method does not produce external fragmentation?",
+      "stemCn": "不会产生外碎片的存储管理是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "None of them",
+          "textCn": "都不会"
+        },
+        {
+          "key": "B",
+          "textEn": "Segmented storage management",
+          "textCn": "分段式存储管理"
+        },
+        {
+          "key": "C",
+          "textEn": "Dynamic partition allocation management",
+          "textCn": "动态分区分配管理"
+        },
+        {
+          "key": "D",
+          "textEn": "Paged storage management",
+          "textCn": "分页式存储管理"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "分页以固定大小的页框为单位离散分配，不要求连续内存，因此不会产生外部碎片，但可能产生页内碎片。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-005",
+      "stemEn": "In partition management, when the best-fit allocation algorithm is used, idle partitions are registered in the free partition table in the order of ().",
+      "stemCn": "分区管理中采用“最佳适应”分配算法时，把空闲区按（）次序登记在空闲区表中。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Increasing length",
+          "textCn": "长度递增"
+        },
+        {
+          "key": "B",
+          "textEn": "Decreasing length",
+          "textCn": "长度递减"
+        },
+        {
+          "key": "C",
+          "textEn": "Decreasing address",
+          "textCn": "地址递减"
+        },
+        {
+          "key": "D",
+          "textEn": "Increasing address",
+          "textCn": "地址递增"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "最佳适应算法每次选择能满足要求的最小空闲分区，因此空闲区表通常按分区长度递增排列，便于快速找到最合适的空闲区。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-006",
+      "stemEn": "Pages in a paging system are perceived by ().",
+      "stemCn": "分页系统中的页面是被（）感知的。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Operating system",
+          "textCn": "操作系统所感知的"
+        },
+        {
+          "key": "B",
+          "textEn": "Compiler system",
+          "textCn": "编译系统所感知的"
+        },
+        {
+          "key": "C",
+          "textEn": "Linker loader",
+          "textCn": "链接装配程序所感知的"
+        },
+        {
+          "key": "D",
+          "textEn": "User",
+          "textCn": "用户所感知的"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "分页是操作系统和硬件进行内存管理的方式，对用户通常是透明的，用户并不直接感知页的划分。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-007",
+      "stemEn": "For relocatable storage management, it should ().",
+      "stemCn": "对重定位存储管理方式，应（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Set two relocation registers for each program",
+          "textCn": "为每道程序设置两个重定位寄存器"
+        },
+        {
+          "key": "B",
+          "textEn": "Set one relocation register in the whole system",
+          "textCn": "在整个系统中设置一个重定位寄存器"
+        },
+        {
+          "key": "C",
+          "textEn": "Set one relocation register for each program and its data",
+          "textCn": "为每道程序和数据都设置一个重定位寄存器"
+        },
+        {
+          "key": "D",
+          "textEn": "Set one relocation register for each program",
+          "textCn": "为每道程序设置一个重定位寄存器"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "CPU 同一时刻只执行一个进程的指令，系统只需设置一个重定位寄存器，在进程切换时重新装入对应的重定位值即可。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-008",
+      "stemEn": "In paged storage management, memory is allocated ().",
+      "stemCn": "在分页存储管理中，内存的分配是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Allocated according to the size of logical records",
+          "textCn": "以逻辑记录大小进行分配"
+        },
+        {
+          "key": "B",
+          "textEn": "Allocated according to the size of the job",
+          "textCn": "以作业的大小分配"
+        },
+        {
+          "key": "C",
+          "textEn": "Allocated in units of page frames",
+          "textCn": "以页框为单位进行分配"
+        },
+        {
+          "key": "D",
+          "textEn": "Allocated according to physical segments",
+          "textCn": "以物理段进行分配"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "分页管理中逻辑地址按页划分，物理内存按页框划分，内存分配以页框为基本单位。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-009",
+      "stemEn": "In segmented storage management, ().",
+      "stemCn": "在分段存储管理方式中，（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Every segment has equal length",
+          "textCn": "每段是等长的"
+        },
+        {
+          "key": "B",
+          "textEn": "Segments must be non-contiguous",
+          "textCn": "段与段之间必定不连续"
+        },
+        {
+          "key": "C",
+          "textEn": "Segments must be contiguous",
+          "textCn": "段与段之间必定连续"
+        },
+        {
+          "key": "D",
+          "textEn": "Storage is allocated in units of segments, and each segment is a contiguous storage area",
+          "textCn": "以段为单位，每段是一个连续存储区"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "分段管理以逻辑段为单位分配内存，每个段内部必须连续，但不同段之间不要求连续。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-010",
+      "stemEn": "A computer using dynamic partition storage management has a main memory capacity of 55 MB, initially empty. Using the best-fit algorithm, the allocation and release sequence is: allocate 15 MB, allocate 30 MB, release 15 MB, allocate 8 MB, allocate 6 MB. At this time, the size of the largest free partition in main memory is ().",
+      "stemCn": "某基于动态分区存储管理的计算机，其主存容量为55MB（初始为空），采用最佳适配（Best Fit）算法，分配和释放的顺序为：分配15MB，分配30MB，释放15MB，分配8MB，分配6MB，此时主存中最大空闲分区的大小是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "9 MB",
+          "textCn": "9MB"
+        },
+        {
+          "key": "B",
+          "textEn": "15 MB",
+          "textCn": "15MB"
+        },
+        {
+          "key": "C",
+          "textEn": "10 MB",
+          "textCn": "10MB"
+        },
+        {
+          "key": "D",
+          "textEn": "7 MB",
+          "textCn": "7MB"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "初始55MB，分配15MB和30MB后剩10MB；释放15MB后有15MB和10MB两个空闲区。最佳适应分配8MB选10MB区剩2MB，再分配6MB选15MB区剩9MB，所以最大空闲区为9MB。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "os-ch09-tf-001",
+      "stemEn": "Static relocation completes address translation when the program is loaded into memory.",
+      "stemCn": "静态重定位是程序在装入内存时完成地址变换。",
+      "answer": "T",
+      "explanationCn": "静态重定位在程序装入时一次性完成逻辑地址到物理地址的转换，装入后地址通常不再改变。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-tf-002",
+      "stemEn": "In paged memory management, the CPU needs only one memory access to fetch a data item from memory each time.",
+      "stemCn": "在分页内存管理中，CPU每次从内存中取一个数据需要1次内存访问。",
+      "answer": "F",
+      "explanationCn": "普通分页中需要先访问内存中的页表，再访问实际数据，通常需要两次内存访问；若有TLB命中则可减少页表访问开销。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-tf-003",
+      "stemEn": "In paging, each process has a page table, and the page table resides in memory.",
+      "stemCn": "分页时，每个进程拥有一个页表，且页表驻留在内存中。",
+      "answer": "T",
+      "explanationCn": "分页系统中每个进程通常有自己的页表，用于记录逻辑页到物理页框的映射，页表一般存放在内存中。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-tf-004",
+      "stemEn": "During static relocation, logical addresses and physical addresses are the same.",
+      "stemCn": "静态重定位时，逻辑地址和物理地址是相同的。",
+      "answer": "F",
+      "explanationCn": "静态重定位是在装入时把逻辑地址转换为物理地址，二者并不必然相同，只是转换工作提前完成。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch09-tf-005",
+      "stemEn": "Introducing a TLB is to solve the problem of two memory accesses in paging.",
+      "stemCn": "引入TLB是为了解决分页时两次内存访问的问题。",
+      "answer": "T",
+      "explanationCn": "TLB用于缓存近期使用的页表项，命中时可直接得到页框号，减少普通分页中先查页表再访问数据的额外访存开销。",
+      "explanationEn": ""
+    }
+  ],
   "terms": []
 }

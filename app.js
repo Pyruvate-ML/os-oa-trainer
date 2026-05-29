@@ -5,6 +5,7 @@ const FALLBACK_BANK = {
     {
       id: "os",
       name: "Operating Systems",
+      chapters: [],
       mcq: [],
       tf: [],
       terms: []
@@ -12,6 +13,7 @@ const FALLBACK_BANK = {
     {
       id: "coa",
       name: "Computer Organization",
+      chapters: [],
       mcq: [],
       tf: [],
       terms: []
@@ -59,8 +61,13 @@ function validateBank(bank) {
 
   bank.subjects.forEach((subject) => {
     if (!subject.id || !subject.name) throw new Error("Each subject requires id and name");
-    if (!Array.isArray(subject.mcq) || !Array.isArray(subject.tf) || !Array.isArray(subject.terms)) {
-      throw new Error(`Subject ${subject.id} requires mcq, tf and terms arrays`);
+    if (
+      !Array.isArray(subject.chapters) ||
+      !Array.isArray(subject.mcq) ||
+      !Array.isArray(subject.tf) ||
+      !Array.isArray(subject.terms)
+    ) {
+      throw new Error(`Subject ${subject.id} requires chapters, mcq, tf and terms arrays`);
     }
   });
 }
@@ -79,6 +86,10 @@ function findSubject(subjectId) {
 
 function getChapterMeta(subject, type) {
   if (type === "terms") return [];
+
+  if (Array.isArray(subject.chapters) && subject.chapters.length) {
+    return subject.chapters;
+  }
 
   const source = type === "mcq" ? subject.mcq : type === "tf" ? subject.tf : subject.terms;
   const map = new Map();
