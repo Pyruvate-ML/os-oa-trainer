@@ -85,7 +85,7 @@ function findSubject(subjectId) {
 }
 
 function getChapterMeta(subject, type) {
-  if (type === "terms") return [];
+  if (type === "terms" || type === "paper") return [];
 
   if (Array.isArray(subject.chapters) && subject.chapters.length) {
     return subject.chapters;
@@ -123,7 +123,7 @@ function fillChapters() {
 
   const allOption = document.createElement("option");
   allOption.value = "all";
-  allOption.textContent = typeSelect.value === "terms" ? "全科词汇 All Terms" : "全部章节 All Chapters";
+  allOption.textContent = typeSelect.value === "terms" || typeSelect.value === "paper" ? "全科题库 Whole Subject" : "全部章节 All Chapters";
   chapterSelect.append(allOption);
 
   if (!subject) {
@@ -142,7 +142,7 @@ function fillChapters() {
 
   state.chapterId = "all";
   chapterSelect.value = "all";
-  chapterSelect.disabled = typeSelect.value === "terms";
+  chapterSelect.disabled = typeSelect.value === "terms" || typeSelect.value === "paper";
 }
 
 function extractOptionsFromStem(text) {
@@ -265,6 +265,13 @@ function normalizeTerm(item, idx) {
 function filterByChapter(items, chapterId) {
   if (chapterId === "all") return items;
   return items.filter((item) => (item.chapterId || "misc") === chapterId);
+}
+
+function normalizeAnswerText(text) {
+  return String(text || "")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
 }
 
 function renderObjectiveSet(subject, config) {
@@ -446,10 +453,8 @@ function renderTerms(subject) {
     return;
   }
 
-  const refreshBtn = document.createElement("button");
-  refreshBtn.className = "btn ghost";
-  refreshBtn.textContent = "刷新 7 个词汇 Refresh";
-  refreshBtn.addEventListener("click", () => renderTerms(subject));
+  const form = document.createElement("form");
+  form.id = "termsForm";
 
   const wrap = document.createElement("div");
   wrap.className = "term-grid";
@@ -457,29 +462,325 @@ function renderTerms(subject) {
   state.currentSet.forEach((item, index) => {
     const card = document.createElement("article");
     card.className = "term";
+    card.dataset.index = String(index);
 
     const title = document.createElement("h3");
-    title.textContent = `${index + 1}. ${item.termEn}${item.termCn ? ` / ${item.termCn}` : ""}`;
-
-    const btn = document.createElement("button");
-    btn.className = "btn";
-    btn.textContent = "查看解析 Show Explanation";
+    title.className = "term-title";
+    title.textContent = `${index + 1}. ${item.termEn}`;
 
     const definition = document.createElement("p");
-    definition.className = "hidden";
-    definition.textContent = `${item.definitionCn || ""}${item.definitionEn ? `\n\n${item.definitionEn}` : ""}`;
+    definition.className = "term-definition hidden";
+    definition.textContent = `${item.termCn ? `${item.termCn}\n` : ""}${item.definitionCn || ""}${item.definitionEn ? `\n\n${item.definitionEn}` : ""}`;
 
-    btn.addEventListener("click", () => {
-      const hidden = definition.classList.toggle("hidden");
-      btn.textContent = hidden ? "查看解析 Show Explanation" : "收起解析 Hide";
-    });
-
-    card.append(title, btn, definition);
+    card.append(title, definition);
     wrap.append(card);
   });
 
-  workspace.append(refreshBtn, wrap);
-  setStatus(`已生成 ${state.currentSet.length} 个名词解释。点击按钮查看概念解析。`);
+  const actions = document.createElement("div");
+  actions.className = "actions";
+
+  const submitBtn = document.createElement("button");
+  submitBtn.type = "submit";
+  submitBtn.className = "btn primary";
+  submitBtn.textContent = "统一提交后查看 Submit";
+
+  const refreshBtn = document.createElement("button");
+  refreshBtn.type = "button";
+  refreshBtn.className = "btn ghost";
+  refreshBtn.textContent = "刷新 7 个词汇 Refresh";
+  refreshBtn.addEventListener("click", () => renderTerms(subject));
+
+  actions.append(submitBtn, refreshBtn);
+  form.append(wrap, actions);
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (state.submitted) return;
+    state.submitted = true;
+    wrap.querySelectorAll(".term").forEach((card) => {
+      const index = Number(card.dataset.index);
+      const item = state.currentSet[index];
+      const title = card.querySelector(".term-title");
+      const definition = card.querySelector(".term-definition");
+      if (title && item.termCn) {
+        title.innerHTML = `${index + 1}. ${item.termEn}<br /><span class="question-cn">${item.termCn}</span>`;
+      }
+      if (definition) definition.classList.remove("hidden");
+    });
+    submitBtn.disabled = true;
+    submitBtn.textContent = "已提交 Submitted";
+    setStatus(`已显示 ${state.currentSet.length} 个名词解释的中文和解析。`);
+  });
+
+  workspace.append(form);
+  state.submitted = false;
+  setStatus(`已生成 ${state.currentSet.length} 个名词解释。提交后统一查看中文和解析。`);
+}
+
+function renderFullPaper(subject) {
+  const terms = pickN(subject.terms.map((item, idx) => normalizeTerm(item, idx)).filter((item) => item.termEn || item.termCn), 5);
+  const mcq = pickN(
+    subject.mcq.map((q, index) => normalizeQuestion(q, `mcq-${index + 1}`)).filter((q) => q.stemEn && q.options.length >= 2 && q.answerIndex >= 0),
+    10
+  );
+  const tf = pickN(
+    subject.tf.map((q, index) => normalizeTrueFalse(q, `tf-${index + 1}`)).filter((q) => q.stemEn && q.options.length >= 2 && q.answerIndex >= 0),
+    10
+  );
+
+  workspace.innerHTML = "";
+
+  if (!terms.length && !mcq.length && !tf.length) {
+    setStatus("当前学科下没有可用于整套组卷的题目。");
+    return;
+  }
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "paper-wrap";
+
+  const summary = document.createElement("p");
+  summary.className = "paper-summary";
+  summary.textContent = `本次组卷：名词解释 ${terms.length} 题，选择题 ${mcq.length} 题，判断题 ${tf.length} 题。`;
+  wrapper.append(summary);
+
+  if (terms.length) {
+    const title = document.createElement("h2");
+    title.className = "paper-title";
+    title.textContent = "名词解释 Terms";
+    wrapper.append(title);
+
+    const grid = document.createElement("div");
+    grid.className = "term-grid";
+    terms.forEach((item, index) => {
+      const card = document.createElement("article");
+      card.className = "term";
+      card.dataset.index = String(index);
+
+      const heading = document.createElement("h3");
+      heading.className = "term-title";
+      heading.textContent = `${index + 1}. ${item.termEn}`;
+
+      const definition = document.createElement("p");
+      definition.className = "term-definition hidden";
+      definition.textContent = `${item.termCn ? `${item.termCn}\n` : ""}${item.definitionCn || ""}${item.definitionEn ? `\n\n${item.definitionEn}` : ""}`;
+
+      card.append(heading, definition);
+      grid.append(card);
+    });
+    wrapper.append(grid);
+  }
+
+  if (mcq.length || tf.length) {
+    const form = document.createElement("form");
+    form.id = "paperForm";
+
+    if (mcq.length) {
+      const title = document.createElement("h2");
+      title.className = "paper-title";
+      title.textContent = "选择题 Multiple Choice";
+      form.append(title);
+
+      mcq.forEach((q, index) => {
+        const block = document.createElement("article");
+        block.className = "question";
+        block.dataset.index = `mcq-${index}`;
+        block.dataset.kind = "mcq";
+
+        const meta = document.createElement("p");
+        meta.className = "question-meta";
+        meta.textContent = `${q.chapterId} | ${q.chapterName}`;
+
+        const heading = document.createElement("h3");
+        heading.className = "question-title";
+        heading.textContent = `${index + 1}. ${q.stemEn}`;
+
+        const options = document.createElement("div");
+        options.className = "options";
+
+        q.options.forEach((opt, optionIndex) => {
+          const label = document.createElement("label");
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = `mcq-${index}`;
+          input.value = String(optionIndex);
+          const optionText = document.createElement("span");
+          optionText.className = "option-text";
+          optionText.textContent = `${opt.key}. ${opt.textEn}`;
+          label.append(input, optionText);
+          options.append(label);
+        });
+
+        block.append(meta, heading, options);
+        form.append(block);
+      });
+    }
+
+    if (tf.length) {
+      const title = document.createElement("h2");
+      title.className = "paper-title";
+      title.textContent = "判断题 True / False";
+      form.append(title);
+
+      tf.forEach((q, index) => {
+        const block = document.createElement("article");
+        block.className = "question";
+        block.dataset.index = `tf-${index}`;
+        block.dataset.kind = "tf";
+
+        const meta = document.createElement("p");
+        meta.className = "question-meta";
+        meta.textContent = `${q.chapterId} | ${q.chapterName}`;
+
+        const heading = document.createElement("h3");
+        heading.className = "question-title";
+        heading.textContent = `${index + 1}. ${q.stemEn}`;
+
+        const options = document.createElement("div");
+        options.className = "options";
+
+        q.options.forEach((opt, optionIndex) => {
+          const label = document.createElement("label");
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = `tf-${index}`;
+          input.value = String(optionIndex);
+          const optionText = document.createElement("span");
+          optionText.className = "option-text";
+          optionText.textContent = `${opt.key}. ${opt.textEn}`;
+          label.append(input, optionText);
+          options.append(label);
+        });
+
+        block.append(meta, heading, options);
+        form.append(block);
+      });
+    }
+
+    const submitBtn = document.createElement("button");
+    submitBtn.type = "submit";
+    submitBtn.className = "btn primary";
+    submitBtn.textContent = "提交整套试卷 Submit Paper";
+    form.append(submitBtn);
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      submitPaper(form, terms, mcq, tf);
+    });
+
+    wrapper.append(form);
+  }
+
+  workspace.append(wrapper);
+
+  const shortage = [];
+  if (terms.length < 5) shortage.push(`名词解释仅 ${terms.length} 题`);
+  if (mcq.length < 10) shortage.push(`选择题仅 ${mcq.length} 题`);
+  if (tf.length < 10) shortage.push(`判断题仅 ${tf.length} 题`);
+  setStatus(shortage.length ? `已生成整套试卷，但题量不足：${shortage.join("，")}。` : "已生成整套试卷。");
+}
+
+function submitPaper(form, terms, mcqSet, tfSet) {
+  const data = new FormData(form);
+  let score = 0;
+
+  const paperWrap = form.closest(".paper-wrap");
+  paperWrap?.querySelectorAll(".term-grid .term").forEach((card) => {
+    const index = Number(card.dataset.index);
+    const heading = card.querySelector(".term-title");
+    const definition = card.querySelector(".term-definition");
+    const item = terms[index];
+
+    if (!item) return;
+
+    if (heading) {
+      heading.innerHTML = `${index + 1}. ${item.termEn}${item.termCn ? `<br /><span class="question-cn">${item.termCn}</span>` : ""}`;
+    }
+
+    if (definition) definition.classList.remove("hidden");
+  });
+
+  mcqSet.forEach((q, index) => {
+    const questionBox = form.querySelector(`.question[data-index=\"mcq-${index}\"]`);
+    const selected = data.get(`mcq-${index}`);
+    const selectedIndex = selected === null ? -1 : Number(selected);
+    const isCorrect = selectedIndex === q.answerIndex;
+    if (isCorrect) score += 1;
+
+    const title = questionBox.querySelector(".question-title");
+    if (title && q.stemCn) {
+      title.innerHTML = `${index + 1}. ${q.stemEn}<br /><span class="question-cn">${q.stemCn}</span>`;
+    }
+
+    questionBox.querySelectorAll(".options label").forEach((label, optionIndex) => {
+      const textNode = label.querySelector(".option-text");
+      const opt = q.options[optionIndex];
+      if (textNode && opt) {
+        textNode.innerHTML = `${opt.key}. ${opt.textEn}${opt.textCn ? `<br /><span class="option-cn">${opt.textCn}</span>` : ""}`;
+      }
+      if (optionIndex === q.answerIndex) label.classList.add("option-correct");
+      if (selectedIndex === optionIndex && selectedIndex !== q.answerIndex) label.classList.add("option-incorrect");
+      const input = label.querySelector("input");
+      if (input) input.disabled = true;
+    });
+
+    const result = document.createElement("p");
+    result.className = isCorrect ? "result-ok" : "result-bad";
+    result.textContent = isCorrect ? "回答正确 Correct" : "回答错误 Incorrect";
+
+    const answerOpt = q.options[q.answerIndex];
+    const explain = document.createElement("div");
+    explain.className = "explain";
+    explain.innerHTML = `<strong>Answer:</strong> ${answerOpt.key}. ${answerOpt.textEn}${answerOpt.textCn ? ` / ${answerOpt.textCn}` : ""}<br /><strong>解析:</strong> ${
+      q.explanationCn || "(未提供)"
+    }${q.explanationEn ? `<br /><strong>Explanation:</strong> ${q.explanationEn}` : ""}`;
+    questionBox.append(result, explain);
+  });
+
+  tfSet.forEach((q, index) => {
+    const questionBox = form.querySelector(`.question[data-index=\"tf-${index}\"]`);
+    const selected = data.get(`tf-${index}`);
+    const selectedIndex = selected === null ? -1 : Number(selected);
+    const isCorrect = selectedIndex === q.answerIndex;
+    if (isCorrect) score += 1;
+
+    const title = questionBox.querySelector(".question-title");
+    if (title && q.stemCn) {
+      title.innerHTML = `${index + 1}. ${q.stemEn}<br /><span class="question-cn">${q.stemCn}</span>`;
+    }
+
+    questionBox.querySelectorAll(".options label").forEach((label, optionIndex) => {
+      const textNode = label.querySelector(".option-text");
+      const opt = q.options[optionIndex];
+      if (textNode && opt) {
+        textNode.innerHTML = `${opt.key}. ${opt.textEn}${opt.textCn ? `<br /><span class="option-cn">${opt.textCn}</span>` : ""}`;
+      }
+      if (optionIndex === q.answerIndex) label.classList.add("option-correct");
+      if (selectedIndex === optionIndex && selectedIndex !== q.answerIndex) label.classList.add("option-incorrect");
+      const input = label.querySelector("input");
+      if (input) input.disabled = true;
+    });
+
+    const result = document.createElement("p");
+    result.className = isCorrect ? "result-ok" : "result-bad";
+    result.textContent = isCorrect ? "回答正确 Correct" : "回答错误 Incorrect";
+
+    const answerOpt = q.options[q.answerIndex];
+    const explain = document.createElement("div");
+    explain.className = "explain";
+    explain.innerHTML = `<strong>Answer:</strong> ${answerOpt.key}. ${answerOpt.textEn}${answerOpt.textCn ? ` / ${answerOpt.textCn}` : ""}<br /><strong>解析:</strong> ${
+      q.explanationCn || "(未提供)"
+    }${q.explanationEn ? `<br /><strong>Explanation:</strong> ${q.explanationEn}` : ""}`;
+    questionBox.append(result, explain);
+  });
+
+  const submitBtn = form.querySelector("button[type=submit]");
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = "已提交 Submitted";
+  }
+
+  state.submitted = true;
+  setStatus(`整套试卷客观题得分：${score} / ${mcqSet.length + tfSet.length}`);
 }
 
 function generateSet() {
@@ -501,6 +802,11 @@ function generateSet() {
 
   if (state.type === "tf") {
     renderTrueFalse(subject);
+    return;
+  }
+
+  if (state.type === "paper") {
+    renderFullPaper(subject);
     return;
   }
 
