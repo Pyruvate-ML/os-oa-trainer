@@ -1,0 +1,14 @@
+{
+  "name": "os-coa-trainer",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build:bank": "node ./scripts/build-bank.mjs",
+    "serve": "python3 -m http.server 8080",
+    "tunnel": "./scripts/tunnel.sh",
+    "share": "./scripts/share.sh"
+  },
+  "devDependencies": {
+    "localtunnel": "^2.0.2"
+  }
+}

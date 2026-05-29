@@ -1,0 +1,40 @@
+{
+  "subjectId": "os",
+  "subjectName": "Operating Systems",
+  "chapterId": "ch01",
+  "chapterName": "Chapter Name",
+  "mcq": [
+    {
+      "id": "os-ch01-001",
+      "stemEn": "Question in English",
+      "stemCn": "中文题干",
+      "options": [
+        { "key": "A", "textEn": "Option A", "textCn": "选项A" },
+        { "key": "B", "textEn": "Option B", "textCn": "选项B" },
+        { "key": "C", "textEn": "Option C", "textCn": "选项C" },
+        { "key": "D", "textEn": "Option D", "textCn": "选项D" }
+      ],
+      "answerKey": "A",
+      "explanationCn": "中文解析",
+      "explanationEn": "Optional English explanation"
+    },
+    {
+      "id": "os-ch01-002",
+      "stemWithOptionsEn": "Question in English with options in stem.\nA. Option A\nB. Option B\nC. Option C\nD. Option D",
+      "stemCn": "中文题干",
+      "answerKey": "C",
+      "explanationCn": "中文解析"
+    }
+  ],
+  "tf": [
+    {
+      "id": "os-ch01-tf-001",
+      "stemEn": "A process is the basic unit of resource allocation.",
+      "stemCn": "进程是资源分配的基本单位。",
+      "answer": "T",
+      "explanationCn": "在经典操作系统中，进程通常被视为资源分配的基本单位。",
+      "explanationEn": "A process is commonly treated as the basic unit of resource allocation."
+    }
+  ],
+  "terms": []
+}

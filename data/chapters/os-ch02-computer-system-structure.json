@@ -1,0 +1,159 @@
+{
+  "subjectId": "os",
+  "subjectName": "Operating Systems",
+  "chapterId": "ch02",
+  "chapterName": "operating-system structures",
+  "mcq": [
+    {
+      "id": "os-ch02-001",
+      "stemEn": "The instructions executed by a processor are divided into two categories. One category is called privileged instructions, which are allowed to be used only by ().",
+      "stemCn": "处理器执行的指令被分为两类，其中有一类称为特权指令，它只允许（）使用。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Target programs",
+          "textCn": "目标程序"
+        },
+        {
+          "key": "B",
+          "textEn": "Associated users",
+          "textCn": "联机用户"
+        },
+        {
+          "key": "C",
+          "textEn": "Operators",
+          "textCn": "操作员"
+        },
+        {
+          "key": "D",
+          "textEn": "Operating system",
+          "textCn": "操作系统"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "特权指令涉及 I/O、状态切换、中断控制等核心资源操作，只能在核心态由操作系统执行，普通用户程序不能直接使用。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch02-002",
+      "stemEn": "The interface provided by an operating system to programmers is ().",
+      "stemCn": "操作系统提供给编程人员的接口是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Library functions",
+          "textCn": "库函数"
+        },
+        {
+          "key": "B",
+          "textEn": "System calls",
+          "textCn": "系统调用"
+        },
+        {
+          "key": "C",
+          "textEn": "Subprograms",
+          "textCn": "子程序"
+        },
+        {
+          "key": "D",
+          "textEn": "High-level languages",
+          "textCn": "高级语言"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "系统调用是操作系统向程序员提供的编程接口，应用程序通过系统调用请求内核完成文件、进程、设备等系统服务。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch02-003",
+      "stemEn": "After an interrupt occurs, the program that enters interrupt processing belongs to ().",
+      "stemCn": "在中断发生后，进入中断处理的程序属于（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Neither an application program nor an operating system program",
+          "textCn": "既不是应用程序，也不是操作系统程序"
+        },
+        {
+          "key": "B",
+          "textEn": "Operating system program",
+          "textCn": "操作系统程序"
+        },
+        {
+          "key": "C",
+          "textEn": "It may be an application program or an operating system program",
+          "textCn": "可能是应用程序，也可能是操作系统程序"
+        },
+        {
+          "key": "D",
+          "textEn": "User program",
+          "textCn": "用户程序"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "中断处理程序在核心态执行，属于操作系统内核的一部分，用于响应和处理硬件或软件中断。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch02-004",
+      "stemEn": "Which of the following instructions must be executed in kernel mode?",
+      "stemCn": "下列必须在核心态下执行的指令是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Fetch data from memory",
+          "textCn": "从内存中取数"
+        },
+        {
+          "key": "B",
+          "textEn": "Write the result of an operation into memory",
+          "textCn": "将运算结果装入内存"
+        },
+        {
+          "key": "C",
+          "textEn": "I/O operation",
+          "textCn": "I/O 操作"
+        },
+        {
+          "key": "D",
+          "textEn": "Arithmetic operation",
+          "textCn": "算术运算"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "I/O 操作会直接访问外部设备和系统资源，属于特权操作，必须在核心态下由操作系统执行。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch02-005",
+      "stemEn": "The purpose of a system call is ().",
+      "stemCn": "系统调用的目的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "To request system services",
+          "textCn": "请求系统服务"
+        },
+        {
+          "key": "B",
+          "textEn": "To release system resources",
+          "textCn": "释放系统资源"
+        },
+        {
+          "key": "C",
+          "textEn": "To apply for system resources",
+          "textCn": "申请系统资源"
+        },
+        {
+          "key": "D",
+          "textEn": "To terminate system services",
+          "textCn": "中止系统服务"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "系统调用的本质是用户程序向操作系统内核请求服务，例如文件操作、进程控制和设备访问等。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

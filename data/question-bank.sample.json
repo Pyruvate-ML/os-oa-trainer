@@ -1,0 +1,154 @@
+{
+  "subjects": [
+    {
+      "id": "os",
+      "name": "Operating Systems",
+      "mcq": [
+        {
+          "id": "os-m-001",
+          "stem": "Which scheduling algorithm may cause starvation for long processes?",
+          "options": ["Round-Robin", "First-Come First-Served", "Shortest Job First", "Priority Scheduling"],
+          "answerIndex": 2,
+          "explanation": "Non-preemptive SJF may keep delaying long jobs if short jobs keep arriving."
+        },
+        {
+          "id": "os-m-002",
+          "stem": "What does a page fault indicate?",
+          "options": ["A disk read error", "A requested page is not in main memory", "The CPU cache is full", "A process terminated unexpectedly"],
+          "answerIndex": 1,
+          "explanation": "Page fault means the page is absent in RAM and must be fetched from secondary storage."
+        },
+        {
+          "id": "os-m-003",
+          "stem": "Which one is NOT a necessary condition for deadlock?",
+          "options": ["Mutual exclusion", "Hold and wait", "Priority inversion", "Circular wait"],
+          "answerIndex": 2,
+          "explanation": "The four Coffman conditions are mutual exclusion, hold-and-wait, no preemption, and circular wait."
+        },
+        {
+          "id": "os-m-004",
+          "stem": "In paging, what is the main purpose of the TLB?",
+          "options": ["Store user files", "Cache recent address translations", "Schedule I/O operations", "Detect process deadlocks"],
+          "answerIndex": 1,
+          "explanation": "TLB speeds up virtual-to-physical address translation by caching recent page table entries."
+        },
+        {
+          "id": "os-m-005",
+          "stem": "Which file allocation method can suffer from external fragmentation?",
+          "options": ["Contiguous allocation", "Indexed allocation", "Linked allocation", "Hashed allocation"],
+          "answerIndex": 0,
+          "explanation": "Contiguous allocation needs consecutive blocks, which can lead to external fragmentation."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Process",
+          "definition": "An instance of a program in execution, with its own address space, registers, stack, and execution state."
+        },
+        {
+          "term": "Thread",
+          "definition": "The smallest unit of CPU scheduling within a process, sharing process resources but having its own execution context."
+        },
+        {
+          "term": "Semaphore",
+          "definition": "A synchronization primitive represented by an integer value, used to control concurrent access to shared resources."
+        },
+        {
+          "term": "Critical Section",
+          "definition": "A code segment where shared data is accessed and that must not be executed by more than one thread/process at a time."
+        },
+        {
+          "term": "Virtual Memory",
+          "definition": "A memory management technique that gives each process an abstraction of large contiguous memory by mapping virtual addresses to physical memory."
+        },
+        {
+          "term": "Thrashing",
+          "definition": "A condition where excessive paging activity consumes most CPU time, causing severe performance degradation."
+        },
+        {
+          "term": "Context Switch",
+          "definition": "The operation of saving the state of a running process/thread and restoring another state so CPU can switch execution."
+        },
+        {
+          "term": "System Call",
+          "definition": "A controlled interface through which user programs request services from the operating system kernel."
+        }
+      ]
+    },
+    {
+      "id": "coa",
+      "name": "Computer Organization",
+      "mcq": [
+        {
+          "id": "coa-m-001",
+          "stem": "Which memory is typically the fastest in a modern CPU hierarchy?",
+          "options": ["Main memory", "L3 cache", "L1 cache", "Solid-state drive"],
+          "answerIndex": 2,
+          "explanation": "L1 cache is on-chip and closest to execution units, providing the lowest latency."
+        },
+        {
+          "id": "coa-m-002",
+          "stem": "What does CPI stand for in processor performance?",
+          "options": ["Cycles Per Instruction", "Cache Performance Index", "Clock Pulse Interval", "Core Processing Instruction"],
+          "answerIndex": 0,
+          "explanation": "CPI measures average clock cycles needed per instruction."
+        },
+        {
+          "id": "coa-m-003",
+          "stem": "In two's complement, what is the range of an 8-bit signed integer?",
+          "options": ["-127 to 127", "-128 to 127", "-128 to 128", "-255 to 255"],
+          "answerIndex": 1,
+          "explanation": "For n bits, two's complement range is -2^(n-1) to 2^(n-1)-1."
+        },
+        {
+          "id": "coa-m-004",
+          "stem": "Which hazard is caused by an instruction depending on the result of a previous instruction?",
+          "options": ["Structural hazard", "Data hazard", "Control hazard", "Resource hazard"],
+          "answerIndex": 1,
+          "explanation": "A read-after-write dependency in a pipeline is a data hazard."
+        },
+        {
+          "id": "coa-m-005",
+          "stem": "What is the primary role of the ALU?",
+          "options": ["Decode machine instructions", "Store microprograms", "Perform arithmetic and logic operations", "Manage I/O interrupts"],
+          "answerIndex": 2,
+          "explanation": "ALU executes arithmetic operations and bitwise logic operations."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Instruction Set Architecture (ISA)",
+          "definition": "The programmer-visible interface of a computer, including instruction formats, registers, and memory model."
+        },
+        {
+          "term": "Pipeline",
+          "definition": "A technique that overlaps execution phases of multiple instructions to improve throughput."
+        },
+        {
+          "term": "Cache Hit",
+          "definition": "An event where requested data is found in cache memory, reducing access latency."
+        },
+        {
+          "term": "Cache Miss",
+          "definition": "An event where requested data is not in cache and must be fetched from a lower memory level."
+        },
+        {
+          "term": "Clock Cycle",
+          "definition": "The basic timing interval of a synchronous processor, determined by the clock signal period."
+        },
+        {
+          "term": "Microprogram",
+          "definition": "A low-level sequence of control signals stored in control memory to implement machine instructions."
+        },
+        {
+          "term": "Bus",
+          "definition": "A shared communication pathway that transfers data, addresses, and control signals among components."
+        },
+        {
+          "term": "Endianness",
+          "definition": "The byte-order convention used to store multi-byte data types in memory."
+        }
+      ]
+    }
+  ]
+}

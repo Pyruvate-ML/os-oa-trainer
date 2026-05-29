@@ -1,0 +1,352 @@
+{
+  "subjectId": "os",
+  "subjectName": "Operating Systems",
+  "chapterId": "ch04",
+  "chapterName": "processes",
+  "mcq": [
+    {
+      "id": "os-ch04-001",
+      "stemEn": "A process is ().",
+      "stemCn": "一个进程是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "An independent program plus a data set",
+          "textCn": "一个独立的程序 + 数据集"
+        },
+        {
+          "key": "B",
+          "textEn": "A program executed by a coprocessor",
+          "textCn": "由协处理器执行的一个程序"
+        },
+        {
+          "key": "C",
+          "textEn": "An independent program",
+          "textCn": "一个独立的程序"
+        },
+        {
+          "key": "D",
+          "textEn": "A combination of a PCB structure, a program, and data",
+          "textCn": "PCB 结构与程序和数据的组合"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "进程不是单纯的程序，而是程序的一次执行过程，通常由程序段、数据段和进程控制块 PCB 共同组成。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-002",
+      "stemEn": "The essential difference between a process and a program is ().",
+      "stemCn": "进程与程序的根本区别是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Whether it has the three states: ready, running, and waiting",
+          "textCn": "是不是具有就绪、运行和等待三种状态"
+        },
+        {
+          "key": "B",
+          "textEn": "Whether it is loaded into memory",
+          "textCn": "是不是被调入到内存"
+        },
+        {
+          "key": "C",
+          "textEn": "Whether it occupies the processor",
+          "textCn": "是不是占有处理器"
+        },
+        {
+          "key": "D",
+          "textEn": "The difference between static and dynamic",
+          "textCn": "静态和动态的区别"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "程序是静态的指令集合，进程是程序在数据集上的一次动态执行过程，因此二者的根本区别是静态与动态的区别。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-003",
+      "stemEn": "The operating system controls and manages concurrently executing processes according to ().",
+      "stemCn": "操作系统是根据（）来对并发执行的进程进行控制和管理的。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Basic states of a process",
+          "textCn": "进程的基本状态"
+        },
+        {
+          "key": "B",
+          "textEn": "Multiprogramming",
+          "textCn": "多道程序设计"
+        },
+        {
+          "key": "C",
+          "textEn": "Priority of a process",
+          "textCn": "进程的优先权"
+        },
+        {
+          "key": "D",
+          "textEn": "Process control block",
+          "textCn": "进程控制块"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "PCB 是进程存在的唯一标志，保存进程状态、调度信息和资源信息，操作系统通过 PCB 控制和管理进程。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-004",
+      "stemEn": "Which of the following descriptions about processes best matches the operating system's understanding of a process?",
+      "stemCn": "下列几种关于进程的叙述，（）是最符合操作系统对进程的理解。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "A process is the running procedure of a program on a data set",
+          "textCn": "进程是程序在一个数据集合上的运行过程"
+        },
+        {
+          "key": "B",
+          "textEn": "A process is an independent unit for resource allocation and scheduling by the system",
+          "textCn": "进程是系统进行资源分配和调度的一个独立单元"
+        },
+        {
+          "key": "C",
+          "textEn": "A process can be described by a program, data, and a PCB",
+          "textCn": "进程可以由程序、数据和 PCB 描述"
+        },
+        {
+          "key": "D",
+          "textEn": "A process is a complete program in a multiprogramming environment",
+          "textCn": "进程是在多程序环境中的完整的程序"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "进程不是静态的完整程序，而是程序的一次动态执行过程，并带有相应数据和 PCB。因此 D 把进程简单理解为完整程序，不符合操作系统对进程的准确理解。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-005",
+      "stemEn": "The same program is created multiple times and runs on different data sets, forming () processes.",
+      "stemCn": "同一程序经过多次创建，运行在不同的数据集上，形成了（）的进程。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Synchronous",
+          "textCn": "同步"
+        },
+        {
+          "key": "B",
+          "textEn": "Identical",
+          "textCn": "相同"
+        },
+        {
+          "key": "C",
+          "textEn": "Mutually exclusive",
+          "textCn": "互斥"
+        },
+        {
+          "key": "D",
+          "textEn": "Different",
+          "textCn": "不同"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "即使执行的是同一个程序，只要创建次数不同或运行数据不同，就会形成不同的进程，每个进程都有独立的 PCB 和运行状态。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-006",
+      "stemEn": "The communication mechanism for message passing between processes requires two communication primitives. They are ().",
+      "stemCn": "用信箱实现进程间互通消息的通信机制要有两个通信原语，它们是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Ready primitive and receive primitive",
+          "textCn": "就绪原语和接收原语"
+        },
+        {
+          "key": "B",
+          "textEn": "Send primitive and receive primitive",
+          "textCn": "发送原语和接收原语"
+        },
+        {
+          "key": "C",
+          "textEn": "Send primitive and execute primitive",
+          "textCn": "发送原语和执行原语"
+        },
+        {
+          "key": "D",
+          "textEn": "Ready primitive and execute primitive",
+          "textCn": "就绪原语和执行原语"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "消息传递通信的基本操作是发送消息和接收消息，因此需要发送原语和接收原语。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-007",
+      "stemEn": "When (), a process changes from the running state to the ready state.",
+      "stemCn": "当（）时，进程从执行状态转变为就绪状态。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The process is selected by the scheduler",
+          "textCn": "进程被调度程序选中"
+        },
+        {
+          "key": "B",
+          "textEn": "The time slice expires",
+          "textCn": "时间片到"
+        },
+        {
+          "key": "C",
+          "textEn": "The process waits for an event",
+          "textCn": "等待某一事件"
+        },
+        {
+          "key": "D",
+          "textEn": "The waited event occurs",
+          "textCn": "等待的事件发生"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "运行进程的时间片用完后会失去 CPU，但它仍具备运行条件，因此从执行状态转为就绪状态。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-008",
+      "stemEn": "After a process is created, all created PCBs are linked into a sequence. This sequence is called ().",
+      "stemCn": "进程创建后，所有创建完成的 PCB 被链接成一个序列，这个序列称为（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Ready queue",
+          "textCn": "就绪队列"
+        },
+        {
+          "key": "B",
+          "textEn": "Running queue",
+          "textCn": "运行队列"
+        },
+        {
+          "key": "C",
+          "textEn": "Job queue",
+          "textCn": "作业队列"
+        },
+        {
+          "key": "D",
+          "textEn": "Blocked queue",
+          "textCn": "阻塞队列"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "进程创建完成并具备运行条件后，其 PCB 会进入就绪队列，等待处理器调度。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-009",
+      "stemEn": "A long-term job scheduler controls ().",
+      "stemCn": "长（作业）调度程序控制（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The degree of multiprogramming",
+          "textCn": "多道程序的道数"
+        },
+        {
+          "key": "B",
+          "textEn": "The number of processes in the waiting queue",
+          "textCn": "等待队列中进程的个数"
+        },
+        {
+          "key": "C",
+          "textEn": "The number of ready processes",
+          "textCn": "就绪进程的个数"
+        },
+        {
+          "key": "D",
+          "textEn": "The execution time of a process",
+          "textCn": "进程执行的时间"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "长程调度决定哪些作业进入内存并成为进程，因此直接影响系统中同时存在的进程数量，也就是多道程序的道数。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-010",
+      "stemEn": "In a single-processor system, if there are 10 processes at the same time, the maximum number of processes in the ready queue is ().",
+      "stemCn": "在单处理器系统中，如果同时存在 10 个进程，则处于就绪队列中的进程最多有（）个。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "10",
+          "textCn": "10"
+        },
+        {
+          "key": "B",
+          "textEn": "1",
+          "textCn": "1"
+        },
+        {
+          "key": "C",
+          "textEn": "8",
+          "textCn": "8"
+        },
+        {
+          "key": "D",
+          "textEn": "9",
+          "textCn": "9"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "单处理器系统中同一时刻最多只有 1 个进程处于运行状态。若 10 个进程都不阻塞，则除正在运行的 1 个外，最多有 9 个处于就绪队列。",
+      "explanationEn": ""
+    }
+  ],
+  
+  "tf": [
+    {
+      "id": "os-ch04-tf-001",
+      "stemEn": "A state change of one process must cause a state change of another process.",
+      "stemCn": "一个进程的状态变化一定会引起另一个进程的状态变化。",
+      "answer": "F",
+      "explanationCn": "一个进程的状态变化不一定会影响其他进程。例如某进程因等待 I/O 而阻塞时，其他进程的状态不一定发生变化。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-tf-002",
+      "stemEn": "After the I/O operation that a process is waiting for is completed, the process state changes from blocked to ready.",
+      "stemCn": "一个进程等待的 I/O 操作完成后，进程状态将会从阻塞变为就绪。",
+      "answer": "T",
+      "explanationCn": "等待的 I/O 事件完成后，阻塞原因消失，但进程还不能立即运行，需要先进入就绪队列等待调度。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-tf-003",
+      "stemEn": "When the fork system call is executed, the child process copies the address space of the parent process.",
+      "stemCn": "执行 fork 系统调用时，子进程会复制父进程的地址空间。",
+      "answer": "T",
+      "explanationCn": "fork 会创建子进程，子进程在逻辑上获得父进程地址空间的副本。实际系统中可能使用写时复制优化。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-tf-004",
+      "stemEn": "A process that shares data with other processes is a cooperating process.",
+      "stemCn": "与其他进程共享数据的进程是协作进程。",
+      "answer": "T",
+      "explanationCn": "协作进程可以与其他进程相互影响，共享数据是进程协作的一种典型形式。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch04-tf-005",
+      "stemEn": "Short-term scheduling means selecting a job from the job queue and loading it into memory.",
+      "stemCn": "短调度是指从作业队列中选择作业并装入内存。",
+      "answer": "F",
+      "explanationCn": "从作业队列中选择作业并装入内存属于长程调度；短程调度是从就绪队列中选择进程分配 CPU。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

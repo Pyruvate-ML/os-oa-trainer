@@ -1,0 +1,201 @@
+{
+  "subjectId": "os",
+  "subjectName": "Operating Systems",
+  "chapterId": "ch05",
+  "chapterName": "threads",
+  "mcq": [
+    {
+      "id": "os-ch05-001",
+      "stemEn": "If a process has 100 threads, and all these threads are user-level threads, then the time slice occupied by each thread in system scheduling time is ().",
+      "stemCn": "若某一进程拥有 100 个线程，这些线程都属于用户级线程，则每一个线程在系统调度时间上占用的时间片是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "1",
+          "textCn": "1"
+        },
+        {
+          "key": "B",
+          "textEn": "1/100",
+          "textCn": "1/100"
+        },
+        {
+          "key": "C",
+          "textEn": "100",
+          "textCn": "100"
+        },
+        {
+          "key": "D",
+          "textEn": "0",
+          "textCn": "0"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "用户级线程对操作系统内核不可见，系统调度的对象仍是进程。该进程获得一个时间片后，100 个用户级线程在进程内部共享这个时间片，所以每个线程平均占 1/100。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch05-002",
+      "stemEn": "In a many-to-one thread model, when one thread of a multithreaded process is blocked, ().",
+      "stemCn": "在多对一的线程模型中，当一个多线程进程的某个线程被阻塞后（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The entire process will be blocked",
+          "textCn": "整个进程都将被阻塞"
+        },
+        {
+          "key": "B",
+          "textEn": "The blocked thread will never be able to execute",
+          "textCn": "该阻塞线程将永远不可能在执行"
+        },
+        {
+          "key": "C",
+          "textEn": "Other threads of the process can still continue running",
+          "textCn": "该进程的其他线程仍可继续运行"
+        },
+        {
+          "key": "D",
+          "textEn": "The blocked thread will be revoked",
+          "textCn": "该阻塞线程将被撤销"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "多对一模型中多个用户级线程映射到一个内核线程，内核只能看到整个进程。若其中一个线程执行阻塞系统调用，整个进程都会被阻塞。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch05-003",
+      "stemEn": "Which of the following statements is correct?",
+      "stemCn": "下面的叙述中，正确的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Threads in the same process or in different processes can only execute serially",
+          "textCn": "同一进程或不同进程内的线程都只能串行执行"
+        },
+        {
+          "key": "B",
+          "textEn": "Threads in the same process can only execute serially, while threads in different processes can execute concurrently",
+          "textCn": "同一进程内的线程只能串行执行，不同进程的线程可并发执行"
+        },
+        {
+          "key": "C",
+          "textEn": "Threads in the same process or in different processes can execute concurrently",
+          "textCn": "同一进程或不同进程内的线程都可以并发执行"
+        },
+        {
+          "key": "D",
+          "textEn": "Threads in the same process can execute concurrently, while threads in different processes can only execute serially",
+          "textCn": "同一进程内的线程可并发执行，不同进程的线程只能串行执行"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "线程是 CPU 调度和执行的基本单位。同一进程内的多个线程可以并发执行，不同进程中的线程也可以并发执行。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch05-004",
+      "stemEn": "Which of the following statements is correct?",
+      "stemCn": "下面说法正确的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Regardless of whether there are threads in the system, a process is an independent unit that owns resources",
+          "textCn": "不管系统中是否有线程，进程都是拥有资源的独立单位"
+        },
+        {
+          "key": "B",
+          "textEn": "In a system that introduces threads, a process is still the basic unit of resource scheduling and allocation",
+          "textCn": "在引入线程的系统中，进程仍是资源调度和分派的基本单位"
+        },
+        {
+          "key": "C",
+          "textEn": "A thread is the unit of resource allocation, and a process is the unit of scheduling and dispatching",
+          "textCn": "线程是资源分配的单位，进程是调度和分派的单位"
+        },
+        {
+          "key": "D",
+          "textEn": "Whether the system-supported thread is a user-level thread or not, its switching requires kernel support",
+          "textCn": "不论是系统支持的线程还是用户级线程，其切换都需要内核的支持"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "进程是资源拥有和资源分配的基本单位，线程是处理器调度和分派的基本单位。用户级线程的切换可在用户态完成，不一定需要内核支持。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch05-005",
+      "stemEn": "The main purpose of introducing threads is ().",
+      "stemCn": "引入线程的主要目的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "To achieve resource sharing",
+          "textCn": "实现资源共享"
+        },
+        {
+          "key": "B",
+          "textEn": "To improve concurrency and reduce overhead",
+          "textCn": "提高并发程度同时降低开销"
+        },
+        {
+          "key": "C",
+          "textEn": "To execute more tasks",
+          "textCn": "执行更多任务"
+        },
+        {
+          "key": "D",
+          "textEn": "To speed up computation",
+          "textCn": "加快运算速度"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "线程作为轻量级执行单位，可以在同一进程内并发执行，并共享进程资源。相比创建和切换进程，线程的创建、撤销和切换开销更小。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "os-ch05-tf-001",
+      "stemEn": "A thread also has three basic states: ready, blocked, and running.",
+      "stemCn": "线程也具有就绪、阻塞和运行三种基本状态。",
+      "answer": "T",
+      "explanationCn": "线程是处理器调度和执行的基本单位，因此也会随着调度和等待事件在就绪、运行、阻塞等状态之间转换。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch05-tf-002",
+      "stemEn": "During CPU scheduling, the time slice is allocated to user-level threads.",
+      "stemCn": "CPU 调度时，时间片是分给用户线程的。",
+      "answer": "F",
+      "explanationCn": "用户级线程对内核不可见，内核调度的对象通常是进程或内核级线程，不会直接把时间片分配给用户级线程。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch05-tf-003",
+      "stemEn": "The disadvantage of the many-to-one model is that true concurrency cannot be achieved.",
+      "stemCn": "多对一模型的缺点是不能实现真正的并发。",
+      "answer": "T",
+      "explanationCn": "多对一模型中多个用户级线程映射到一个内核线程，同一时刻只能有一个线程进入内核执行，因此不能在多处理器上实现真正并行。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch05-tf-004",
+      "stemEn": "User-level threads are managed in user space, and the kernel can also perceive them.",
+      "stemCn": "用户线程是在用户空间管理的，内核也能感知。",
+      "answer": "F",
+      "explanationCn": "用户级线程由用户态线程库管理，内核通常不能直接感知每个用户级线程，只能看到所属进程或对应的内核实体。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch05-tf-005",
+      "stemEn": "Multiple threads in the same process share the resources of the process.",
+      "stemCn": "同一个进程内的多个线程之间共享进程的资源。",
+      "answer": "T",
+      "explanationCn": "同一进程内的线程共享进程的地址空间、打开文件等资源，但每个线程有自己的线程控制信息和运行栈等。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

@@ -1,0 +1,159 @@
+{
+  "subjectId": "os",
+  "subjectName": "Operating Systems",
+  "chapterId": "ch01",
+  "chapterName": "introduction",
+  "mcq": [
+    {
+      "id": "os-ch01-001",
+      "stemEn": "An operating system is software that manages ().",
+      "stemCn": "操作系统是对（）进行管理的软件。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Software",
+          "textCn": "软件"
+        },
+        {
+          "key": "B",
+          "textEn": "Hardware",
+          "textCn": "硬件"
+        },
+        {
+          "key": "C",
+          "textEn": "Computer resources",
+          "textCn": "计算机资源"
+        },
+        {
+          "key": "D",
+          "textEn": "Application programs",
+          "textCn": "应用程序"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "操作系统的核心作用是管理和控制计算机系统中的各种资源，包括处理器、存储器、设备和文件等，因此应选计算机资源。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch01-002",
+      "stemEn": "An operating system is a kind of ().",
+      "stemCn": "操作系统是一种（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Software package",
+          "textCn": "软件包"
+        },
+        {
+          "key": "B",
+          "textEn": "Application software",
+          "textCn": "应用软件"
+        },
+        {
+          "key": "C",
+          "textEn": "General-purpose software",
+          "textCn": "通用软件"
+        },
+        {
+          "key": "D",
+          "textEn": "System software",
+          "textCn": "系统软件"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "操作系统直接管理硬件资源，并为应用程序提供运行环境和系统服务，属于系统软件而不是应用软件。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch01-003",
+      "stemEn": "Which of the following is not a basic characteristic of multiprogramming?",
+      "stemCn": "下列选项中，不属于多道程序设计的基本特征是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Intermittence",
+          "textCn": "间断性"
+        },
+        {
+          "key": "B",
+          "textEn": "Multiplicity",
+          "textCn": "多道性"
+        },
+        {
+          "key": "C",
+          "textEn": "Sequentiality",
+          "textCn": "顺序性"
+        },
+        {
+          "key": "D",
+          "textEn": "Unpredictability",
+          "textCn": "无序性"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "多道程序设计强调多个程序并发执行，具有多道性、间断性和无序性等特点。顺序性更符合单道程序顺序执行的特征，不属于多道程序设计的基本特征。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch01-004",
+      "stemEn": "The key technique for improving CPU utilization is ().",
+      "stemCn": "提高 CPU 利用率的关键技术是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Swapping technology",
+          "textCn": "交换技术"
+        },
+        {
+          "key": "B",
+          "textEn": "Virtualization technology",
+          "textCn": "虚拟技术"
+        },
+        {
+          "key": "C",
+          "textEn": "Multiprogramming technology",
+          "textCn": "多道程序设计技术"
+        },
+        {
+          "key": "D",
+          "textEn": "Offline technology",
+          "textCn": "脱机技术"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "多道程序设计使多个作业同时进入内存，当一个程序等待 I/O 时，CPU 可以转去执行其他程序，从而显著提高 CPU 利用率。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch01-005",
+      "stemEn": "The two most basic characteristics of a modern operating system are ().",
+      "stemCn": "现代操作系统中最基本的两个特征是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Virtualization and uncertainty",
+          "textCn": "虚拟和不确定"
+        },
+        {
+          "key": "B",
+          "textEn": "Sharing and virtualization",
+          "textCn": "共享和虚拟"
+        },
+        {
+          "key": "C",
+          "textEn": "Concurrency and uncertainty",
+          "textCn": "并发和不确定"
+        },
+        {
+          "key": "D",
+          "textEn": "Concurrency and sharing",
+          "textCn": "并发和共享"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "现代操作系统的基本特征包括并发、共享、虚拟和异步，其中并发和共享是两个最基本的特征，二者也是操作系统资源管理的基础。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

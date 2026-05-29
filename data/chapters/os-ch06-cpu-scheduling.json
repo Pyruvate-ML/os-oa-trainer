@@ -1,0 +1,310 @@
+{
+  "subjectId": "os",
+  "subjectName": "Operating Systems",
+  "chapterId": "ch06",
+  "chapterName": "process scheduling",
+  "mcq": [
+    {
+      "id": "os-ch06-001",
+      "stemEn": "In a multiprogramming system on a single processor, when a process occupies the processor and how long it occupies the processor are determined by ().",
+      "stemCn": "在单处理器的多进程系统中，进程什么时候占用处理器以及决定占用时间的长短是由（）决定的。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "What function the process completes",
+          "textCn": "进程完成什么功能"
+        },
+        {
+          "key": "B",
+          "textEn": "Process characteristics and process scheduling strategy",
+          "textCn": "进程特点和进程调度策略"
+        },
+        {
+          "key": "C",
+          "textEn": "The total running time required by the process",
+          "textCn": "进程总共需要运行的时间"
+        },
+        {
+          "key": "D",
+          "textEn": "The code length of the process",
+          "textCn": "进程相应的代码长度"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "进程能否占用 CPU 以及占用多久，主要取决于进程自身特点和系统采用的调度策略，例如时间片、优先级等。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch06-002",
+      "stemEn": "Which scheduling algorithm is favorable to CPU-bound jobs but unfavorable to I/O-bound jobs?",
+      "stemCn": "（）有利于 CPU 繁忙型的作业，而不利于 I/O 繁忙型的作业。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "First-Come, First-Served scheduling algorithm",
+          "textCn": "先来先服务调度算法"
+        },
+        {
+          "key": "B",
+          "textEn": "Short job/process first algorithm",
+          "textCn": "短作业（进程）优先算法"
+        },
+        {
+          "key": "C",
+          "textEn": "Priority scheduling algorithm",
+          "textCn": "优先权调度算法"
+        },
+        {
+          "key": "D",
+          "textEn": "Round-robin scheduling algorithm",
+          "textCn": "时间片轮转调度算法"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "先来先服务算法容易让长时间占用 CPU 的作业先运行，CPU 繁忙型作业受益，而 I/O 繁忙型作业可能长期等待。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch06-003",
+      "stemEn": "The purpose of the round-robin scheduling algorithm is ().",
+      "stemCn": "时间片轮转调度算法是为了（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Make the system more efficient",
+          "textCn": "使系统变得高效"
+        },
+        {
+          "key": "B",
+          "textEn": "Let processes with higher priorities get timely responses",
+          "textCn": "优先级较高的进程得到及时响应"
+        },
+        {
+          "key": "C",
+          "textEn": "Let multiple terminals get timely responses from the system",
+          "textCn": "多个终端能够得到系统及时响应"
+        },
+        {
+          "key": "D",
+          "textEn": "Let the process requiring the least CPU time run first",
+          "textCn": "需要 CPU 时间最少的进程最先做"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "时间片轮转主要用于分时系统，使多个交互用户或终端能够轮流获得 CPU，从而得到较及时的响应。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch06-004",
+      "stemEn": "The priority whose value is determined when a process is created and does not change during the whole running time is ().",
+      "stemCn": "（）优先级是在创建进程时确定的，确定之后在整个运行期间不再改变。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Static",
+          "textCn": "静态"
+        },
+        {
+          "key": "B",
+          "textEn": "Short job",
+          "textCn": "短作业"
+        },
+        {
+          "key": "C",
+          "textEn": "Dynamic",
+          "textCn": "动态"
+        },
+        {
+          "key": "D",
+          "textEn": "First-Come, First-Served",
+          "textCn": "先来先服务"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "静态优先级在进程创建时确定，运行过程中保持不变；动态优先级会随等待时间、运行情况等因素变化。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch06-005",
+      "stemEn": "When CPU is allocated by the round-robin scheduling algorithm, after a running process uses up one time slice, its state becomes ().",
+      "stemCn": "采用时间片轮转调度算法分配 CPU 时，当处于运行状态的进程用完一个时间片后，它的状态是（）状态。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Running",
+          "textCn": "运行"
+        },
+        {
+          "key": "B",
+          "textEn": "Terminated",
+          "textCn": "消亡"
+        },
+        {
+          "key": "C",
+          "textEn": "Blocked",
+          "textCn": "阻塞"
+        },
+        {
+          "key": "D",
+          "textEn": "Ready",
+          "textCn": "就绪"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "时间片用完后，进程只是暂时失去 CPU，并没有等待事件，因此会从运行态转入就绪态，等待下一次调度。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch06-006",
+      "stemEn": "Among the following scheduling algorithms, which scheduling algorithm is absolutely preemptive?",
+      "stemCn": "下列调度算法中，（）调度算法是绝对可抢占的。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "First-Come, First-Served",
+          "textCn": "先来先服务"
+        },
+        {
+          "key": "B",
+          "textEn": "Round-robin",
+          "textCn": "时间片轮转"
+        },
+        {
+          "key": "C",
+          "textEn": "Shortest process first",
+          "textCn": "短进程优先"
+        },
+        {
+          "key": "D",
+          "textEn": "Priority",
+          "textCn": "优先级"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "时间片轮转规定进程时间片用完后必须让出 CPU，因此天然具有抢占性。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch06-007",
+      "stemEn": "Among the following options, the reasonable time to lower a process priority is ().",
+      "stemCn": "下列选项中，降低进程优先级的合理时机是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The process changes from ready state to running state",
+          "textCn": "进程从就绪状态转为运行状态"
+        },
+        {
+          "key": "B",
+          "textEn": "The process stays in the ready queue for a long time",
+          "textCn": "进程长期处于就绪队列"
+        },
+        {
+          "key": "C",
+          "textEn": "The process has just completed an I/O operation and enters the ready queue",
+          "textCn": "进程刚完成 I/O 操作，进入就绪队列"
+        },
+        {
+          "key": "D",
+          "textEn": "The process has used up its time slice",
+          "textCn": "进程时间片用完"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "进程用完时间片说明它已经获得了一段 CPU 服务，适当降低其优先级可以让其他进程获得运行机会。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch06-008",
+      "stemEn": "There are 4 jobs arriving at the same time, and each job has an execution time of 2 hours. They run on one processor in a single-channel manner. The average turnaround time is ().",
+      "stemCn": "设有 4 个作业同时到达，每个作业的执行时间均为 2h，它们在一台处理器上按单道方式运行，则平均周转时间为（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "2.5 h",
+          "textCn": "2.5h"
+        },
+        {
+          "key": "B",
+          "textEn": "5 h",
+          "textCn": "5h"
+        },
+        {
+          "key": "C",
+          "textEn": "8 h",
+          "textCn": "8h"
+        },
+        {
+          "key": "D",
+          "textEn": "1 h",
+          "textCn": "1h"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "4 个作业完成时间分别为 2h、4h、6h、8h，平均周转时间为 (2+4+6+8)/4=5h。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch06-009",
+      "stemEn": "Assuming all processes in the system arrive at the same time, the scheduling algorithm that minimizes the average waiting time is ().",
+      "stemCn": "假设系统中所有的进程都是同时到达，则使进程平均等待时间最短的是（）调度算法。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Priority",
+          "textCn": "优先级"
+        },
+        {
+          "key": "B",
+          "textEn": "Round-robin",
+          "textCn": "时间片轮转"
+        },
+        {
+          "key": "C",
+          "textEn": "First-Come, First-Served",
+          "textCn": "先来先服务"
+        },
+        {
+          "key": "D",
+          "textEn": "Shortest job first",
+          "textCn": "短作业优先"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "当所有进程同时到达时，短作业优先会先执行运行时间短的作业，因此可以使平均等待时间最短。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch06-010",
+      "stemEn": "Which of the following criteria for selecting a process scheduling algorithm is incorrect?",
+      "stemCn": "下面关于选择进程调度算法的准则中不正确的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Appropriately increase the waiting time of processes in the ready queue",
+          "textCn": "适当增加进程在就绪队列的等待时间"
+        },
+        {
+          "key": "B",
+          "textEn": "Improve system throughput as much as possible",
+          "textCn": "尽可能提高系统的吞吐量"
+        },
+        {
+          "key": "C",
+          "textEn": "Respond to interactive user requests as quickly as possible",
+          "textCn": "尽快响应交互式用户的请求"
+        },
+        {
+          "key": "D",
+          "textEn": "Improve CPU utilization as much as possible",
+          "textCn": "尽量提高 CPU 利用率"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "调度算法通常追求减少等待时间、提高吞吐量、改善响应时间和提高 CPU 利用率。增加就绪队列等待时间不是正确准则。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [],
+  "terms": []
+}

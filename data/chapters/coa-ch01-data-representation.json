@@ -1,0 +1,48 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch01",
+  "chapterName": "Data Representation",
+  "mcq": [
+    {
+      "id": "coa-ch01-001",
+      "stemEn": "In two's complement, what is the range of an 8-bit signed integer?",
+      "stemCn": "8 位补码有符号整数的取值范围是？",
+      "options": [
+        { "key": "A", "textEn": "-127 to 127", "textCn": "-127 到 127" },
+        { "key": "B", "textEn": "-128 to 127", "textCn": "-128 到 127" },
+        { "key": "C", "textEn": "-128 to 128", "textCn": "-128 到 128" },
+        { "key": "D", "textEn": "-255 to 255", "textCn": "-255 到 255" }
+      ],
+      "answerKey": "B",
+      "explanationCn": "n 位补码范围为 -2^(n-1) 到 2^(n-1)-1。"
+    },
+    {
+      "id": "coa-ch01-002",
+      "stemEn": "What does CPI stand for?",
+      "stemCn": "CPI 的含义是？",
+      "options": [
+        { "key": "A", "textEn": "Cycles Per Instruction", "textCn": "每条指令周期数" },
+        { "key": "B", "textEn": "Cache Performance Index", "textCn": "缓存性能指标" },
+        { "key": "C", "textEn": "Clock Pulse Interval", "textCn": "时钟脉冲间隔" },
+        { "key": "D", "textEn": "Core Performance Indicator", "textCn": "核心性能指标" }
+      ],
+      "answerKey": "A",
+      "explanationCn": "CPI 表示平均每条指令所需时钟周期数。"
+    }
+  ],
+  "terms": [
+    {
+      "id": "coa-ch01-term-001",
+      "termEn": "Instruction Set Architecture",
+      "termCn": "指令集体系结构",
+      "definitionCn": "软件与硬件之间的接口规范，定义指令、寄存器、寻址等。"
+    },
+    {
+      "id": "coa-ch01-term-002",
+      "termEn": "Endianness",
+      "termCn": "字节序",
+      "definitionCn": "多字节数据在内存中的高低字节存放顺序规则。"
+    }
+  ]
+}

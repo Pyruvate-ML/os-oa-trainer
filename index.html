@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OS & COA 英文刷题</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <p class="kicker">Exam Trainer</p>
+        <h1>操作系统 & 计算机组成 英文刷题</h1>
+        <p class="sub">题库来自本地章节 JSON。把文件放进固定目录，重建题库后网页自动加载。</p>
+      </header>
+
+      <section class="panel controls">
+        <div class="field-grid">
+          <label class="field">
+            <span>学科 Subject</span>
+            <select id="subjectSelect"></select>
+          </label>
+
+          <label class="field">
+            <span>章节 Chapter</span>
+            <select id="chapterSelect"></select>
+          </label>
+
+          <label class="field">
+            <span>题型 Type</span>
+            <select id="typeSelect">
+              <option value="mcq">选择题 Multiple Choice</option>
+              <option value="tf">判断题 True / False</option>
+              <option value="terms">名词解释 Terms</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="generateBtn" class="btn primary">生成一套题 Generate</button>
+          <button id="reloadBtn" class="btn">重新加载题库 Reload Bank</button>
+          <button id="resetBtn" class="btn ghost">重置 Reset</button>
+        </div>
+
+        <p id="status" class="status"></p>
+      </section>
+
+      <section id="workspace" class="panel workspace"></section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
