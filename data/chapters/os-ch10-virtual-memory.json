@@ -2,7 +2,350 @@
   "subjectId": "os",
   "subjectName": "Operating Systems",
   "chapterId": "ch10",
-  "chapterName": "Virtual Memory",
-  "mcq": [],
+  "chapterName": "virtual memory",
+  "mcq": [
+    {
+      "id": "os-ch10-001",
+      "stemEn": "Which of the following statements about conventional memory is correct?",
+      "stemCn": "下列关于常规存储器的论述中，正确的论述是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Before running, the program must be fully loaded into memory, and it must remain in memory throughout execution.",
+          "textCn": "作业在运行前，必须全部装入内存，且在运行过程中也一直驻留内存"
+        },
+        {
+          "key": "B",
+          "textEn": "Before running, the job does not have to be fully loaded into memory, but it must remain in memory throughout execution.",
+          "textCn": "作业在运行前，不必全部装入内存，但在运行过程中必须一直驻留内存"
+        },
+        {
+          "key": "C",
+          "textEn": "Before running, the job does not have to be fully loaded into memory, and it does not have to remain in memory throughout execution.",
+          "textCn": "作业在运行前，不必全部装入内存，且在运行过程中也不必一直驻留内存"
+        },
+        {
+          "key": "D",
+          "textEn": "Before running, the job must be fully loaded into memory, but it does not have to remain in memory throughout execution.",
+          "textCn": "作业在运行前，必须全部装入内存，但在运行过程中不必一直驻留内存"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "常规存储管理要求作业运行前全部装入内存，并且运行期间通常一直驻留内存，这也是虚拟存储技术要突破的限制。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-002",
+      "stemEn": "To make the virtual memory system effectively play its expected role, the running program should have which characteristic?",
+      "stemCn": "为使虚存系统有效地发挥其预期的作用，所运行的程序应具有的特性是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The program should not contain too many I/O operations.",
+          "textCn": "该程序不应含有过多的I/O操作"
+        },
+        {
+          "key": "B",
+          "textEn": "The program should not have too much instruction correlation.",
+          "textCn": "该程序的指令相关性不应过多"
+        },
+        {
+          "key": "C",
+          "textEn": "The size of the program should not exceed the actual memory capacity.",
+          "textCn": "该程序的大小不应超过实际的内存容量"
+        },
+        {
+          "key": "D",
+          "textEn": "The program should have good locality.",
+          "textCn": "该程序应具有较好的局部性"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "虚拟存储依赖程序局部性原理，若程序在一段时间内集中访问少量页面，就能减少缺页次数并提高运行效率。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-003",
+      "stemEn": "Which of the following is the difference between demand paging storage management and basic paging storage management?",
+      "stemCn": "（）是请求分页存储管理方式和基本分页存储管理方式的区别。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Address relocation",
+          "textCn": "地址重定向"
+        },
+        {
+          "key": "B",
+          "textEn": "The job does not have to be loaded into a contiguous area.",
+          "textCn": "不必将作业装入连续区域"
+        },
+        {
+          "key": "C",
+          "textEn": "The whole job does not have to be loaded into memory.",
+          "textCn": "不必将作业全部装入内存"
+        },
+        {
+          "key": "D",
+          "textEn": "Using TLB technology.",
+          "textCn": "采用快表技术"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "基本分页通常要求作业全部装入内存后运行，而请求分页允许只装入当前需要的页面，缺页时再调入。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-004",
+      "stemEn": "The basis of a virtual memory management system is the program's () theory.",
+      "stemCn": "虚拟存储管理系统的基础是程序的（）理论。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Dynamic property",
+          "textCn": "动态性"
+        },
+        {
+          "key": "B",
+          "textEn": "Global property",
+          "textCn": "全局性"
+        },
+        {
+          "key": "C",
+          "textEn": "Virtual property",
+          "textCn": "虚拟性"
+        },
+        {
+          "key": "D",
+          "textEn": "Locality",
+          "textCn": "局部性"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "虚拟存储管理建立在程序局部性原理之上，即程序在一段时间内往往集中访问有限的代码和数据区域。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-005",
+      "stemEn": "In the page table of demand paging management, several additional items such as the modified bit and the access bit are added for reference by ().",
+      "stemCn": "在请求分页管理的页表中增加了若干项信息，其中修改位和访问位供（）参考。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Program access",
+          "textCn": "程序访问"
+        },
+        {
+          "key": "B",
+          "textEn": "Page allocation",
+          "textCn": "分配页面"
+        },
+        {
+          "key": "C",
+          "textEn": "Replacement algorithm",
+          "textCn": "置换算法"
+        },
+        {
+          "key": "D",
+          "textEn": "Page loading",
+          "textCn": "调入页面"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "访问位反映页面是否近期被访问，修改位反映页面是否被写过，这些信息常用于页面置换算法选择淘汰页面。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-006",
+      "stemEn": "In a virtual paging storage management system, if the page accessed by a process is not in main memory and there is no available frame in main memory, the correct processing sequence is ().",
+      "stemCn": "在虚拟分页存储管理系统中，若进程访问的页面不在主存，且主存中没有可用的空闲帧时，系统正确的处理顺序为（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Decide the page to be eliminated → page-in → page fault interrupt → page-out",
+          "textCn": "决定淘汰页→页面调入→缺页中断→页面调出"
+        },
+        {
+          "key": "B",
+          "textEn": "Decide the page to be eliminated → page-out → page fault interrupt → page-in",
+          "textCn": "决定淘汰页→页面调出→缺页中断→页面调入"
+        },
+        {
+          "key": "C",
+          "textEn": "Page fault interrupt → decide the page to be eliminated → page-out → page-in",
+          "textCn": "缺页中断→决定淘汰页→页面调出→页面调入"
+        },
+        {
+          "key": "D",
+          "textEn": "Page fault interrupt → decide the page to be eliminated → page-in → page-out",
+          "textCn": "缺页中断→决定淘汰页→页面调入→页面调出"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "访问页面不在内存时先产生缺页中断；若无空闲页框，需要先按置换算法确定淘汰页并调出，再把所需页面调入内存。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-007",
+      "stemEn": "The main cause of thrashing in a system is ().",
+      "stemCn": "系统产生抖动主要原因是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The memory space is too small.",
+          "textCn": "内存空间太小"
+        },
+        {
+          "key": "B",
+          "textEn": "The CPU runs too slowly.",
+          "textCn": "CPU运行速度太慢"
+        },
+        {
+          "key": "C",
+          "textEn": "The CPU scheduling algorithm is unreasonable.",
+          "textCn": "CPU调度算法不合理"
+        },
+        {
+          "key": "D",
+          "textEn": "The page replacement algorithm is unreasonable.",
+          "textCn": "页面置换算法不合理"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "抖动是由于页面频繁调入调出导致的，直接原因通常是页面置换策略或驻留集分配不当，使进程缺页率过高。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-008",
+      "stemEn": "When a page fault occurs during process execution, after the operating system handles it, the process should execute which instruction?",
+      "stemCn": "进程在执行中发生了缺页中断，经操作系统处理后，应让其执行（）指令。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The instruction after the interrupted instruction",
+          "textCn": "被中断的后一条"
+        },
+        {
+          "key": "B",
+          "textEn": "The first instruction at startup",
+          "textCn": "启动时的那一条"
+        },
+        {
+          "key": "C",
+          "textEn": "The instruction before the interrupted instruction",
+          "textCn": "被中断的前一条"
+        },
+        {
+          "key": "D",
+          "textEn": "The interrupted instruction",
+          "textCn": "被中断的那一条"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "缺页中断发生时，导致中断的指令尚未成功完成；页面调入后应重新执行被中断的那条指令。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-009",
+      "stemEn": "Considering page replacement algorithms, if the system has m physical frames allocated, initially all empty, and the page reference string has length p containing n distinct page numbers, regardless of the algorithm used, the number of page faults will not be less than ().",
+      "stemCn": "考虑页面置换算法，系统有m个物理块供调度，初始时全空，页面引用串长度为p，包含了n个不同的页号，无论用什么算法，缺页次数不会少于（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "min(m, n)",
+          "textCn": "min(m, n)"
+        },
+        {
+          "key": "B",
+          "textEn": "m",
+          "textCn": "m"
+        },
+        {
+          "key": "C",
+          "textEn": "p",
+          "textCn": "p"
+        },
+        {
+          "key": "D",
+          "textEn": "n",
+          "textCn": "n"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "引用串中有n个不同页号，每个不同页面第一次被访问时必然不在内存中，因此至少会产生n次缺页。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-010",
+      "stemEn": "A virtual memory system uses paged memory management and the LRU page replacement algorithm. Given the page reference string 1, 8, 1, 7, 8, 2, 7, 2, 1, 8, 3, 8, 2, 1, 3, 1, 7, 1, 3, 7, and assuming memory capacity is 4 pages and is initially empty, the number of page faults is ().",
+      "stemCn": "某虚拟存储器系统采用页式内存管理，使用LRU页面替换算法，考虑页面访问地址序列：1 8 1 7 8 2 7 2 1 8 3 8 2 1 3 1 7 1 3 7，假定内存容量为4个页面，开始时是空的，则缺页次数是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "6",
+          "textCn": "6"
+        },
+        {
+          "key": "B",
+          "textEn": "7",
+          "textCn": "7"
+        },
+        {
+          "key": "C",
+          "textEn": "4",
+          "textCn": "4"
+        },
+        {
+          "key": "D",
+          "textEn": "5",
+          "textCn": "5"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "内存初始为空，前面依次装入1、8、7、2产生4次缺页；之后访问3时淘汰最近最久未使用的7，第17次再访问7时淘汰8，共产生6次缺页。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "os-ch10-tf-001",
+      "stemEn": "Thrashing means that a process frequently performs page replacement, and the time spent on swapping is greater than the time spent on execution.",
+      "stemCn": "抖动是指进程频繁进行页面置换。在换页上的时间多于进程执行的时间。",
+      "answer": "T",
+      "explanationCn": "抖动表现为页面频繁调入调出，系统大量时间花在换页上，进程真正执行的时间反而很少。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-tf-002",
+      "stemEn": "No matter when, to improve CPU utilization, more multiprogramming should be added.",
+      "stemCn": "无论何时想要提高CPU的利用率，都应该增加多道程序的道。",
+      "answer": "F",
+      "explanationCn": "多道程序度过高可能导致内存不足和频繁缺页，甚至产生抖动，从而降低CPU利用率。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-tf-003",
+      "stemEn": "Discreteness is a characteristic of virtual memory.",
+      "stemCn": "离散性是虚拟存储的特征。",
+      "answer": "T",
+      "explanationCn": "虚拟存储通常以页或段为单位离散地装入内存，不要求整个作业连续驻留。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-tf-004",
+      "stemEn": "The maximum capacity of virtual memory is arbitrary.",
+      "stemCn": "虚拟存储器的最大容量是任意的。",
+      "answer": "F",
+      "explanationCn": "虚拟存储器容量受地址结构、外存容量和系统实现等限制，并不是任意无限的。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch10-tf-005",
+      "stemEn": "When a process runs, if all its working-set pages are in virtual memory, the process can run effectively; otherwise frequent page-in and page-out will occur.",
+      "stemCn": "在进程运行时，如果它的工作页面都在虚拟存储器内，能够使该进程有效的运行，否则会出现频繁的页面调入调出现象。",
+      "answer": "F",
+      "explanationCn": "工作集页面应尽量驻留在主存中，进程才能有效运行；若只在虚拟存储器而不在主存中，仍会产生频繁缺页。",
+      "explanationEn": ""
+    }
+  ],
   "terms": []
 }

@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "build:bank": "node ./scripts/build-bank.mjs",
-    "serve": "python3 -m http.server 8080",
+    "serve": "node ./scripts/dev-server.mjs",
+    "refresh": "./scripts/refresh.sh",
     "tunnel": "./scripts/tunnel.sh",
     "share": "./scripts/share.sh"
   },

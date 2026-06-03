@@ -3,6 +3,349 @@
   "subjectName": "Operating Systems",
   "chapterId": "ch11",
   "chapterName": "File System",
-  "mcq": [],
+  "mcq": [
+    {
+      "id": "os-ch11-001",
+      "stemEn": "From the user's perspective, the purpose of introducing a file system into an operating system is to ____.",
+      "stemCn": "从用户的观点看，操作系统中引入文件系统的目的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Implement file access by name",
+          "textCn": "实现对文件的按名存取"
+        },
+        {
+          "key": "B",
+          "textEn": "Protect user data",
+          "textCn": "保护用户数据"
+        },
+        {
+          "key": "C",
+          "textEn": "Save user and system files and data",
+          "textCn": "保存用户和系统文件及数据"
+        },
+        {
+          "key": "D",
+          "textEn": "Implement virtual storage",
+          "textCn": "实现虚拟存储"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "从用户角度看，文件系统最直接的作用是通过文件名来访问文件，使用户不必关心文件在磁盘上的具体物理位置。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-002",
+      "stemEn": "In a file system, the proper place to store file access control information is ____.",
+      "stemCn": "文件系统中，文件访问控制信息存储的合理位置是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "File allocation table",
+          "textCn": "文件分配表"
+        },
+        {
+          "key": "B",
+          "textEn": "File control block",
+          "textCn": "文件控制块"
+        },
+        {
+          "key": "C",
+          "textEn": "User password table",
+          "textCn": "用户口令表"
+        },
+        {
+          "key": "D",
+          "textEn": "System registry table",
+          "textCn": "系统注册表"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "文件控制块 FCB 保存文件的相关属性和管理信息，其中可以包含访问权限、访问控制等信息。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-003",
+      "stemEn": "Among the following file physical structures, the one suitable for random access and easy file expansion is ____.",
+      "stemCn": "下列文件物理结构中，适合随机访问且易于文件扩展的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Linked structure with fixed-length disk blocks",
+          "textCn": "链接结构且磁盘块定长"
+        },
+        {
+          "key": "B",
+          "textEn": "Indexed structure",
+          "textCn": "索引结构"
+        },
+        {
+          "key": "C",
+          "textEn": "Linked structure with variable-length disk blocks",
+          "textCn": "链接结构且磁盘块变长"
+        },
+        {
+          "key": "D",
+          "textEn": "Contiguous structure",
+          "textCn": "连续结构"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "索引结构通过索引块记录文件各数据块的位置，既能随机访问，又便于增加新的数据块。连续结构随机访问方便但扩展困难，链接结构易扩展但不便随机访问。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-004",
+      "stemEn": "On a disk, the physical file structure most likely to cause storage fragmentation is ____.",
+      "stemCn": "在磁盘上，最容易导致存储碎片发生的物理文件结构是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Sequential structure",
+          "textCn": "顺序结构"
+        },
+        {
+          "key": "B",
+          "textEn": "Implicit linked structure",
+          "textCn": "隐式链接"
+        },
+        {
+          "key": "C",
+          "textEn": "Indexed structure",
+          "textCn": "索引结构"
+        },
+        {
+          "key": "D",
+          "textEn": "Explicit linked structure",
+          "textCn": "显示链接"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "顺序结构要求文件占用连续磁盘空间，文件增删后容易产生外部碎片。链接结构和索引结构可以离散分配，通常不易产生这种外部碎片。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-005",
+      "stemEn": "A file system uses two-level indexed allocation. If each disk block is 1 KB and each block number occupies 4 B, the maximum size of a single file in this system is ____.",
+      "stemCn": "文件系统采用两级索引分配方式，如果每个磁盘块的大小为1KB，每个盘块号占4B，则该系统中，单个文件的最大长度是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "128 MB",
+          "textCn": "128MB"
+        },
+        {
+          "key": "B",
+          "textEn": "64 MB",
+          "textCn": "64MB"
+        },
+        {
+          "key": "C",
+          "textEn": "32 MB",
+          "textCn": "32MB"
+        },
+        {
+          "key": "D",
+          "textEn": "None of the above",
+          "textCn": "以上答案都不对"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "一个索引块可存放 1KB/4B=256 个盘块号。两级索引可定位 256×256 个数据块，每块 1KB，所以最大文件长度为 256×256×1KB=64MB。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-006",
+      "stemEn": "When a file system creates a file, it establishes a ____ for it.",
+      "stemCn": "文件系统在创建一个文件时，为它建立一个（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Logical space",
+          "textCn": "逻辑空间"
+        },
+        {
+          "key": "B",
+          "textEn": "Directory file",
+          "textCn": "目录文件"
+        },
+        {
+          "key": "C",
+          "textEn": "File directory entry",
+          "textCn": "文件目录项"
+        },
+        {
+          "key": "D",
+          "textEn": "Logical structure",
+          "textCn": "逻辑结构"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "创建文件时，系统需要为该文件建立目录项，也就是记录文件名、位置、属性等信息的 FCB 或目录记录。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-007",
+      "stemEn": "The purpose of using a multi-level directory structure in a file system is to ____.",
+      "stemCn": "文件系统采用多级目录结构的目的是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Reduce system overhead",
+          "textCn": "减少系统开销"
+        },
+        {
+          "key": "B",
+          "textEn": "Shorten transfer time",
+          "textCn": "缩短传送时间"
+        },
+        {
+          "key": "C",
+          "textEn": "Save storage space",
+          "textCn": "节省存储空间"
+        },
+        {
+          "key": "D",
+          "textEn": "Resolve naming conflicts",
+          "textCn": "解决命名冲突"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "多级目录允许不同目录下存在同名文件，通过路径区分文件，从而解决命名冲突问题。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-008",
+      "stemEn": "The information stored in a file directory is ____.",
+      "stemCn": "文件目录存放的信息是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The directory entries of all subdirectory files and data files in this directory",
+          "textCn": "该目录中所有子目录文件和数据文件的目录"
+        },
+        {
+          "key": "B",
+          "textEn": "The data information stored in a certain file",
+          "textCn": "某一文件存放的数据信息"
+        },
+        {
+          "key": "C",
+          "textEn": "The file directory of a certain file",
+          "textCn": "某一文件的文件目录"
+        },
+        {
+          "key": "D",
+          "textEn": "All data file directories in this directory",
+          "textCn": "该目录中所有数据文件目录"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "文件目录本质上是目录项的有序集合，其中既可以包含子目录的目录项，也可以包含普通数据文件的目录项。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-009",
+      "stemEn": "A bitmap can be used for ____.",
+      "stemCn": "位示图可用于（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "File security",
+          "textCn": "文件的保密"
+        },
+        {
+          "key": "B",
+          "textEn": "Searching file directories",
+          "textCn": "文件目录的查找"
+        },
+        {
+          "key": "C",
+          "textEn": "Management of disk space",
+          "textCn": "磁盘空间的管理"
+        },
+        {
+          "key": "D",
+          "textEn": "Management of memory space",
+          "textCn": "内存空间的管理"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "位示图常用于记录磁盘块的空闲或占用状态，因此可用于磁盘空间管理。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-010",
+      "stemEn": "In a file system, each FCB occupies 64 B, each disk block is 1 KB, and a single-level directory is used. If the file directory contains 3200 directory entries, the average number of disk accesses needed to find a file is ____.",
+      "stemCn": "一个文件系统中，其FCB占64B，一个盘块大小为1KB，采用一级目录。假定文件目录中有3200个目录项。则查找一个文件平均需要（）次访问磁盘。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "100",
+          "textCn": "100"
+        },
+        {
+          "key": "B",
+          "textEn": "50",
+          "textCn": "50"
+        },
+        {
+          "key": "C",
+          "textEn": "200",
+          "textCn": "200"
+        },
+        {
+          "key": "D",
+          "textEn": "54",
+          "textCn": "54"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "一个盘块可存放 1KB/64B=16 个目录项，3200 个目录项共占 200 个目录块。一级目录顺序查找时平均访问一半目录块，所以平均访问 100 次。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "os-ch11-tf-001",
+      "stemEn": "In a multi-level directory structure, file access is performed through the path name and the user directory name.",
+      "stemCn": "在多级目录结构中对文件的访问是通过路径名和用户目录名进行的。",
+      "answer": "F",
+      "explanationCn": "多级目录结构中文件访问主要通过路径名和文件名进行，而不是通过用户目录名本身完成。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-tf-002",
+      "stemEn": "A file can be divided into several physical blocks of equal size, and the physical block size can be specified arbitrarily.",
+      "stemCn": "文件可以被划分成大小相等的若干物理块且物理块大小也可任意指定。",
+      "answer": "F",
+      "explanationCn": "文件可以划分为物理块，但物理块大小通常由系统或存储设备确定，不能任意指定。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-tf-003",
+      "stemEn": "For a file with three-level indexing, accessing a record usually requires three disk accesses.",
+      "stemCn": "对于一个具有三级索引的文件，存取一个记录通常访问三次磁盘。",
+      "answer": "F",
+      "explanationCn": "三级索引通常需要依次访问多级索引块后再访问数据块，通常不止三次磁盘访问。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-tf-004",
+      "stemEn": "The logical structure of a file refers to the storage organization of the file on disk.",
+      "stemCn": "文件的逻辑结构是指文件在磁盘上的存储组织方式。",
+      "answer": "F",
+      "explanationCn": "文件在磁盘上的存储组织方式属于物理结构；逻辑结构描述的是用户或程序看到的文件组织形式。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch11-tf-005",
+      "stemEn": "Files using linked allocation can be randomly accessed.",
+      "stemCn": "对于采用链接分配的文件，可以进行随机访问。",
+      "answer": "F",
+      "explanationCn": "链接分配需要沿着指针逐块查找，适合顺序访问，不支持高效随机访问。",
+      "explanationEn": ""
+    }
+  ],
   "terms": []
 }

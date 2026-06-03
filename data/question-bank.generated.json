@@ -118,7 +118,7 @@
         },
         {
           "id": "ch10",
-          "name": "Virtual Memory"
+          "name": "virtual memory"
         },
         {
           "id": "ch11",
@@ -130,7 +130,7 @@
         },
         {
           "id": "ch13",
-          "name": "IO System"
+          "name": "I/O Systems"
         }
       ],
       "mcq": [
@@ -2213,6 +2213,1067 @@
           "answerKey": "A",
           "explanationCn": "初始55MB，分配15MB和30MB后剩10MB；释放15MB后有15MB和10MB两个空闲区。最佳适应分配8MB选10MB区剩2MB，再分配6MB选15MB区剩9MB，所以最大空闲区为9MB。",
           "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-001",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "Which of the following statements about conventional memory is correct?",
+          "stemCn": "下列关于常规存储器的论述中，正确的论述是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Before running, the program must be fully loaded into memory, and it must remain in memory throughout execution.",
+              "textCn": "作业在运行前，必须全部装入内存，且在运行过程中也一直驻留内存"
+            },
+            {
+              "key": "B",
+              "textEn": "Before running, the job does not have to be fully loaded into memory, but it must remain in memory throughout execution.",
+              "textCn": "作业在运行前，不必全部装入内存，但在运行过程中必须一直驻留内存"
+            },
+            {
+              "key": "C",
+              "textEn": "Before running, the job does not have to be fully loaded into memory, and it does not have to remain in memory throughout execution.",
+              "textCn": "作业在运行前，不必全部装入内存，且在运行过程中也不必一直驻留内存"
+            },
+            {
+              "key": "D",
+              "textEn": "Before running, the job must be fully loaded into memory, but it does not have to remain in memory throughout execution.",
+              "textCn": "作业在运行前，必须全部装入内存，但在运行过程中不必一直驻留内存"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "常规存储管理要求作业运行前全部装入内存，并且运行期间通常一直驻留内存，这也是虚拟存储技术要突破的限制。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-002",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "To make the virtual memory system effectively play its expected role, the running program should have which characteristic?",
+          "stemCn": "为使虚存系统有效地发挥其预期的作用，所运行的程序应具有的特性是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "The program should not contain too many I/O operations.",
+              "textCn": "该程序不应含有过多的I/O操作"
+            },
+            {
+              "key": "B",
+              "textEn": "The program should not have too much instruction correlation.",
+              "textCn": "该程序的指令相关性不应过多"
+            },
+            {
+              "key": "C",
+              "textEn": "The size of the program should not exceed the actual memory capacity.",
+              "textCn": "该程序的大小不应超过实际的内存容量"
+            },
+            {
+              "key": "D",
+              "textEn": "The program should have good locality.",
+              "textCn": "该程序应具有较好的局部性"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "虚拟存储依赖程序局部性原理，若程序在一段时间内集中访问少量页面，就能减少缺页次数并提高运行效率。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-003",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "Which of the following is the difference between demand paging storage management and basic paging storage management?",
+          "stemCn": "（）是请求分页存储管理方式和基本分页存储管理方式的区别。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Address relocation",
+              "textCn": "地址重定向"
+            },
+            {
+              "key": "B",
+              "textEn": "The job does not have to be loaded into a contiguous area.",
+              "textCn": "不必将作业装入连续区域"
+            },
+            {
+              "key": "C",
+              "textEn": "The whole job does not have to be loaded into memory.",
+              "textCn": "不必将作业全部装入内存"
+            },
+            {
+              "key": "D",
+              "textEn": "Using TLB technology.",
+              "textCn": "采用快表技术"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "基本分页通常要求作业全部装入内存后运行，而请求分页允许只装入当前需要的页面，缺页时再调入。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-004",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "The basis of a virtual memory management system is the program's () theory.",
+          "stemCn": "虚拟存储管理系统的基础是程序的（）理论。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Dynamic property",
+              "textCn": "动态性"
+            },
+            {
+              "key": "B",
+              "textEn": "Global property",
+              "textCn": "全局性"
+            },
+            {
+              "key": "C",
+              "textEn": "Virtual property",
+              "textCn": "虚拟性"
+            },
+            {
+              "key": "D",
+              "textEn": "Locality",
+              "textCn": "局部性"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "虚拟存储管理建立在程序局部性原理之上，即程序在一段时间内往往集中访问有限的代码和数据区域。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-005",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "In the page table of demand paging management, several additional items such as the modified bit and the access bit are added for reference by ().",
+          "stemCn": "在请求分页管理的页表中增加了若干项信息，其中修改位和访问位供（）参考。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Program access",
+              "textCn": "程序访问"
+            },
+            {
+              "key": "B",
+              "textEn": "Page allocation",
+              "textCn": "分配页面"
+            },
+            {
+              "key": "C",
+              "textEn": "Replacement algorithm",
+              "textCn": "置换算法"
+            },
+            {
+              "key": "D",
+              "textEn": "Page loading",
+              "textCn": "调入页面"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "访问位反映页面是否近期被访问，修改位反映页面是否被写过，这些信息常用于页面置换算法选择淘汰页面。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-006",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "In a virtual paging storage management system, if the page accessed by a process is not in main memory and there is no available frame in main memory, the correct processing sequence is ().",
+          "stemCn": "在虚拟分页存储管理系统中，若进程访问的页面不在主存，且主存中没有可用的空闲帧时，系统正确的处理顺序为（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Decide the page to be eliminated → page-in → page fault interrupt → page-out",
+              "textCn": "决定淘汰页→页面调入→缺页中断→页面调出"
+            },
+            {
+              "key": "B",
+              "textEn": "Decide the page to be eliminated → page-out → page fault interrupt → page-in",
+              "textCn": "决定淘汰页→页面调出→缺页中断→页面调入"
+            },
+            {
+              "key": "C",
+              "textEn": "Page fault interrupt → decide the page to be eliminated → page-out → page-in",
+              "textCn": "缺页中断→决定淘汰页→页面调出→页面调入"
+            },
+            {
+              "key": "D",
+              "textEn": "Page fault interrupt → decide the page to be eliminated → page-in → page-out",
+              "textCn": "缺页中断→决定淘汰页→页面调入→页面调出"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "访问页面不在内存时先产生缺页中断；若无空闲页框，需要先按置换算法确定淘汰页并调出，再把所需页面调入内存。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-007",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "The main cause of thrashing in a system is ().",
+          "stemCn": "系统产生抖动主要原因是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "The memory space is too small.",
+              "textCn": "内存空间太小"
+            },
+            {
+              "key": "B",
+              "textEn": "The CPU runs too slowly.",
+              "textCn": "CPU运行速度太慢"
+            },
+            {
+              "key": "C",
+              "textEn": "The CPU scheduling algorithm is unreasonable.",
+              "textCn": "CPU调度算法不合理"
+            },
+            {
+              "key": "D",
+              "textEn": "The page replacement algorithm is unreasonable.",
+              "textCn": "页面置换算法不合理"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "抖动是由于页面频繁调入调出导致的，直接原因通常是页面置换策略或驻留集分配不当，使进程缺页率过高。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-008",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "When a page fault occurs during process execution, after the operating system handles it, the process should execute which instruction?",
+          "stemCn": "进程在执行中发生了缺页中断，经操作系统处理后，应让其执行（）指令。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "The instruction after the interrupted instruction",
+              "textCn": "被中断的后一条"
+            },
+            {
+              "key": "B",
+              "textEn": "The first instruction at startup",
+              "textCn": "启动时的那一条"
+            },
+            {
+              "key": "C",
+              "textEn": "The instruction before the interrupted instruction",
+              "textCn": "被中断的前一条"
+            },
+            {
+              "key": "D",
+              "textEn": "The interrupted instruction",
+              "textCn": "被中断的那一条"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "缺页中断发生时，导致中断的指令尚未成功完成；页面调入后应重新执行被中断的那条指令。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-009",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "Considering page replacement algorithms, if the system has m physical frames allocated, initially all empty, and the page reference string has length p containing n distinct page numbers, regardless of the algorithm used, the number of page faults will not be less than ().",
+          "stemCn": "考虑页面置换算法，系统有m个物理块供调度，初始时全空，页面引用串长度为p，包含了n个不同的页号，无论用什么算法，缺页次数不会少于（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "min(m, n)",
+              "textCn": "min(m, n)"
+            },
+            {
+              "key": "B",
+              "textEn": "m",
+              "textCn": "m"
+            },
+            {
+              "key": "C",
+              "textEn": "p",
+              "textCn": "p"
+            },
+            {
+              "key": "D",
+              "textEn": "n",
+              "textCn": "n"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "引用串中有n个不同页号，每个不同页面第一次被访问时必然不在内存中，因此至少会产生n次缺页。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-010",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "A virtual memory system uses paged memory management and the LRU page replacement algorithm. Given the page reference string 1, 8, 1, 7, 8, 2, 7, 2, 1, 8, 3, 8, 2, 1, 3, 1, 7, 1, 3, 7, and assuming memory capacity is 4 pages and is initially empty, the number of page faults is ().",
+          "stemCn": "某虚拟存储器系统采用页式内存管理，使用LRU页面替换算法，考虑页面访问地址序列：1 8 1 7 8 2 7 2 1 8 3 8 2 1 3 1 7 1 3 7，假定内存容量为4个页面，开始时是空的，则缺页次数是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "6",
+              "textCn": "6"
+            },
+            {
+              "key": "B",
+              "textEn": "7",
+              "textCn": "7"
+            },
+            {
+              "key": "C",
+              "textEn": "4",
+              "textCn": "4"
+            },
+            {
+              "key": "D",
+              "textEn": "5",
+              "textCn": "5"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "内存初始为空，前面依次装入1、8、7、2产生4次缺页；之后访问3时淘汰最近最久未使用的7，第17次再访问7时淘汰8，共产生6次缺页。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-001",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "From the user's perspective, the purpose of introducing a file system into an operating system is to ____.",
+          "stemCn": "从用户的观点看，操作系统中引入文件系统的目的是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Implement file access by name",
+              "textCn": "实现对文件的按名存取"
+            },
+            {
+              "key": "B",
+              "textEn": "Protect user data",
+              "textCn": "保护用户数据"
+            },
+            {
+              "key": "C",
+              "textEn": "Save user and system files and data",
+              "textCn": "保存用户和系统文件及数据"
+            },
+            {
+              "key": "D",
+              "textEn": "Implement virtual storage",
+              "textCn": "实现虚拟存储"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "从用户角度看，文件系统最直接的作用是通过文件名来访问文件，使用户不必关心文件在磁盘上的具体物理位置。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-002",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "In a file system, the proper place to store file access control information is ____.",
+          "stemCn": "文件系统中，文件访问控制信息存储的合理位置是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "File allocation table",
+              "textCn": "文件分配表"
+            },
+            {
+              "key": "B",
+              "textEn": "File control block",
+              "textCn": "文件控制块"
+            },
+            {
+              "key": "C",
+              "textEn": "User password table",
+              "textCn": "用户口令表"
+            },
+            {
+              "key": "D",
+              "textEn": "System registry table",
+              "textCn": "系统注册表"
+            }
+          ],
+          "answerKey": "B",
+          "explanationCn": "文件控制块 FCB 保存文件的相关属性和管理信息，其中可以包含访问权限、访问控制等信息。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-003",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "Among the following file physical structures, the one suitable for random access and easy file expansion is ____.",
+          "stemCn": "下列文件物理结构中，适合随机访问且易于文件扩展的是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Linked structure with fixed-length disk blocks",
+              "textCn": "链接结构且磁盘块定长"
+            },
+            {
+              "key": "B",
+              "textEn": "Indexed structure",
+              "textCn": "索引结构"
+            },
+            {
+              "key": "C",
+              "textEn": "Linked structure with variable-length disk blocks",
+              "textCn": "链接结构且磁盘块变长"
+            },
+            {
+              "key": "D",
+              "textEn": "Contiguous structure",
+              "textCn": "连续结构"
+            }
+          ],
+          "answerKey": "B",
+          "explanationCn": "索引结构通过索引块记录文件各数据块的位置，既能随机访问，又便于增加新的数据块。连续结构随机访问方便但扩展困难，链接结构易扩展但不便随机访问。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-004",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "On a disk, the physical file structure most likely to cause storage fragmentation is ____.",
+          "stemCn": "在磁盘上，最容易导致存储碎片发生的物理文件结构是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Sequential structure",
+              "textCn": "顺序结构"
+            },
+            {
+              "key": "B",
+              "textEn": "Implicit linked structure",
+              "textCn": "隐式链接"
+            },
+            {
+              "key": "C",
+              "textEn": "Indexed structure",
+              "textCn": "索引结构"
+            },
+            {
+              "key": "D",
+              "textEn": "Explicit linked structure",
+              "textCn": "显示链接"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "顺序结构要求文件占用连续磁盘空间，文件增删后容易产生外部碎片。链接结构和索引结构可以离散分配，通常不易产生这种外部碎片。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-005",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "A file system uses two-level indexed allocation. If each disk block is 1 KB and each block number occupies 4 B, the maximum size of a single file in this system is ____.",
+          "stemCn": "文件系统采用两级索引分配方式，如果每个磁盘块的大小为1KB，每个盘块号占4B，则该系统中，单个文件的最大长度是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "128 MB",
+              "textCn": "128MB"
+            },
+            {
+              "key": "B",
+              "textEn": "64 MB",
+              "textCn": "64MB"
+            },
+            {
+              "key": "C",
+              "textEn": "32 MB",
+              "textCn": "32MB"
+            },
+            {
+              "key": "D",
+              "textEn": "None of the above",
+              "textCn": "以上答案都不对"
+            }
+          ],
+          "answerKey": "B",
+          "explanationCn": "一个索引块可存放 1KB/4B=256 个盘块号。两级索引可定位 256×256 个数据块，每块 1KB，所以最大文件长度为 256×256×1KB=64MB。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-006",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "When a file system creates a file, it establishes a ____ for it.",
+          "stemCn": "文件系统在创建一个文件时，为它建立一个（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Logical space",
+              "textCn": "逻辑空间"
+            },
+            {
+              "key": "B",
+              "textEn": "Directory file",
+              "textCn": "目录文件"
+            },
+            {
+              "key": "C",
+              "textEn": "File directory entry",
+              "textCn": "文件目录项"
+            },
+            {
+              "key": "D",
+              "textEn": "Logical structure",
+              "textCn": "逻辑结构"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "创建文件时，系统需要为该文件建立目录项，也就是记录文件名、位置、属性等信息的 FCB 或目录记录。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-007",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "The purpose of using a multi-level directory structure in a file system is to ____.",
+          "stemCn": "文件系统采用多级目录结构的目的是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "Reduce system overhead",
+              "textCn": "减少系统开销"
+            },
+            {
+              "key": "B",
+              "textEn": "Shorten transfer time",
+              "textCn": "缩短传送时间"
+            },
+            {
+              "key": "C",
+              "textEn": "Save storage space",
+              "textCn": "节省存储空间"
+            },
+            {
+              "key": "D",
+              "textEn": "Resolve naming conflicts",
+              "textCn": "解决命名冲突"
+            }
+          ],
+          "answerKey": "D",
+          "explanationCn": "多级目录允许不同目录下存在同名文件，通过路径区分文件，从而解决命名冲突问题。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-008",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "The information stored in a file directory is ____.",
+          "stemCn": "文件目录存放的信息是（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "The directory entries of all subdirectory files and data files in this directory",
+              "textCn": "该目录中所有子目录文件和数据文件的目录"
+            },
+            {
+              "key": "B",
+              "textEn": "The data information stored in a certain file",
+              "textCn": "某一文件存放的数据信息"
+            },
+            {
+              "key": "C",
+              "textEn": "The file directory of a certain file",
+              "textCn": "某一文件的文件目录"
+            },
+            {
+              "key": "D",
+              "textEn": "All data file directories in this directory",
+              "textCn": "该目录中所有数据文件目录"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "文件目录本质上是目录项的有序集合，其中既可以包含子目录的目录项，也可以包含普通数据文件的目录项。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-009",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "A bitmap can be used for ____.",
+          "stemCn": "位示图可用于（）。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "File security",
+              "textCn": "文件的保密"
+            },
+            {
+              "key": "B",
+              "textEn": "Searching file directories",
+              "textCn": "文件目录的查找"
+            },
+            {
+              "key": "C",
+              "textEn": "Management of disk space",
+              "textCn": "磁盘空间的管理"
+            },
+            {
+              "key": "D",
+              "textEn": "Management of memory space",
+              "textCn": "内存空间的管理"
+            }
+          ],
+          "answerKey": "C",
+          "explanationCn": "位示图常用于记录磁盘块的空闲或占用状态，因此可用于磁盘空间管理。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-010",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "In a file system, each FCB occupies 64 B, each disk block is 1 KB, and a single-level directory is used. If the file directory contains 3200 directory entries, the average number of disk accesses needed to find a file is ____.",
+          "stemCn": "一个文件系统中，其FCB占64B，一个盘块大小为1KB，采用一级目录。假定文件目录中有3200个目录项。则查找一个文件平均需要（）次访问磁盘。",
+          "options": [
+            {
+              "key": "A",
+              "textEn": "100",
+              "textCn": "100"
+            },
+            {
+              "key": "B",
+              "textEn": "50",
+              "textCn": "50"
+            },
+            {
+              "key": "C",
+              "textEn": "200",
+              "textCn": "200"
+            },
+            {
+              "key": "D",
+              "textEn": "54",
+              "textCn": "54"
+            }
+          ],
+          "answerKey": "A",
+          "explanationCn": "一个盘块可存放 1KB/64B=16 个目录项，3200 个目录项共占 200 个目录块。一级目录顺序查找时平均访问一半目录块，所以平均访问 100 次。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch12-001",
+          "chapterId": "ch12",
+          "chapterName": "Secondary Storage",
+          "stemEn": "The read/write unit of a disk is ( ).",
+          "stemCn": "磁盘的读写单位是（ ）。",
+          "options": {
+            "A": {
+              "textEn": "Sector",
+              "textCn": "扇区"
+            },
+            "B": {
+              "textEn": "Byte",
+              "textCn": "字节"
+            },
+            "C": {
+              "textEn": "Cluster",
+              "textCn": "簇"
+            },
+            "D": {
+              "textEn": "Block",
+              "textCn": "块"
+            }
+          },
+          "answerKey": "A",
+          "explanationCn": "磁盘进行物理读写时通常以扇区为基本单位，扇区是磁盘上能够独立读写的最小物理单位。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch12-002",
+          "chapterId": "ch12",
+          "chapterName": "Secondary Storage",
+          "stemEn": "Among the following algorithms, which one may cause starvation?",
+          "stemCn": "以下算法中，（ ）可能出现“饥饿”现象。",
+          "options": {
+            "A": {
+              "textEn": "First-Come, First-Served",
+              "textCn": "先来先服务"
+            },
+            "B": {
+              "textEn": "Circular SCAN algorithm",
+              "textCn": "循环扫描算法"
+            },
+            "C": {
+              "textEn": "Shortest Seek Time First",
+              "textCn": "最短寻找时间优先"
+            },
+            "D": {
+              "textEn": "LOOK algorithm",
+              "textCn": "LOOK算法"
+            }
+          },
+          "answerKey": "C",
+          "explanationCn": "最短寻找时间优先总是优先处理距离当前磁头最近的请求，若附近请求不断到来，远处请求可能长期得不到服务，从而产生饥饿现象。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch12-003",
+          "chapterId": "ch12",
+          "chapterName": "Secondary Storage",
+          "stemEn": "Assume the disk head is currently at track 10 and moving in the direction of increasing track numbers. Given the request queue 35, 45, 12, 68, 110, 180, 170, 195, the track access sequence obtained by the SCAN scheduling algorithm is ( ).",
+          "stemCn": "假设磁头当前位于第10道，正在向磁道序号增加的方向移动。现有一个磁道访问请求序列为35，45，12，68，110，180，170，195，采用SCAN调度算法得到的磁道访问序列是（ ）。",
+          "options": {
+            "A": {
+              "textEn": "12, 35, 45, 68, 110, 170, 180, 195",
+              "textCn": "12,35,45,68,110,170,180,195"
+            },
+            "B": {
+              "textEn": "10, 68, 45, 35, 12, 170, 180, 195",
+              "textCn": "10,68,45,35,12,170,180,195"
+            },
+            "C": {
+              "textEn": "110, 170, 180, 195, 68, 45, 35, 12",
+              "textCn": "110,170,180,195,68,45,35,12"
+            },
+            "D": {
+              "textEn": "110, 170, 180, 195, 12, 35, 45, 68",
+              "textCn": "110,170,180,195,12,35,45,68"
+            }
+          },
+          "answerKey": "C",
+          "explanationCn": "按题图给出的答案为C。SCAN算法按当前移动方向先服务该方向上的请求，到达一端后再反向服务另一侧请求。",
+          "explanationEn": "",
+          "needsReview": true
+        },
+        {
+          "id": "os-ch12-004",
+          "chapterId": "ch12",
+          "chapterName": "Secondary Storage",
+          "stemEn": "If the disk head is currently at track 53, and the four pending disk requests are 98, 37, 124, and 65, which scheduling algorithm will make the disk head reach track 65 next? Assume the head is currently moving toward smaller track numbers.",
+          "stemCn": "如果磁头当前正在第53号磁道，现有4个磁道访问请求序列为98、37、124、65，当采用（ ）调度算法时，下一次磁头将达到65号磁道。假设此刻磁头方向指向号数小的磁道。",
+          "options": {
+            "A": {
+              "textEn": "LOOK algorithm",
+              "textCn": "LOOK算法"
+            },
+            "B": {
+              "textEn": "SCAN algorithm",
+              "textCn": "扫描算法"
+            },
+            "C": {
+              "textEn": "Shortest Seek Time First",
+              "textCn": "最短寻道时间优先"
+            },
+            "D": {
+              "textEn": "First-Come, First-Served",
+              "textCn": "先来先服务"
+            }
+          },
+          "answerKey": "C",
+          "explanationCn": "当前磁头在53号磁道，请求中距离53最近的是65，距离为12。因此采用最短寻道时间优先算法时，下一次会选择65号磁道。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch12-005",
+          "chapterId": "ch12",
+          "chapterName": "Secondary Storage",
+          "stemEn": "Among the following algorithms, which one may randomly change the moving direction of the disk head?",
+          "stemCn": "在以下算法中，（ ）可能会随时改变磁头的运动方向。",
+          "options": {
+            "A": {
+              "textEn": "First-Come, First-Served",
+              "textCn": "先来先服务"
+            },
+            "B": {
+              "textEn": "LOOK algorithm",
+              "textCn": "Look算法"
+            },
+            "C": {
+              "textEn": "SCAN algorithm",
+              "textCn": "扫描算法"
+            },
+            "D": {
+              "textEn": "Circular SCAN algorithm",
+              "textCn": "循环扫描算法"
+            }
+          },
+          "answerKey": "A",
+          "explanationCn": "先来先服务算法完全按照请求到达顺序访问磁道，不考虑磁头当前方向，因此相邻请求可能分布在不同方向上，磁头方向可能频繁改变。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-001",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "The I/O control of disk devices mainly adopts the ( ) method.",
+          "stemCn": "磁盘设备的 I/O 控制主要是采取（ ）方式。",
+          "options": {
+            "A": {
+              "textEn": "Programmed polling",
+              "textCn": "程序轮询"
+            },
+            "B": {
+              "textEn": "I/O channel",
+              "textCn": "I/O 通道"
+            },
+            "C": {
+              "textEn": "Interrupt control",
+              "textCn": "中断控制"
+            },
+            "D": {
+              "textEn": "DMA",
+              "textCn": "DMA"
+            }
+          },
+          "answerKey": "D",
+          "explanationCn": "磁盘属于高速块设备，数据传输量较大。采用 DMA 可以让数据在磁盘设备和内存之间直接传送，减少 CPU 参与，提高 I/O 效率。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-002",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "The DMA method establishes a direct data path between ( ).",
+          "stemCn": "DMA 方式是在（ ）之间建立一条直接数据通路。",
+          "options": {
+            "A": {
+              "textEn": "I/O device and memory",
+              "textCn": "I/O 设备和内存"
+            },
+            "B": {
+              "textEn": "I/O device and CPU",
+              "textCn": "I/O 设备和 CPU"
+            },
+            "C": {
+              "textEn": "CPU and main memory",
+              "textCn": "CPU 和主存"
+            },
+            "D": {
+              "textEn": "Two I/O devices",
+              "textCn": "两个 I/O 设备"
+            }
+          },
+          "answerKey": "A",
+          "explanationCn": "DMA 的核心思想是让外设和主存之间直接交换数据，CPU 只负责初始化和结束处理，不逐字节参与传输。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-003",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "Device independence means ( ).",
+          "stemCn": "设备的独立性是指（ ）。",
+          "options": {
+            "A": {
+              "textEn": "Each device has a unique identifier",
+              "textCn": "每一台设备都有一个唯一的编号"
+            },
+            "B": {
+              "textEn": "The system manages each device independently",
+              "textCn": "系统对设备的管理是独立的"
+            },
+            "C": {
+              "textEn": "An application program is independent of the physical device actually used",
+              "textCn": "应用程序独立于实际使用的物理设备"
+            },
+            "D": {
+              "textEn": "Devices are independent of the computer system",
+              "textCn": "设备独立于计算机系统"
+            }
+          },
+          "answerKey": "C",
+          "explanationCn": "设备独立性强调用户程序不需要关心具体使用哪台物理设备，只需通过逻辑设备名访问，由操作系统完成映射。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-004",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "When a program uses a system call to open an I/O device, the device identifier usually used is ( ).",
+          "stemCn": "程序员利用系统调用打开 I/O 设备时，通常使用的设备标识是（ ）。",
+          "options": {
+            "A": {
+              "textEn": "Logical device name",
+              "textCn": "逻辑设备名"
+            },
+            "B": {
+              "textEn": "Major device number",
+              "textCn": "主设备号"
+            },
+            "C": {
+              "textEn": "Minor device number",
+              "textCn": "从设备号"
+            },
+            "D": {
+              "textEn": "Physical device name",
+              "textCn": "物理设备名"
+            }
+          },
+          "answerKey": "A",
+          "explanationCn": "用户程序通常使用逻辑设备名访问设备，操作系统再把逻辑设备名转换为具体的物理设备，实现设备独立性。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-005",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "Which of the following statements about dedicated devices and shared devices is incorrect?",
+          "stemCn": "下面关于独占设备和共享设备的说法中不正确的是（ ）。",
+          "options": {
+            "A": {
+              "textEn": "Printers and scanners are dedicated devices",
+              "textCn": "打印机、扫描仪等属于独占设备"
+            },
+            "B": {
+              "textEn": "Dedicated devices usually use static allocation",
+              "textCn": "对独占设备往往采用静态分配方式"
+            },
+            "C": {
+              "textEn": "Shared devices usually use static allocation",
+              "textCn": "对共享设备往往采用静态分配方式"
+            },
+            "D": {
+              "textEn": "A shared device means that after one job has not been removed, another job can use it, but at any moment only one job uses it",
+              "textCn": "共享设备是指一个作业尚未撤离，另一个作业即可使用，但每一时刻只有一个作业使用"
+            }
+          },
+          "answerKey": "C",
+          "explanationCn": "共享设备一般采用动态分配方式，多个进程可以按一定策略共享使用设备。因此说共享设备往往采用静态分配方式是不正确的。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-006",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "The main purpose of Spooling technology is ( ).",
+          "stemCn": "Spooling 技术的主要目的是（ ）。",
+          "options": {
+            "A": {
+              "textEn": "Reduce the programming burden of users",
+              "textCn": "减轻用户编程负担"
+            },
+            "B": {
+              "textEn": "Increase the speed of information exchange between CPU and devices",
+              "textCn": "提高 CPU 和设备交换信息的速度"
+            },
+            "C": {
+              "textEn": "Transform dedicated devices into virtual devices and improve their utilization",
+              "textCn": "将独占设备改造成虚拟设备，提高独占设备的利用率"
+            },
+            "D": {
+              "textEn": "Provide primary and auxiliary interfaces",
+              "textCn": "提供主、辅接口"
+            }
+          },
+          "answerKey": "C",
+          "explanationCn": "Spooling 通过磁盘缓冲区模拟独占设备，使多个作业可以像共享设备一样提交请求，从而提高独占设备的利用率。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-007",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "After a user program issues a disk I/O request, the correct processing flow of the system is ( ).",
+          "stemCn": "用户程序发出磁盘 I/O 请求后，系统的正确处理流程是（ ）。",
+          "options": {
+            "A": {
+              "textEn": "User program → system call handler → interrupt handler → device driver",
+              "textCn": "用户程序 → 系统调用处理程序 → 中断处理程序 → 设备驱动程序"
+            },
+            "B": {
+              "textEn": "User program → device driver → interrupt handler → system call handler",
+              "textCn": "用户程序 → 设备驱动程序 → 中断处理程序 → 系统调用处理程序"
+            },
+            "C": {
+              "textEn": "User program → system call handler → device driver → interrupt handler",
+              "textCn": "用户程序 → 系统调用处理程序 → 设备驱动程序 → 中断处理程序"
+            },
+            "D": {
+              "textEn": "User program → device driver → system call handler → interrupt handler",
+              "textCn": "用户程序 → 设备驱动程序 → 系统调用处理程序 → 中断处理程序"
+            }
+          },
+          "answerKey": "C",
+          "explanationCn": "用户程序先通过系统调用进入内核，再由系统调用处理程序转交给设备驱动程序。设备完成 I/O 后，通过中断处理程序通知系统。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-008",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "A virtual device refers to ( ).",
+          "stemCn": "虚拟设备是指（ ）。",
+          "options": {
+            "A": {
+              "textEn": "Transforming one physical device into multiple corresponding logical devices",
+              "textCn": "把一个物理设备变换成多个对应的逻辑设备"
+            },
+            "B": {
+              "textEn": "Allowing users to use physical devices in a standardized way",
+              "textCn": "允许用户以标准化方式来使用物理设备"
+            },
+            "C": {
+              "textEn": "Allowing user programs to use system devices without being fully loaded into memory",
+              "textCn": "允许用户程序不必全部装入主存便可使用系统中的设备"
+            },
+            "D": {
+              "textEn": "Allowing users to use more devices than the physical devices in the system",
+              "textCn": "允许用户使用比系统中具有的物理设备更多的设备"
+            }
+          },
+          "answerKey": "A",
+          "explanationCn": "虚拟设备是通过软件技术把一个物理设备抽象成多个逻辑设备，使多个用户或作业看起来可以同时使用该设备。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-009",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "Which of the following does not belong to the device management data structures?",
+          "stemCn": "以下（ ）不属于设备管理数据结构。",
+          "options": {
+            "A": {
+              "textEn": "COCT",
+              "textCn": "COCT"
+            },
+            "B": {
+              "textEn": "DCT",
+              "textCn": "DCT"
+            },
+            "C": {
+              "textEn": "PCB",
+              "textCn": "PCB"
+            },
+            "D": {
+              "textEn": "CHCT",
+              "textCn": "CHCT"
+            }
+          },
+          "answerKey": "C",
+          "explanationCn": "PCB 是进程控制块，属于进程管理数据结构。DCT、COCT、CHCT 等才是设备管理中常见的数据结构。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-010",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "A file occupies 10 disk blocks. The file needs to be read block by block into the main-memory buffer and analyzed in the user area. Assume one buffer has the same size as one disk block, reading one disk block into a buffer takes 100 μs, transferring data from the buffer to the user area takes 50 μs, and the CPU takes 50 μs to analyze one block. Under a double-buffer structure, the time required to read and analyze the file is ( ).",
+          "stemCn": "某文件占 10 个磁盘块，现要把该文件磁盘块逐个读入主存缓冲区，并送用户区进行分析。假设一个缓冲区与一个磁盘块大小相同，把一个磁盘块读入缓冲区的时间为 100μs，将缓冲区的数据传送到用户区的时间是 50μs，CPU 对一块数据进行分析的时间为 50μs。在双缓冲区结构下，读入并分析该文件的时间是（ ）。",
+          "options": {
+            "A": {
+              "textEn": "1000 μs",
+              "textCn": "1000μs"
+            },
+            "B": {
+              "textEn": "1500 μs",
+              "textCn": "1500μs"
+            },
+            "C": {
+              "textEn": "1100 μs",
+              "textCn": "1100μs"
+            },
+            "D": {
+              "textEn": "2000 μs",
+              "textCn": "2000μs"
+            }
+          },
+          "answerKey": "C",
+          "explanationCn": "双缓冲区可以让读入下一个磁盘块与处理当前磁盘块并行。10 个磁盘块读入缓冲区需要 10×100=1000μs，最后一个磁盘块还需传送和分析 50+50=100μs，所以总时间为 1100μs。",
+          "explanationEn": ""
         }
       ],
       "tf": [
@@ -2464,6 +3525,156 @@
           "stemCn": "引入TLB是为了解决分页时两次内存访问的问题。",
           "answer": "T",
           "explanationCn": "TLB用于缓存近期使用的页表项，命中时可直接得到页框号，减少普通分页中先查页表再访问数据的额外访存开销。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-tf-001",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "Thrashing means that a process frequently performs page replacement, and the time spent on swapping is greater than the time spent on execution.",
+          "stemCn": "抖动是指进程频繁进行页面置换。在换页上的时间多于进程执行的时间。",
+          "answer": "T",
+          "explanationCn": "抖动表现为页面频繁调入调出，系统大量时间花在换页上，进程真正执行的时间反而很少。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-tf-002",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "No matter when, to improve CPU utilization, more multiprogramming should be added.",
+          "stemCn": "无论何时想要提高CPU的利用率，都应该增加多道程序的道。",
+          "answer": "F",
+          "explanationCn": "多道程序度过高可能导致内存不足和频繁缺页，甚至产生抖动，从而降低CPU利用率。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-tf-003",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "Discreteness is a characteristic of virtual memory.",
+          "stemCn": "离散性是虚拟存储的特征。",
+          "answer": "T",
+          "explanationCn": "虚拟存储通常以页或段为单位离散地装入内存，不要求整个作业连续驻留。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-tf-004",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "The maximum capacity of virtual memory is arbitrary.",
+          "stemCn": "虚拟存储器的最大容量是任意的。",
+          "answer": "F",
+          "explanationCn": "虚拟存储器容量受地址结构、外存容量和系统实现等限制，并不是任意无限的。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch10-tf-005",
+          "chapterId": "ch10",
+          "chapterName": "virtual memory",
+          "stemEn": "When a process runs, if all its working-set pages are in virtual memory, the process can run effectively; otherwise frequent page-in and page-out will occur.",
+          "stemCn": "在进程运行时，如果它的工作页面都在虚拟存储器内，能够使该进程有效的运行，否则会出现频繁的页面调入调出现象。",
+          "answer": "F",
+          "explanationCn": "工作集页面应尽量驻留在主存中，进程才能有效运行；若只在虚拟存储器而不在主存中，仍会产生频繁缺页。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-tf-001",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "In a multi-level directory structure, file access is performed through the path name and the user directory name.",
+          "stemCn": "在多级目录结构中对文件的访问是通过路径名和用户目录名进行的。",
+          "answer": "F",
+          "explanationCn": "多级目录结构中文件访问主要通过路径名和文件名进行，而不是通过用户目录名本身完成。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-tf-002",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "A file can be divided into several physical blocks of equal size, and the physical block size can be specified arbitrarily.",
+          "stemCn": "文件可以被划分成大小相等的若干物理块且物理块大小也可任意指定。",
+          "answer": "F",
+          "explanationCn": "文件可以划分为物理块，但物理块大小通常由系统或存储设备确定，不能任意指定。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-tf-003",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "For a file with three-level indexing, accessing a record usually requires three disk accesses.",
+          "stemCn": "对于一个具有三级索引的文件，存取一个记录通常访问三次磁盘。",
+          "answer": "F",
+          "explanationCn": "三级索引通常需要依次访问多级索引块后再访问数据块，通常不止三次磁盘访问。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-tf-004",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "The logical structure of a file refers to the storage organization of the file on disk.",
+          "stemCn": "文件的逻辑结构是指文件在磁盘上的存储组织方式。",
+          "answer": "F",
+          "explanationCn": "文件在磁盘上的存储组织方式属于物理结构；逻辑结构描述的是用户或程序看到的文件组织形式。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch11-tf-005",
+          "chapterId": "ch11",
+          "chapterName": "File System",
+          "stemEn": "Files using linked allocation can be randomly accessed.",
+          "stemCn": "对于采用链接分配的文件，可以进行随机访问。",
+          "answer": "F",
+          "explanationCn": "链接分配需要沿着指针逐块查找，适合顺序访问，不支持高效随机访问。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-tf-001",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "In a Spooling system, a user program can send output data to the output well at any time, and the Spooling system completes the actual output operation when the output device is idle.",
+          "stemCn": "Spooling 系统中的用户程序可以随时将输出数据送到输出井中，待输出设备空闲时再由 Spooling 系统完成数据的输出操作。",
+          "answer": "T",
+          "explanationCn": "Spooling 通过磁盘上的输出井暂存输出数据，用户进程不必直接占用慢速独占设备，实际输出由系统在设备空闲时完成。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-tf-002",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "Device independence means that the system has the ability to use different devices.",
+          "stemCn": "设备独立性就是指系统具有使用不同设备的能力。",
+          "answer": "F",
+          "explanationCn": "设备独立性强调用户程序与具体物理设备无关，程序使用逻辑设备名，由系统完成到物理设备的映射，而不是简单指系统能使用不同设备。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-tf-003",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "In Spooling technology, a user process can directly and efficiently use a character device.",
+          "stemCn": "在 Spooling 技术中，用户进程可以直接高效地使用字符设备。",
+          "answer": "F",
+          "explanationCn": "Spooling 的特点是用户进程不直接使用独占设备，而是通过输入井、输出井等缓冲区间接提交和取得数据。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-tf-004",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "Introducing buffers can alleviate the speed mismatch between the CPU and peripherals.",
+          "stemCn": "引入缓冲能够缓解 CPU 与外设间速度不匹配的矛盾。",
+          "answer": "T",
+          "explanationCn": "缓冲区可以暂存数据，使高速 CPU 和低速外设之间的数据交换更加平滑，从而减少等待时间。",
+          "explanationEn": ""
+        },
+        {
+          "id": "os-ch13-tf-005",
+          "chapterId": "ch13",
+          "chapterName": "I/O Systems",
+          "stemEn": "The function of the device driver layer is to hide the differences between device controllers from the kernel I/O subsystem.",
+          "stemCn": "设备驱动程序层的作用是为内核 I/O 子系统隐藏设备控制器之间的差异。",
+          "answer": "T",
+          "explanationCn": "设备驱动程序负责屏蔽具体硬件控制器的差异，向上层提供统一接口，使内核 I/O 子系统不必直接处理不同设备的硬件细节。",
           "explanationEn": ""
         }
       ],

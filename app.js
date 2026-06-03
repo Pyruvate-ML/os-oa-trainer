@@ -39,6 +39,14 @@ const state = {
   submitted: false
 };
 
+function getInitialView() {
+  const params = new URLSearchParams(window.location.search);
+  const subjectId = (params.get("subject") || "").trim().toLowerCase();
+  const type = (params.get("type") || "mcq").trim().toLowerCase();
+  const chapterId = (params.get("chapter") || "all").trim().toLowerCase();
+  return { subjectId, type, chapterId };
+}
+
 function setStatus(text) {
   statusEl.textContent = text;
 }
@@ -85,8 +93,6 @@ function findSubject(subjectId) {
 }
 
 function getChapterMeta(subject, type) {
-  if (type === "terms" || type === "paper") return [];
-
   if (Array.isArray(subject.chapters) && subject.chapters.length) {
     return subject.chapters;
   }
@@ -142,7 +148,7 @@ function fillChapters() {
 
   state.chapterId = "all";
   chapterSelect.value = "all";
-  chapterSelect.disabled = typeSelect.value === "terms" || typeSelect.value === "paper";
+  chapterSelect.disabled = false;
 }
 
 function extractOptionsFromStem(text) {
@@ -173,6 +179,26 @@ function extractOptionsFromStem(text) {
 }
 
 function normalizeOptions(rawOptions) {
+  if (rawOptions && typeof rawOptions === "object" && !Array.isArray(rawOptions)) {
+    const sortedEntries = Object.entries(rawOptions).sort(([a], [b]) => a.localeCompare(b));
+    return sortedEntries
+      .map(([key, opt], idx) => {
+        if (typeof opt === "string") {
+          return { key: key.toUpperCase() || String.fromCharCode(65 + idx), textEn: opt, textCn: "" };
+        }
+
+        if (!opt || typeof opt !== "object") return null;
+
+        return {
+          key: (opt.key || key || String.fromCharCode(65 + idx)).toUpperCase(),
+          textEn: opt.textEn || opt.en || opt.text || "",
+          textCn: opt.textCn || opt.cn || ""
+        };
+      })
+      .filter(Boolean)
+      .filter((opt) => opt.textEn || opt.textCn);
+  }
+
   if (!Array.isArray(rawOptions)) return [];
 
   return rawOptions
@@ -820,9 +846,22 @@ function resetWorkspace() {
 
 async function reloadBank() {
   try {
+    const prevSubjectId = subjectSelect.value;
+    const prevChapterId = chapterSelect.value;
+    const prevType = typeSelect.value;
     const generated = await loadGeneratedBank();
     state.bank = generated;
     fillSubjects();
+    if (prevType) typeSelect.value = prevType;
+    if (findSubject(prevSubjectId)) {
+      subjectSelect.value = prevSubjectId;
+      state.subjectId = prevSubjectId;
+    }
+    fillChapters();
+    if ([...chapterSelect.options].some((opt) => opt.value === prevChapterId)) {
+      chapterSelect.value = prevChapterId;
+      state.chapterId = prevChapterId;
+    }
     workspace.innerHTML = "";
     setStatus("题库已重新加载（来自本地章节汇总文件）。");
   } catch (err) {
@@ -839,6 +878,7 @@ function setupEvents() {
 }
 
 async function init() {
+  const initialView = getInitialView();
   try {
     state.bank = await loadGeneratedBank();
     setStatus("已加载本地章节汇总题库。请选择学科、章节和题型。");
@@ -847,8 +887,31 @@ async function init() {
     setStatus("未加载到汇总题库，请先执行 npm run build:bank。");
   }
 
+  if ([...typeSelect.options].some((opt) => opt.value === initialView.type)) {
+    typeSelect.value = initialView.type;
+  } else {
+    typeSelect.value = "mcq";
+  }
+
   fillSubjects();
+  if (findSubject(initialView.subjectId)) {
+    subjectSelect.value = initialView.subjectId;
+    state.subjectId = initialView.subjectId;
+    fillChapters();
+  }
+  if ([...chapterSelect.options].some((opt) => opt.value === initialView.chapterId)) {
+    chapterSelect.value = initialView.chapterId;
+    state.chapterId = initialView.chapterId;
+  }
   setupEvents();
 }
+
+window.addEventListener("focus", () => {
+  reloadBank();
+});
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") reloadBank();
+});
 
 init();

@@ -3,6 +3,139 @@
   "subjectName": "Operating Systems",
   "chapterId": "ch12",
   "chapterName": "Secondary Storage",
-  "mcq": [],
+  "mcq": [
+    {
+      "id": "os-ch12-001",
+      "stemEn": "The read/write unit of a disk is ( ).",
+      "stemCn": "磁盘的读写单位是（ ）。",
+      "options": {
+        "A": {
+          "textEn": "Sector",
+          "textCn": "扇区"
+        },
+        "B": {
+          "textEn": "Byte",
+          "textCn": "字节"
+        },
+        "C": {
+          "textEn": "Cluster",
+          "textCn": "簇"
+        },
+        "D": {
+          "textEn": "Block",
+          "textCn": "块"
+        }
+      },
+      "answerKey": "A",
+      "explanationCn": "磁盘进行物理读写时通常以扇区为基本单位，扇区是磁盘上能够独立读写的最小物理单位。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch12-002",
+      "stemEn": "Among the following algorithms, which one may cause starvation?",
+      "stemCn": "以下算法中，（ ）可能出现“饥饿”现象。",
+      "options": {
+        "A": {
+          "textEn": "First-Come, First-Served",
+          "textCn": "先来先服务"
+        },
+        "B": {
+          "textEn": "Circular SCAN algorithm",
+          "textCn": "循环扫描算法"
+        },
+        "C": {
+          "textEn": "Shortest Seek Time First",
+          "textCn": "最短寻找时间优先"
+        },
+        "D": {
+          "textEn": "LOOK algorithm",
+          "textCn": "LOOK算法"
+        }
+      },
+      "answerKey": "C",
+      "explanationCn": "最短寻找时间优先总是优先处理距离当前磁头最近的请求，若附近请求不断到来，远处请求可能长期得不到服务，从而产生饥饿现象。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch12-003",
+      "stemEn": "Assume the disk head is currently at track 10 and moving in the direction of increasing track numbers. Given the request queue 35, 45, 12, 68, 110, 180, 170, 195, the track access sequence obtained by the SCAN scheduling algorithm is ( ).",
+      "stemCn": "假设磁头当前位于第10道，正在向磁道序号增加的方向移动。现有一个磁道访问请求序列为35，45，12，68，110，180，170，195，采用SCAN调度算法得到的磁道访问序列是（ ）。",
+      "options": {
+        "A": {
+          "textEn": "12, 35, 45, 68, 110, 170, 180, 195",
+          "textCn": "12,35,45,68,110,170,180,195"
+        },
+        "B": {
+          "textEn": "10, 68, 45, 35, 12, 170, 180, 195",
+          "textCn": "10,68,45,35,12,170,180,195"
+        },
+        "C": {
+          "textEn": "110, 170, 180, 195, 68, 45, 35, 12",
+          "textCn": "110,170,180,195,68,45,35,12"
+        },
+        "D": {
+          "textEn": "110, 170, 180, 195, 12, 35, 45, 68",
+          "textCn": "110,170,180,195,12,35,45,68"
+        }
+      },
+      "answerKey": "C",
+      "explanationCn": "按题图给出的答案为C。SCAN算法按当前移动方向先服务该方向上的请求，到达一端后再反向服务另一侧请求。",
+      "explanationEn": "",
+      "needsReview": true
+    },
+    {
+      "id": "os-ch12-004",
+      "stemEn": "If the disk head is currently at track 53, and the four pending disk requests are 98, 37, 124, and 65, which scheduling algorithm will make the disk head reach track 65 next? Assume the head is currently moving toward smaller track numbers.",
+      "stemCn": "如果磁头当前正在第53号磁道，现有4个磁道访问请求序列为98、37、124、65，当采用（ ）调度算法时，下一次磁头将达到65号磁道。假设此刻磁头方向指向号数小的磁道。",
+      "options": {
+        "A": {
+          "textEn": "LOOK algorithm",
+          "textCn": "LOOK算法"
+        },
+        "B": {
+          "textEn": "SCAN algorithm",
+          "textCn": "扫描算法"
+        },
+        "C": {
+          "textEn": "Shortest Seek Time First",
+          "textCn": "最短寻道时间优先"
+        },
+        "D": {
+          "textEn": "First-Come, First-Served",
+          "textCn": "先来先服务"
+        }
+      },
+      "answerKey": "C",
+      "explanationCn": "当前磁头在53号磁道，请求中距离53最近的是65，距离为12。因此采用最短寻道时间优先算法时，下一次会选择65号磁道。",
+      "explanationEn": ""
+    },
+    {
+      "id": "os-ch12-005",
+      "stemEn": "Among the following algorithms, which one may randomly change the moving direction of the disk head?",
+      "stemCn": "在以下算法中，（ ）可能会随时改变磁头的运动方向。",
+      "options": {
+        "A": {
+          "textEn": "First-Come, First-Served",
+          "textCn": "先来先服务"
+        },
+        "B": {
+          "textEn": "LOOK algorithm",
+          "textCn": "Look算法"
+        },
+        "C": {
+          "textEn": "SCAN algorithm",
+          "textCn": "扫描算法"
+        },
+        "D": {
+          "textEn": "Circular SCAN algorithm",
+          "textCn": "循环扫描算法"
+        }
+      },
+      "answerKey": "A",
+      "explanationCn": "先来先服务算法完全按照请求到达顺序访问磁道，不考虑磁头当前方向，因此相邻请求可能分布在不同方向上，磁头方向可能频繁改变。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [],
   "terms": []
 }
