@@ -426,6 +426,18 @@ textarea {
   line-height: 1.6;
 }
 
+.math {
+  font-family: "STIX Two Math", "Cambria Math", Georgia, serif;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  padding: 0 2px;
+}
+
+.math sup,
+.math sub {
+  font-size: 0.72em;
+}
+
 .result-ok {
   color: var(--fel);
   font-weight: 800;

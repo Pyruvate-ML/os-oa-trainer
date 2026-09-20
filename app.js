@@ -308,6 +308,81 @@ function normalizeAnswerText(text) {
     .toLowerCase();
 }
 
+/* ===== 轻量 LaTeX / Markdown 渲染 ===== */
+const TEX_SYMBOLS = {
+  "\\times": "×",
+  "\\div": "÷",
+  "\\cdot": "·",
+  "\\Delta": "Δ",
+  "\\delta": "δ",
+  "\\rightarrow": "→",
+  "\\to": "→",
+  "\\leftarrow": "←",
+  "\\implies": "⇒",
+  "\\approx": "≈",
+  "\\sim": "~",
+  "\\quad": " ",
+  "\\qquad": "  ",
+  "\\log": "log",
+  "\\ln": "ln",
+  "\\lceil": "⌈",
+  "\\rceil": "⌉",
+  "\\lfloor": "⌊",
+  "\\rfloor": "⌋",
+  "\\pm": "±",
+  "\\leq": "≤",
+  "\\geq": "≥",
+  "\\neq": "≠",
+  "\\infty": "∞",
+  "\\alpha": "α",
+  "\\beta": "β",
+  "\\pi": "π",
+  "\\sum": "∑"
+};
+
+function escapeHtml(text) {
+  return String(text || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function renderMath(tex) {
+  let s = String(tex || "");
+  s = s.replace(/\\text\s*\{([^{}]*)\}/g, "$1");
+  s = s.replace(/\\frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}/g, "($1)/($2)");
+  Object.entries(TEX_SYMBOLS).forEach(([cmd, glyph]) => {
+    s = s.split(cmd).join(glyph);
+  });
+  s = s.replace(/-&gt;/g, "→");
+  s = s.replace(/\^\{([^{}]*)\}/g, "<sup>$1</sup>");
+  s = s.replace(/\^([0-9A-Za-z+-])/g, "<sup>$1</sup>");
+  s = s.replace(/_\{([^{}]*)\}/g, "<sub>$1</sub>");
+  s = s.replace(/_([0-9A-Za-z])/g, "<sub>$1</sub>");
+  s = s.replace(/[{}]/g, "");
+  return s.trim();
+}
+
+function renderRich(raw) {
+  const text = String(raw || "");
+  const re = /\$\$([\s\S]+?)\$\$|\$([^$\n]+?)\$/g;
+  let html = "";
+  let last = 0;
+  let match;
+  while ((match = re.exec(text))) {
+    html += escapeHtml(text.slice(last, match.index));
+    const tex = match[1] !== undefined ? match[1] : match[2];
+    html += `<span class="math">${renderMath(escapeHtml(tex))}</span>`;
+    last = re.lastIndex;
+  }
+  html += escapeHtml(text.slice(last));
+  html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  html = html.replace(/([：:；;。]) *- +/g, "$1<br />· ");
+  html = html.replace(/^\s*- +/g, "· ");
+  html = html.replace(/\n/g, "<br />");
+  return html;
+}
+
 function renderObjectiveSet(subject, config) {
   const normalized = config.source
     .map((q, index) => config.normalize(q, `${config.idPrefix}-${index + 1}`))
@@ -336,7 +411,7 @@ function renderObjectiveSet(subject, config) {
     meta.textContent = `${q.chapterId} | ${q.chapterName}`;
 
     const title = document.createElement("h3");
-    title.textContent = `${index + 1}. ${q.stemEn}`;
+    title.innerHTML = `${index + 1}. ${renderRich(q.stemEn)}`;
     title.className = "question-title";
 
     block.append(meta, title);
@@ -355,7 +430,7 @@ function renderObjectiveSet(subject, config) {
       label.append(input);
       const optionText = document.createElement("span");
       optionText.className = "option-text";
-      optionText.textContent = `${opt.key}. ${opt.textEn}`;
+      optionText.innerHTML = `${opt.key}. ${renderRich(opt.textEn)}`;
       label.append(optionText);
       options.append(label);
     });
@@ -427,14 +502,14 @@ function submitMcq(form) {
 
     const title = questionBox.querySelector(".question-title");
     if (title && q.stemCn) {
-      title.innerHTML = `${index + 1}. ${q.stemEn}<br /><span class="question-cn">${q.stemCn}</span>`;
+      title.innerHTML = `${index + 1}. ${renderRich(q.stemEn)}<br /><span class="question-cn">${renderRich(q.stemCn)}</span>`;
     }
 
     questionBox.querySelectorAll(".options label").forEach((label, optionIndex) => {
       const textNode = label.querySelector(".option-text");
       const opt = q.options[optionIndex];
       if (textNode && opt) {
-        textNode.innerHTML = `${opt.key}. ${opt.textEn}${opt.textCn ? `<br /><span class="option-cn">${opt.textCn}</span>` : ""}`;
+        textNode.innerHTML = `${opt.key}. ${renderRich(opt.textEn)}${opt.textCn ? `<br /><span class="option-cn">${renderRich(opt.textCn)}</span>` : ""}`;
       }
 
       if (optionIndex === q.answerIndex) {
@@ -448,14 +523,14 @@ function submitMcq(form) {
 
     const answerOpt = q.options[q.answerIndex];
     const answerText = answerOpt
-      ? `${answerOpt.key}. ${answerOpt.textEn}${answerOpt.textCn ? ` / ${answerOpt.textCn}` : ""}`
+      ? `${answerOpt.key}. ${renderRich(answerOpt.textEn)}${answerOpt.textCn ? ` / ${renderRich(answerOpt.textCn)}` : ""}`
       : "N/A";
 
     const explain = document.createElement("div");
     explain.className = "explain";
     explain.innerHTML = `<strong>Answer:</strong> ${answerText}<br /><strong>解析:</strong> ${
-      q.explanationCn || "(未提供)"
-    }${q.explanationEn ? `<br /><strong>Explanation:</strong> ${q.explanationEn}` : ""}`;
+      renderRich(q.explanationCn) || "(未提供)"
+    }${q.explanationEn ? `<br /><strong>Explanation:</strong> ${renderRich(q.explanationEn)}` : ""}`;
 
     questionBox.append(result, explain);
   });
@@ -504,7 +579,7 @@ function renderTerms(subject) {
 
     const definition = document.createElement("p");
     definition.className = "term-definition hidden";
-    definition.textContent = `${item.termCn ? `${item.termCn}\n` : ""}${item.definitionCn || ""}${item.definitionEn ? `\n\n${item.definitionEn}` : ""}`;
+    definition.innerHTML = renderRich(`${item.termCn ? `${item.termCn}\n` : ""}${item.definitionCn || ""}${item.definitionEn ? `\n\n${item.definitionEn}` : ""}`);
 
     card.append(title, definition);
     wrap.append(card);
@@ -537,7 +612,7 @@ function renderTerms(subject) {
       const title = card.querySelector(".term-title");
       const definition = card.querySelector(".term-definition");
       if (title && item.termCn) {
-        title.innerHTML = `${index + 1}. ${item.termEn}<br /><span class="question-cn">${item.termCn}</span>`;
+        title.innerHTML = `${index + 1}. ${renderRich(item.termEn)}<br /><span class="question-cn">${renderRich(item.termCn)}</span>`;
       }
       if (definition) definition.classList.remove("hidden");
     });
@@ -727,7 +802,7 @@ function submitPaper(form, terms, mcqSet, tfSet) {
     if (!item) return;
 
     if (heading) {
-      heading.innerHTML = `${index + 1}. ${item.termEn}${item.termCn ? `<br /><span class="question-cn">${item.termCn}</span>` : ""}`;
+      heading.innerHTML = `${index + 1}. ${renderRich(item.termEn)}${item.termCn ? `<br /><span class="question-cn">${renderRich(item.termCn)}</span>` : ""}`;
     }
 
     if (definition) definition.classList.remove("hidden");
@@ -742,14 +817,14 @@ function submitPaper(form, terms, mcqSet, tfSet) {
 
     const title = questionBox.querySelector(".question-title");
     if (title && q.stemCn) {
-      title.innerHTML = `${index + 1}. ${q.stemEn}<br /><span class="question-cn">${q.stemCn}</span>`;
+      title.innerHTML = `${index + 1}. ${renderRich(q.stemEn)}<br /><span class="question-cn">${renderRich(q.stemCn)}</span>`;
     }
 
     questionBox.querySelectorAll(".options label").forEach((label, optionIndex) => {
       const textNode = label.querySelector(".option-text");
       const opt = q.options[optionIndex];
       if (textNode && opt) {
-        textNode.innerHTML = `${opt.key}. ${opt.textEn}${opt.textCn ? `<br /><span class="option-cn">${opt.textCn}</span>` : ""}`;
+        textNode.innerHTML = `${opt.key}. ${renderRich(opt.textEn)}${opt.textCn ? `<br /><span class="option-cn">${renderRich(opt.textCn)}</span>` : ""}`;
       }
       if (optionIndex === q.answerIndex) label.classList.add("option-correct");
       if (selectedIndex === optionIndex && selectedIndex !== q.answerIndex) label.classList.add("option-incorrect");
@@ -764,9 +839,9 @@ function submitPaper(form, terms, mcqSet, tfSet) {
     const answerOpt = q.options[q.answerIndex];
     const explain = document.createElement("div");
     explain.className = "explain";
-    explain.innerHTML = `<strong>Answer:</strong> ${answerOpt.key}. ${answerOpt.textEn}${answerOpt.textCn ? ` / ${answerOpt.textCn}` : ""}<br /><strong>解析:</strong> ${
-      q.explanationCn || "(未提供)"
-    }${q.explanationEn ? `<br /><strong>Explanation:</strong> ${q.explanationEn}` : ""}`;
+    explain.innerHTML = `<strong>Answer:</strong> ${answerOpt.key}. ${renderRich(answerOpt.textEn)}${answerOpt.textCn ? ` / ${renderRich(answerOpt.textCn)}` : ""}<br /><strong>解析:</strong> ${
+      renderRich(q.explanationCn) || "(未提供)"
+    }${q.explanationEn ? `<br /><strong>Explanation:</strong> ${renderRich(q.explanationEn)}` : ""}`;
     questionBox.append(result, explain);
   });
 
@@ -779,14 +854,14 @@ function submitPaper(form, terms, mcqSet, tfSet) {
 
     const title = questionBox.querySelector(".question-title");
     if (title && q.stemCn) {
-      title.innerHTML = `${index + 1}. ${q.stemEn}<br /><span class="question-cn">${q.stemCn}</span>`;
+      title.innerHTML = `${index + 1}. ${renderRich(q.stemEn)}<br /><span class="question-cn">${renderRich(q.stemCn)}</span>`;
     }
 
     questionBox.querySelectorAll(".options label").forEach((label, optionIndex) => {
       const textNode = label.querySelector(".option-text");
       const opt = q.options[optionIndex];
       if (textNode && opt) {
-        textNode.innerHTML = `${opt.key}. ${opt.textEn}${opt.textCn ? `<br /><span class="option-cn">${opt.textCn}</span>` : ""}`;
+        textNode.innerHTML = `${opt.key}. ${renderRich(opt.textEn)}${opt.textCn ? `<br /><span class="option-cn">${renderRich(opt.textCn)}</span>` : ""}`;
       }
       if (optionIndex === q.answerIndex) label.classList.add("option-correct");
       if (selectedIndex === optionIndex && selectedIndex !== q.answerIndex) label.classList.add("option-incorrect");
@@ -801,9 +876,9 @@ function submitPaper(form, terms, mcqSet, tfSet) {
     const answerOpt = q.options[q.answerIndex];
     const explain = document.createElement("div");
     explain.className = "explain";
-    explain.innerHTML = `<strong>Answer:</strong> ${answerOpt.key}. ${answerOpt.textEn}${answerOpt.textCn ? ` / ${answerOpt.textCn}` : ""}<br /><strong>解析:</strong> ${
-      q.explanationCn || "(未提供)"
-    }${q.explanationEn ? `<br /><strong>Explanation:</strong> ${q.explanationEn}` : ""}`;
+    explain.innerHTML = `<strong>Answer:</strong> ${answerOpt.key}. ${renderRich(answerOpt.textEn)}${answerOpt.textCn ? ` / ${renderRich(answerOpt.textCn)}` : ""}<br /><strong>解析:</strong> ${
+      renderRich(q.explanationCn) || "(未提供)"
+    }${q.explanationEn ? `<br /><strong>Explanation:</strong> ${renderRich(q.explanationEn)}` : ""}`;
     questionBox.append(result, explain);
   });
 
