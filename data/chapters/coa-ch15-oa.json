@@ -1,0 +1,239 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch15",
+  "chapterName": "第十五章控制单元操作",
+  "mcq": [
+    {
+      "id": "coa-ch15-001",
+      "stemEn": "In a microprogrammed control unit, which field can form the microprogram entry address?",
+      "stemCn": "在微程序控制单元中，哪个字段可以构成微程序入口地址？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Address code field of machine instruction",
+          "textCn": "机器指令的地址码字段"
+        },
+        {
+          "key": "B",
+          "textEn": "Microaddress field of microinstruction",
+          "textCn": "微指令的微地址域"
+        },
+        {
+          "key": "C",
+          "textEn": "Operation code field of machine instruction",
+          "textCn": "机器指令操作码字段"
+        },
+        {
+          "key": "D",
+          "textEn": "Micro-operation code field of microinstruction",
+          "textCn": "微指令微操作码域"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "微程序入口地址通常由机器指令的操作码字段决定，用于在控制存储器中选择对应的微程序起始位置。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch15-002",
+      "stemEn": "The control storage in a microprogrammed control unit belongs to which part?",
+      "stemCn": "微程序控制单元中的控制存储器属于哪一部分？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Main memory",
+          "textCn": "主存储器"
+        },
+        {
+          "key": "B",
+          "textEn": "Secondary storage",
+          "textCn": "辅助存储器"
+        },
+        {
+          "key": "C",
+          "textEn": "Cache",
+          "textCn": "缓存"
+        },
+        {
+          "key": "D",
+          "textEn": "CPU",
+          "textCn": "CPU（中央处理器）"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "控制存储器属于CPU内部的一部分，用于存储微指令，因此正确选项为 CPU。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch15-003",
+      "stemEn": "In a microprogrammed control unit, the relationship between machine instructions and microinstructions is:",
+      "stemCn": "在微程序控制单元中，机器指令和微指令之间的关系为：",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Each machine instruction is executed by one microinstruction",
+          "textCn": "每条机器指令由一条微指令执行"
+        },
+        {
+          "key": "B",
+          "textEn": "Each machine instruction is interpreted by a sequence of microinstructions",
+          "textCn": "每个机器指令都由一系列微指令解释"
+        },
+        {
+          "key": "C",
+          "textEn": "A program of multiple machine instructions can be executed by one microprogram",
+          "textCn": "一个微程序可以执行多条机器指令组成的程序"
+        },
+        {
+          "key": "D",
+          "textEn": "Each machine instruction is executed by multiple microprograms",
+          "textCn": "每条机器指令由多个微程序执行"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "微程序控制器通过微指令序列解释和执行每条机器指令，因此每条机器指令对应一组微指令。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch15-004",
+      "stemEn": "Compared with horizontal microinstructions, vertical microinstructions:",
+      "stemCn": "与水平微指令相比，垂直微指令：",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Complete one or fewer micro-operations per vertical microinstruction",
+          "textCn": "每条垂直微指令完成一个或更少的微操作"
+        },
+        {
+          "key": "B",
+          "textEn": "Complete only one micro-operation per horizontal microinstruction",
+          "textCn": "每条水平微指令仅完成一个微操作"
+        },
+        {
+          "key": "C",
+          "textEn": "Both complete one micro-operation per instruction",
+          "textCn": "两者都完成每条指令的一个微操作"
+        },
+        {
+          "key": "D",
+          "textEn": "Both complete multiple micro-operations per instruction",
+          "textCn": "两者都完成每条指令的多个微操作"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "垂直微指令（vertical microinstruction）通常字段较窄，一次只能完成一个或少数微操作，而水平微指令可以并行控制多个微操作，因此正确选项是 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch15-005",
+      "stemEn": "Assume a computer uses a microprogrammed control unit. Its instruction set contains 32 machine instructions, and a common fetch cycle microprogram contains 2 microinstructions. If each machine instruction on average corresponds to 4 microinstructions and each microinstruction has a lower address field, what is the minimum number of bits required for the address field in the microinstruction?",
+      "stemCn": "假设计算机采用微程序控制单元，指令集包含 32 条机器指令，公共取指微程序包含 2 条微指令，每条机器指令平均对应 4 条微指令。若每条微指令都有下址字段，该字段至少需要多少位？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "5",
+          "textCn": "5"
+        },
+        {
+          "key": "B",
+          "textEn": "6",
+          "textCn": "6"
+        },
+        {
+          "key": "C",
+          "textEn": "8",
+          "textCn": "8"
+        },
+        {
+          "key": "D",
+          "textEn": "9",
+          "textCn": "9"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "微指令地址位数计算公式： \\[ \\text{Address bits} = \\lceil \\log_2(\\text{Total microinstructions}) \\rceil \\] 总微指令数 = fetch周期微指令 + 各指令微指令 = 2 + (32 × 4) = 130 \\[ \\log_2 130 \\approx 7.02 \\implies \\text{向上取整} = 8 \\text{位} \\] 因此微指令地址字段至少需要 8 位。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch15-006",
+      "stemEn": "Which unit holds the address of the microinstruction to be read next?",
+      "stemCn": "哪个单元保存接下来要读取的微指令的地址？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Control storage",
+          "textCn": "控制存储"
+        },
+        {
+          "key": "B",
+          "textEn": "Control address register",
+          "textCn": "控制地址寄存器"
+        },
+        {
+          "key": "C",
+          "textEn": "Control word",
+          "textCn": "控制字"
+        },
+        {
+          "key": "D",
+          "textEn": "Control buffer register",
+          "textCn": "控制缓冲寄存器"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "控制地址寄存器（Control Address Register, CAR）存放下一条待取微指令的地址，用于从控制存储器中取微指令。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "coa-ch15-tf-001",
+      "stemEn": "The key components of a microprogrammed control unit include: control storage, control address register, control buffer register, and sequencer.",
+      "stemCn": "微程序控制单元的关键部件包括：控制存储器、控制地址寄存器、控制缓冲寄存器和定序器。",
+      "answer": "T",
+      "explanationCn": "微程序控制器的主要组成部分包括控制存储器（存放微指令）、控制地址寄存器（指向下一条微指令地址）、控制缓冲寄存器（暂存微指令）以及排序单元（用于确定微指令执行顺序），因此此说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch15-tf-002",
+      "stemEn": "The speed of a microprogrammed control unit is slower than that of a hardwired control unit mainly because of the added time to fetch microinstructions from memory.",
+      "stemCn": "微程序控制单元的速度比硬连线控制单元慢，主要是因为从存储器获取微指令的时间增加了。",
+      "answer": "F",
+      "explanationCn": "微程序控制器确实通常比硬布线控制器慢，但主要原因不是简单的存储访问时间，而是微程序控制器通过微指令序列实现控制逻辑，其速度受微指令字长、微指令执行周期以及解码逻辑影响，而不仅仅是从主存取微指令的时间。因此原命题错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch15-tf-003",
+      "stemEn": "The purpose of using a microprogrammed control unit is to simplify the design complexity of the controller.",
+      "stemCn": "使用微程序控制单元的目的是简化控制器的设计复杂性。",
+      "answer": "T",
+      "explanationCn": "微程序控制器通过用可编程的微指令代替复杂逻辑电路，极大地降低了控制器设计的复杂度，因此该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch15-tf-004",
+      "stemEn": "A compatible microinstruction means several microinstructions can be mutually replaced.",
+      "stemCn": "兼容微指令是指多个微指令可以相互替换。",
+      "answer": "F",
+      "explanationCn": "兼容性微指令并不意味着多条微指令可以互换，而是指不同微指令可以在同一控制器中顺利执行而不冲突，因此此说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch15-tf-005",
+      "stemEn": "Only processors using a microprogrammed control unit are called microprocessors.",
+      "stemCn": "只有使用微程序控制单元的处理器才称为微处理器。",
+      "answer": "F",
+      "explanationCn": "微处理器的定义与是否使用微程序控制器无关，关键是处理器内部集成了CPU核心并可执行指令集，因此该命题错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch15-tf-006",
+      "stemEn": "The microprogrammed control unit's CU is a relatively complex logic circuit.",
+      "stemCn": "微程序控制单元的CU是一个相对复杂的逻辑电路。",
+      "answer": "F",
+      "explanationCn": "微程序控制器本身逻辑简单，复杂的控制逻辑通过存储的微指令实现，因此 CU 并不复杂，此说法错误。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

@@ -2,3 +2,5 @@ node_modules/
 .DS_Store
 *.log
 .localtunnel/
+.cache/
+.playwright-cli/

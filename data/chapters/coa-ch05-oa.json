@@ -1,0 +1,277 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch05",
+  "chapterName": "第五章内部存储器",
+  "mcq": [
+    {
+      "id": "coa-ch05-001",
+      "stemEn": "A SRAM memory chip has a capacity of 128 KB and is addressed with a word length of 32 bits. If its address range starts from `0000H`, then the ending address is ( ).",
+      "stemCn": "SRAM 存储器芯片的容量为 128 KB，并以 32 位字长进行寻址。如果其地址范围从‘0000H’开始，那么结束地址是( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "`3FFFH`",
+          "textCn": "`3FFFH`"
+        },
+        {
+          "key": "B",
+          "textEn": "`7FFFH`",
+          "textCn": "`7FFFH`"
+        },
+        {
+          "key": "C",
+          "textEn": "`FFFFH`",
+          "textCn": "`FFFFH`"
+        },
+        {
+          "key": "D",
+          "textEn": "`5FFFH`",
+          "textCn": "`5FFFH`"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "已知 SRAM 容量为： $$ 128KB = 128 \\times 1024B = 131072B $$ 按 32 位字长编址： $$ 32bit = 4B $$ 所以可编址单元数为： $$ \\frac{131072B}{4B} = 32768 = 2^{15} $$ 地址从 `0000H` 开始，共有 $2^{15}$ 个地址，因此最后一个地址为： $$ 2^{15} - 1 = 32767 $$ 转换成十六进制： $$ 32767 = 7FFFH $$ 所以地址范围为： $$ 0000H \\sim 7FFFH $$ 选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-002",
+      "stemEn": "The CPU address lines are `A15` to `A0` from high to low. If several `16K × 4-bit` memory chips are used to form a 64 KB memory, which address lines should participate in chip-select decoding?",
+      "stemCn": "CPU地址线从高到低依次为‘A15’到‘A0’。如果用几个“16K×4位”存储芯片组成一个64KB的存储器，哪些地址线应该参与片选译码？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "`A1`, `A2`",
+          "textCn": "“A1”、“A2”"
+        },
+        {
+          "key": "B",
+          "textEn": "`A14`, `A13`",
+          "textCn": "“A14”、“A13”"
+        },
+        {
+          "key": "C",
+          "textEn": "`A15`, `A14`",
+          "textCn": "“A15”、“A14”"
+        },
+        {
+          "key": "D",
+          "textEn": "`A3`, `A2`",
+          "textCn": "“A3”、“A2”"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "一个 `16K × 4-bit` 芯片的地址容量为： $$ 16K = 2^{14} $$ 所以芯片内部需要 14 根地址线： $$ A_0 \\sim A_{13} $$ CPU 地址线共有： $$ A_{15} \\sim A_0 $$ 要组成 64KB 存储器，需要把 64KB 地址空间分成若干个 16K 地址范围，因此高位地址线用于选择不同芯片组。 低 14 位 `A0 ~ A13` 用于芯片内部寻址，剩下的高 2 位： $$ A_{15}, A_{14} $$ 用于片选译码。 所以选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-003",
+      "stemEn": "Four `32K × 8-bit` memory chips can be used to design a memory with a capacity of ( ).",
+      "stemCn": "可以使用四个“32K×8位”存储芯片来设计容量为（ ）的存储器。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "`32K × 16-bit`",
+          "textCn": "`32K × 16 位`"
+        },
+        {
+          "key": "B",
+          "textEn": "`128K × 16-bit`",
+          "textCn": "`128K × 16 位`"
+        },
+        {
+          "key": "C",
+          "textEn": "`32K × 16-bit`",
+          "textCn": "`32K × 16 位`"
+        },
+        {
+          "key": "D",
+          "textEn": "`64K × 16-bit`",
+          "textCn": "`64K × 16 位`"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "每个芯片容量为： $$ 32K \\times 8bit $$ 若要组成 16 位字长，需要两个 `32K × 8-bit` 芯片进行**位扩展**： $$ 32K \\times 8bit + 32K \\times 8bit = 32K \\times 16bit $$ 现在共有 4 个芯片，可以分成两组，每组 2 个芯片。 每组形成： $$ 32K \\times 16bit $$ 两组再进行**字扩展**： $$ 32K \\times 16bit \\times 2 = 64K \\times 16bit $$ 所以可组成： $$ 64K \\times 16bit $$ 选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-004",
+      "stemEn": "Which of the following statements about ROM and RAM is incorrect?",
+      "stemCn": "以下关于 ROM 和 RAM 的说法哪一项是不正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The readout of RAM is destructive, so regeneration is required after reading.",
+          "textCn": "RAM的读取具有破坏性，因此读取后需要重新生成。"
+        },
+        {
+          "key": "B",
+          "textEn": "Flash memory belongs to semiconductor memory, so it has random access capability.",
+          "textCn": "闪存属于半导体存储器，因此具有随机存取能力。"
+        },
+        {
+          "key": "C",
+          "textEn": "ROM can only be read and not written, and it can retain data after power failure.",
+          "textCn": "ROM只能读不能写，断电后仍能保留数据。"
+        },
+        {
+          "key": "D",
+          "textEn": "SRAM does not need refreshing, while DRAM needs refreshing after reading.",
+          "textCn": "SRAM不需要刷新，而DRAM读取后需要刷新。"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "A 错误。RAM 包括 SRAM 和 DRAM，并不是所有 RAM 的读出都是破坏性读出。 SRAM 使用触发器保存数据，读出通常不是破坏性的，不需要再生。 DRAM 使用电容保存数据，读出可能破坏原有电荷状态，因此读后需要恢复或刷新。 B 正确。Flash 属于半导体存储器，读操作可以随机访问。 C 正确。ROM 通常断电后仍能保存数据。 D 正确。SRAM 不需要刷新，DRAM 需要刷新。 所以错误的是 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-005",
+      "stemEn": "Suppose the CPU has 24 address lines and 16 data lines. If `512K × 8-bit` RAM chips are used to construct the main memory of this machine, at most how many such chips are required?",
+      "stemCn": "假设CPU有24条地址线和16条数据线。如果用“512K×8位”RAM芯片来构建本机的主存，最多需要多少个这样的芯片？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "$2^{56}$",
+          "textCn": "$2^{56}$"
+        },
+        {
+          "key": "B",
+          "textEn": "512",
+          "textCn": "512"
+        },
+        {
+          "key": "C",
+          "textEn": "64",
+          "textCn": "64"
+        },
+        {
+          "key": "D",
+          "textEn": "128",
+          "textCn": "128"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "CPU 有 24 根地址线，因此可表示的地址个数为： $$ 2^{24} $$ 数据总线为 16 位，所以每个地址单元的数据宽度按 16 位计算。 因此主存总容量为： $$ 2^{24} \\times 16bit $$ 每片 RAM 芯片容量为： $$ 512K \\times 8bit $$ 其中： $$ 512K = 512 \\times 1024 = 2^{19} $$ 所以每片芯片容量为： $$ 2^{19} \\times 8bit = 2^{19} \\times 2^3bit = 2^{22}bit $$ 主存总容量为： $$ 2^{24} \\times 16bit = 2^{24} \\times 2^4bit = 2^{28}bit $$ 所需芯片数为： $$ \\frac{2^{28}}{2^{22}} = 2^6 = 64 $$ 所以选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-006",
+      "stemEn": "Which of the following can send data to the processor twice in each clock cycle?",
+      "stemCn": "以下哪项可以在每个时钟周期内向处理器发送两次数据？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "DDR DRAM",
+          "textCn": "DDR DRAM（双倍数据率动态随机存储器）"
+        },
+        {
+          "key": "B",
+          "textEn": "SDRAM",
+          "textCn": "SDRAM（同步动态随机存储器）"
+        },
+        {
+          "key": "C",
+          "textEn": "CDRAM",
+          "textCn": "CDRAM（带缓存的动态随机存储器）"
+        },
+        {
+          "key": "D",
+          "textEn": "None of the above",
+          "textCn": "以上都不是"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "DDR DRAM 的 DDR 是 **Double Data Rate**，即双倍数据率。 它可以在时钟信号的上升沿和下降沿各传输一次数据，因此每个时钟周期可以传输两次数据。 普通 SDRAM 通常每个时钟周期传输一次数据。 CDRAM 是带缓存的 DRAM，不是“双沿传输”的典型定义。 所以选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-007",
+      "stemEn": "In which of the following memories is the traditional flip-flop logic-gate method used to store binary numbers?",
+      "stemCn": "以下哪种存储器是采用传统的触发器逻辑门方法来存储二进制数的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "ROM",
+          "textCn": "ROM（只读存储器）"
+        },
+        {
+          "key": "B",
+          "textEn": "SRAM",
+          "textCn": "SRAM（静态随机存储器）"
+        },
+        {
+          "key": "C",
+          "textEn": "DRAM",
+          "textCn": "DRAM（动态随机存储器）"
+        },
+        {
+          "key": "D",
+          "textEn": "RAM",
+          "textCn": "RAM（随机存取存储器）"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "SRAM 使用触发器保存二进制信息。只要不断电，触发器状态可以保持，因此 SRAM 不需要刷新。 DRAM 使用电容存储电荷表示二进制信息，由于电容会漏电，所以需要定期刷新。 ROM 主要用于保存固定信息，不是用普通触发器作为基本存储单元。 因此采用传统触发器逻辑门方式存储二进制数的是 **SRAM**，选 B。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "coa-ch05-tf-001",
+      "stemEn": "All semiconductor memories use random access to read and write data.",
+      "stemCn": "所有半导体存储器都使用随机存取来读取和写入数据。",
+      "answer": "T",
+      "explanationCn": "半导体存储器通常通过地址译码选择具体的存储单元，因此可以直接访问任意地址单元，而不需要像磁带那样从头顺序查找。 所以从存取方式上看，半导体存储器一般属于**随机存取存储器**，该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-tf-002",
+      "stemEn": "Generally speaking, SRAM is faster and is suitable for Cache, while DRAM is cheaper and is suitable for main memory.",
+      "stemCn": "一般来说，SRAM速度较快，适合做Cache，而DRAM价格较便宜，适合做主存。",
+      "answer": "T",
+      "explanationCn": "SRAM 使用触发器保存数据，速度快，不需要刷新，但单元结构复杂、成本高、集成度较低，因此常用于 Cache。 DRAM 使用电容保存数据，结构简单、集成度高、成本低，但需要刷新，速度相对 SRAM 慢，因此常用于主存。 所以该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-tf-003",
+      "stemEn": "Both RAM and ROM are volatile and must be powered by a DC power supply to retain data.",
+      "stemCn": "RAM 和 ROM 都是易失性存储器，必须靠直流电源（DC）供电才能保留数据。",
+      "answer": "F",
+      "explanationCn": "RAM 一般是易失性存储器，断电后数据会丢失。 ROM 是只读存储器，通常属于非易失性存储器，断电后仍能保存原有数据。 因此“RAM 和 ROM 都是易失的”这一说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-tf-004",
+      "stemEn": "In memory expansion, bit expansion is used to expand the number of storage words of the whole memory.",
+      "stemCn": "在存储器扩展中，采用位扩展来扩展整个存储器的存储字数。",
+      "answer": "F",
+      "explanationCn": "存储器扩展主要有两类： 1. **位扩展**：扩展每个存储单元的字长，也就是增加数据位数。 例如用两个 `8K × 4-bit` 芯片组成一个 `8K × 8-bit` 存储器。 2. **字扩展**：扩展存储单元的个数，也就是增加地址范围。 例如用多个 `8K × 8-bit` 芯片组成一个 `32K × 8-bit` 存储器。 题干说“位扩展用于扩展存储字数”，实际上这是**字扩展**的作用，所以错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-tf-005",
+      "stemEn": "Flash memory uses electrical erasing and writing, and it can support byte-level erasing and writing.",
+      "stemCn": "闪存采用电擦除和写入，可以支持字节级擦除和写入。",
+      "answer": "F",
+      "explanationCn": "Flash 闪存可以进行电擦写，但它通常是**按块擦除**，而不是按字节擦除。 支持字节级擦写的是 EEPROM，而 Flash 的典型特点是擦除单位较大，通常以块或扇区为单位。 因此“Flash 支持字节级擦写”说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-tf-006",
+      "stemEn": "The advantage of RAM is that data or programs can permanently exist in main memory and do not need to be loaded from auxiliary storage devices.",
+      "stemCn": "RAM的优点是数据或程序可以永久存在于主存中，不需要从辅助存储设备加载。",
+      "answer": "F",
+      "explanationCn": "RAM 是易失性存储器，断电后其中的数据和程序会丢失。 程序和数据不能永久保存在 RAM 中，通常需要存放在硬盘、SSD 等辅存设备中，运行时再装入主存。 因此该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch05-tf-007",
+      "stemEn": "The SRAM on CDRAM can be used as a cache to support serial access to data blocks.",
+      "stemCn": "CDRAM上的SRAM可以用作缓存，支持对数据块的串行访问。",
+      "answer": "T",
+      "explanationCn": "CDRAM 是带有 Cache 结构的 DRAM，其中集成的 SRAM 可以作为高速缓冲区。 当访问连续数据块时，可以先把数据块调入 SRAM 缓存，再支持较快的串行访问。 因此该说法正确。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

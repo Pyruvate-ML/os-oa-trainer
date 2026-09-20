@@ -1,0 +1,130 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch02",
+  "chapterName": "第二章计算机演变",
+  "mcq": [
+    {
+      "id": "coa-ch02-001",
+      "stemEn": "The characteristic of the working mode of a von Neumann machine is ( ).",
+      "stemCn": "冯诺依曼机工作模式的特点是（ ）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Multiple instruction streams and a single data stream",
+          "textCn": "多个指令流和单个数据流"
+        },
+        {
+          "key": "B",
+          "textEn": "Accessing by address and executing instructions sequentially",
+          "textCn": "按地址访问并顺序执行指令"
+        },
+        {
+          "key": "C",
+          "textEn": "Stack operations",
+          "textCn": "堆栈操作"
+        },
+        {
+          "key": "D",
+          "textEn": "Using binary representation",
+          "textCn": "使用二进制表示"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "冯·诺依曼机的核心思想是“存储程序”，程序和数据都存放在存储器中，CPU 按地址访问存储器，并通常按照指令顺序逐条执行。D“采用二进制”也是冯·诺依曼机的重要特点之一，但题目问的是“工作方式”的特点，因此应选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch02-002",
+      "stemEn": "In a von Neumann machine, instructions and data are both stored in memory in binary form. The CPU distinguishes them based on ( ).",
+      "stemCn": "在冯·诺依曼机器中，指令和数据都以二进制形式存储在内存中。 CPU根据( )来区分它们。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The addresses of instructions and data",
+          "textCn": "指令和数据的地址"
+        },
+        {
+          "key": "B",
+          "textEn": "The addressing modes of instructions and data",
+          "textCn": "指令和数据的寻址方式"
+        },
+        {
+          "key": "C",
+          "textEn": "The lengths of instructions and data",
+          "textCn": "指令和数据的长度"
+        },
+        {
+          "key": "D",
+          "textEn": "Different stages of the instruction cycle",
+          "textCn": "指令周期的不同阶段"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "在冯·诺依曼机中，指令和数据都以二进制形式存放在同一个存储器中，从外部形式上并不能直接区分。CPU 是根据指令周期的不同阶段来区分它们的：取指阶段从存储器取出的内容被看作指令，执行阶段访问到的内容可能被看作数据。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch02-003",
+      "stemEn": "When processor performance develops rapidly while the performance of other computer components fails to keep up, many capability mismatch problems arise. The problem that has the greatest impact on computer performance is ( ).",
+      "stemCn": "当处理器性能快速发展而其他计算机组件的性能却未能跟上时，就会出现许多能力不匹配的问题。对计算机性能影响最大的问题是（ ）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The interface problem between the processor and main memory",
+          "textCn": "处理器和主存之间的接口问题"
+        },
+        {
+          "key": "B",
+          "textEn": "The interface problem between main memory and external memory",
+          "textCn": "主存与外存之间的接口问题"
+        },
+        {
+          "key": "C",
+          "textEn": "The speed mismatch between the processor and peripherals",
+          "textCn": "处理器和外设之间的速度不匹配"
+        },
+        {
+          "key": "D",
+          "textEn": "The speed mismatch between external devices and internal memory",
+          "textCn": "外部设备和内存之间的速度不匹配"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "处理器速度提升很快，而主存储器访问速度提升相对较慢，导致 CPU 经常需要等待主存，这就是常说的“存储墙”问题。由于 CPU 和主存之间的数据交换非常频繁，因此处理器与主存储器之间的接口和速度差异对整机性能影响最大。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch02-004",
+      "stemEn": "ARM processors are designed to meet the needs of ( ).",
+      "stemCn": "ARM 处理器旨在满足 ( ) 的需求。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Embedded real-time systems",
+          "textCn": "嵌入式实时系统"
+        },
+        {
+          "key": "B",
+          "textEn": "Application platforms",
+          "textCn": "应用平台"
+        },
+        {
+          "key": "C",
+          "textEn": "Application security",
+          "textCn": "应用安全"
+        },
+        {
+          "key": "D",
+          "textEn": "All of the above",
+          "textCn": "上述所有的"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "ARM 处理器具有低功耗、高性能、可扩展性强等特点，广泛应用于嵌入式实时系统、移动和应用平台，同时也支持安全机制。因此 A、B、C 都符合 ARM 处理器的设计需求，应选 D。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [],
+  "terms": []
+}

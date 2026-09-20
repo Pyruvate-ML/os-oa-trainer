@@ -87,7 +87,7 @@
         {
           "key": "D",
           "textEn": "Using TLB technology.",
-          "textCn": "采用快表技术"
+          "textCn": "采用 TLB（快表）技术"
         }
       ],
       "answerKey": "C",

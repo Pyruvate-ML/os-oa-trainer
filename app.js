@@ -81,11 +81,19 @@ function validateBank(bank) {
 }
 
 async function loadGeneratedBank() {
-  const res = await fetch(`${GENERATED_BANK_URL}?t=${Date.now()}`);
-  if (!res.ok) throw new Error(`Failed to fetch generated bank (${res.status})`);
-  const parsed = await res.json();
-  validateBank(parsed);
-  return parsed;
+  try {
+    const res = await fetch(`${GENERATED_BANK_URL}?t=${Date.now()}`);
+    if (!res.ok) throw new Error(`Failed to fetch generated bank (${res.status})`);
+    const parsed = await res.json();
+    validateBank(parsed);
+    return parsed;
+  } catch (err) {
+    if (window.__QUESTION_BANK__) {
+      validateBank(window.__QUESTION_BANK__);
+      return window.__QUESTION_BANK__;
+    }
+    throw err;
+  }
 }
 
 function findSubject(subjectId) {

@@ -1,0 +1,111 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch01",
+  "chapterName": "第一章简介",
+  "mcq": [
+    {
+      "id": "coa-ch01-001",
+      "stemEn": "Which of the following statements is incorrect?",
+      "stemCn": "下列说法哪一项不正确？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Computer organization is transparent to programmers.",
+          "textCn": "计算机组成对程序员来说是透明的。"
+        },
+        {
+          "key": "B",
+          "textEn": "Computer implementation is transparent to programmers.",
+          "textCn": "计算机实现对程序员来说是透明的。"
+        },
+        {
+          "key": "C",
+          "textEn": "Computer architecture is transparent to programmers.",
+          "textCn": "计算机体系结构对程序员来说是透明的。"
+        },
+        {
+          "key": "D",
+          "textEn": "All of the above statements are incorrect.",
+          "textCn": "上述所有说法都是不正确的。"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "计算机系统结构（Computer Architecture）主要指程序员可见的属性，例如指令系统、数据类型、寻址方式、I/O 机制等，因此它对程序员来说不是透明的。计算机组成和计算机实现更多涉及内部实现细节，通常对程序员透明，所以 C 错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch01-002",
+      "stemEn": "Which of the following statements is correct?",
+      "stemCn": "下列说法哪一项正确？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Whether a computer has a multiplication instruction is an issue considered by computer organization.",
+          "textCn": "计算机是否具有乘法指令是计算机组成考虑的问题。"
+        },
+        {
+          "key": "B",
+          "textEn": "Computers in the same family have the same architecture, but their organization may be different.",
+          "textCn": "同一系列的计算机具有相同的体系结构，但具体组成可能不同。"
+        },
+        {
+          "key": "C",
+          "textEn": "Instruction set, word length, I/O mechanisms, and addressing modes are concepts involved in computer implementation.",
+          "textCn": "指令集、字长、I/O机制和寻址模式是计算机实现中涉及的概念。"
+        },
+        {
+          "key": "D",
+          "textEn": "Control signals, interfaces, memory technology, and bus technology are concepts involved in computer architecture.",
+          "textCn": "控制信号、接口、存储器技术和总线技术是计算机体系结构中涉及的概念。"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "同一系列计算机通常具有相同的体系结构，因此程序兼容；但不同型号的机器在具体组成和实现方式上可以不同。A 中“是否有乘法指令”属于体系结构范畴；C 中列出的指令集、字长、寻址方式等也属于体系结构；D 中控制信号、接口、存储技术、总线技术属于计算机组成或实现范畴。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "coa-ch01-tf-001",
+      "stemEn": "Determining the number of bits used to represent different types of data belongs to the scope of computer architecture.",
+      "stemCn": "确定用于表示不同类型数据的位数属于计算机体系结构的范围。",
+      "answer": "T",
+      "explanationCn": "不同类型数据的表示位数属于程序员可见的属性，例如字长、数据类型长度等，因此属于计算机体系结构的范畴。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch01-tf-002",
+      "stemEn": "The definition of the interface between the computer and peripheral devices belongs to the scope of computer organization.",
+      "stemCn": "计算机与外围设备之间接口的定义属于计算机组成的范围。",
+      "answer": "T",
+      "explanationCn": "计算机与外部设备之间的接口定义涉及系统内部部件如何连接、如何传递信号和数据，属于计算机组成的范畴。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch01-tf-003",
+      "stemEn": "The relationship between microarchitecture and computer organization is not close.",
+      "stemCn": "微体系结构和计算机组成之间的关系并不密切。",
+      "answer": "F",
+      "explanationCn": "微体系结构和计算机组成关系非常密切。体系结构更偏向程序员可见的功能属性，而微体系结构和组成更关注这些功能在硬件层面如何实现。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch01-tf-004",
+      "stemEn": "A certain computer architecture may exist for many years, and computers belonging to this architecture may have multiple models. The organization of these different models may change as technology evolves.",
+      "stemCn": "某种计算机体系结构可能沿用多年，采用它的计算机可能有多种型号。随着技术发展，不同型号的具体组成可能发生变化。",
+      "answer": "T",
+      "explanationCn": "一种体系结构可以长期保持稳定，例如保持相同的指令系统和程序兼容性；但具体型号的计算机可以采用不同的组成和实现技术。因此，体系结构可以稳定存在，而计算机组成会随着技术发展不断变化。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch01-tf-005",
+      "stemEn": "When data is transferred from a remote device to a local device, or from a local device to a remote device, this process is called data transmission.",
+      "stemCn": "当数据从远程设备传输到本地设备，或者从本地设备传输到远程设备时，这个过程称为数据传输。",
+      "answer": "F",
+      "explanationCn": "按照本章概念，数据传送是计算机的基本功能之一，其中本地设备与远程设备之间的数据交换通常称为数据通信，而不是简单称为数据传输。因此该说法错误。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

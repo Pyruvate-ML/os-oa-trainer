@@ -1,0 +1,231 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch13",
+  "chapterName": "第十三章精简指令集计算机",
+  "mcq": [
+    {
+      "id": "coa-ch13-001",
+      "stemEn": "Which of the following statements about superscalar processing is incorrect?",
+      "stemCn": "以下关于超标量处理的表述哪一项是不正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "A superscalar processor can start multiple pipelines at the same time.",
+          "textCn": "超标量处理器可以同时启动多条流水线。"
+        },
+        {
+          "key": "B",
+          "textEn": "Superscalar processing can only be used in RISC machines.",
+          "textCn": "超标量处理只能在 RISC 机器中使用。"
+        },
+        {
+          "key": "C",
+          "textEn": "Instructions in a superscalar processor can be executed in parallel.",
+          "textCn": "超标量处理器中的指令可以并行执行。"
+        },
+        {
+          "key": "D",
+          "textEn": "Superscalar processing allows instructions to be executed in an order different from the program order.",
+          "textCn": "超标量处理允许指令以不同于程序顺序的顺序执行。"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "超标量技术并不是 RISC 机器专有的。 RISC 指令格式规整、指令简单，确实更适合实现超标量和流水线优化；但 CISC 处理器也可以通过内部译码，把复杂指令转换为较简单的微操作，再采用超标量方式执行。 因此“超标量只能用于 RISC 机”说法错误。 其他选项体现了超标量的常见特点： 超标量处理器通常具有多个功能部件或多条流水线，可以在同一时钟周期发射多条指令；为了提高并行度，也可能采用乱序执行。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch13-002",
+      "stemEn": "Which of the following statements about the instruction window is incorrect?",
+      "stemCn": "下列关于指令窗口的描述哪一项是不正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The instruction window is an additional pipeline stage.",
+          "textCn": "指令窗口是一个附加的流水线阶段。"
+        },
+        {
+          "key": "B",
+          "textEn": "The instruction window is a method that uses a certain delay to allow independent instructions to execute earlier.",
+          "textCn": "指令窗口是一种利用一定的延迟来让独立指令先执行的方法。"
+        },
+        {
+          "key": "C",
+          "textEn": "The use of an instruction window can reduce pipeline stall time to some extent.",
+          "textCn": "指令窗口的使用可以在一定程度上减少流水线停顿时间。"
+        },
+        {
+          "key": "D",
+          "textEn": "Before the instruction window is full, the CPU can keep fetching and decoding instructions.",
+          "textCn": "在指令窗口满之前，CPU可以继续取指和译码指令。"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "指令窗口不是简单增加的一个流水段，而是用于保存已经取指、译码但尚未发射执行的指令的缓冲结构。 处理器可以在指令窗口中检查指令之间的相关关系、操作数是否就绪、功能部件是否空闲，然后选择满足条件的指令发射执行。 指令窗口的作用主要是支持动态调度和乱序执行，从而减少流水线停顿。 所以 A“指令窗口是一个附加的流水段”不正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch13-003",
+      "stemEn": "Which of the following issue strategies is not included in superscalar instruction issue strategies?",
+      "stemCn": "下列哪一项不属于超标量处理器的指令发射策略？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "In-order issue and in-order completion",
+          "textCn": "顺序发射、顺序完成"
+        },
+        {
+          "key": "B",
+          "textEn": "In-order issue and out-of-order completion",
+          "textCn": "顺序发射、乱序完成"
+        },
+        {
+          "key": "C",
+          "textEn": "Out-of-order issue and in-order completion",
+          "textCn": "乱序发射、顺序完成"
+        },
+        {
+          "key": "D",
+          "textEn": "Out-of-order issue and out-of-order completion",
+          "textCn": "乱序发射、乱序完成"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "超标量处理器中常见的指令发射和完成策略包括： 1. **In-order issue, in-order completion** 按程序顺序发射，按程序顺序完成，实现简单，但并行性较低。 2. **In-order issue, out-of-order completion** 按程序顺序发射，但不同指令执行时间不同，因此可以乱序完成。 3. **Out-of-order issue, out-of-order completion** 指令进入指令窗口后，根据操作数和资源是否就绪来乱序发射，并可能乱序完成，能提高并行性。 而“乱序发射、顺序完成”不是超标量中通常列出的主要发射策略。 因此选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch13-004",
+      "stemEn": "For superscalar processors, the instruction window technology cannot solve the problem of ( ).",
+      "stemCn": "对于超标量处理器，指令窗口技术无法解决（ ）的问题。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Procedural dependency",
+          "textCn": "程序依赖性"
+        },
+        {
+          "key": "B",
+          "textEn": "True data dependency",
+          "textCn": "真实的数据依赖"
+        },
+        {
+          "key": "C",
+          "textEn": "Resource conflict",
+          "textCn": "资源冲突"
+        },
+        {
+          "key": "D",
+          "textEn": "Output dependency",
+          "textCn": "输出依赖性"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "指令窗口主要用于动态调度。它可以暂存多条指令，并选择已经满足执行条件的指令先执行，从而缓解由于等待、资源安排等造成的流水线停顿。 但是**输出相关**，即 WAW（Write After Write），本质上是两个指令要写同一个逻辑寄存器，要求最终写入顺序不能出错。 例如： I1: R1 <- ... I2: R1 <- ... 如果 I2 先写 R1，I1 后写 R1，就会破坏最终结果。 这种问题通常要靠寄存器重命名来解决，而不是单靠指令窗口解决。 因此选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch13-005",
+      "stemEn": "For superscalar processors, register renaming technology can solve the problem of ( ).",
+      "stemCn": "对于超标量处理器，寄存器重命名技术可以解决( )的问题。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Procedural dependency",
+          "textCn": "程序依赖性"
+        },
+        {
+          "key": "B",
+          "textEn": "Anti-dependency",
+          "textCn": "反依赖"
+        },
+        {
+          "key": "C",
+          "textEn": "Resource conflict",
+          "textCn": "资源冲突"
+        },
+        {
+          "key": "D",
+          "textEn": "True data dependency",
+          "textCn": "真实的数据依赖"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "寄存器重命名的主要作用是消除由于使用同一个寄存器名字而产生的假相关。 反相关，即 WAR（Write After Read），表示后一条指令要写某寄存器，而前一条指令还需要读这个寄存器的旧值。 例如： I1: R3 <- R1 + R2 ; 需要先读 R1 I2: R1 <- R4 + R5 ; 后面要写 R1 如果 I2 提前写 R1，就会破坏 I1 应该读取的旧 R1 值。 通过寄存器重命名，可以让 I2 写入另一个物理寄存器，从而消除这种反相关。 注意： 寄存器重命名不能消除真正的数据相关 RAW，因为后一条指令确实需要前一条指令产生的数据。 所以选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch13-006",
+      "stemEn": "Which of the following hardware techniques are used by superscalar processors to improve performance?",
+      "stemCn": "超标量处理器使用以下哪些硬件技术来提高性能？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Resource duplication",
+          "textCn": "资源复制"
+        },
+        {
+          "key": "B",
+          "textEn": "Out-of-order issue",
+          "textCn": "乱序发射"
+        },
+        {
+          "key": "C",
+          "textEn": "Register renaming",
+          "textCn": "寄存器重命名"
+        },
+        {
+          "key": "D",
+          "textEn": "All of the above",
+          "textCn": "上述所有的"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "超标量处理器为了在一个时钟周期内发射并执行多条指令，需要多种硬件技术配合。 Resource duplication（资源复制）：增加多个功能部件，例如多个 ALU，使多条指令能够并行执行。 Out-of-order issue（乱序发射）：让已经准备好的指令先执行，不必严格等待前面的阻塞指令。 Register renaming（寄存器重命名）：消除 WAR、WAW 等假相关，提高乱序执行的安全性和并行度。 因此 A、B、C 都是超标量处理器常用的性能提升技术，选 D。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "coa-ch13-tf-001",
+      "stemEn": "Superpipelining is equivalent to dividing the pipeline into more stages, thereby increasing the number of instructions that can be executed in parallel within each clock cycle.",
+      "stemCn": "超级流水线相当于将流水线划分为更多级，从而增加了每个时钟周期内可以并行执行的指令数量。",
+      "answer": "T",
+      "explanationCn": "超级流水线的基本思想是把原来的流水段进一步细分，使每个流水段完成的工作更少，从而可以缩短流水线的时钟周期，提高流水线的工作频率。 流水段变多后，同一时间处在流水线中的指令数也会增加，因此可以提高指令级并行程度。 所以该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch13-tf-002",
+      "stemEn": "A superscalar processor must be a processor that uses pipeline technology.",
+      "stemCn": "超标量处理器一定是采用流水线技术的处理器。",
+      "answer": "T",
+      "explanationCn": "超标量处理器的核心思想是在一个时钟周期内同时发射多条指令，并让它们进入多个功能部件或多条流水线并行执行。 如果没有流水线技术，处理器很难在高效率下同时组织多条指令的取指、译码、执行和写回。 因此，超标量处理器通常一定建立在流水线技术基础上。 所以该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch13-tf-003",
+      "stemEn": "Since the degrees of superpipelining and superscalar processing can be the same, their essence is the same.",
+      "stemCn": "由于超流水线和超标量处理的程度可以相同，因此它们的本质是相同的。",
+      "answer": "F",
+      "explanationCn": "超级流水线和超标量都能提高指令级并行性，但二者本质不同。 - **Superpipelining（超级流水线）**：把流水线划分得更细，提高时钟频率，使指令更密集地进入流水线。 - **Superscalar（超标量）**：在一个时钟周期内同时发射多条指令，依靠多个功能部件或多条流水线并行执行。 即使二者的“度”相同，例如都能体现为某种程度上的并行能力，它们提高性能的方式仍然不同。 所以该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch13-tf-004",
+      "stemEn": "During superscalar execution, instructions generally undergo register renaming first and then enter the instruction window for analysis.",
+      "stemCn": "超标量执行时，指令一般先进行寄存器重命名，然后进入指令窗口进行分析。",
+      "answer": "T",
+      "explanationCn": "超标量处理器为了支持乱序发射和乱序执行，通常需要先进行寄存器重命名。 寄存器重命名可以消除由于重复使用同一寄存器名而产生的假相关，例如： - WAR：Write After Read，反相关； - WAW：Write After Write，输出相关。 完成寄存器重命名后，指令进入指令窗口，由硬件检查操作数是否就绪、功能部件是否可用，并决定哪些指令可以发射执行。 所以该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch13-tf-005",
+      "stemEn": "Register renaming and instruction window technology can solve all problems caused by dependencies.",
+      "stemCn": "寄存器重命名和指令窗口技术可以解决所有由依赖引起的问题。",
+      "answer": "F",
+      "explanationCn": "寄存器重命名和指令窗口确实可以解决或缓解很多相关问题，但不能解决所有相关问题。 寄存器重命名主要解决的是**名相关**，包括： - WAR：反相关； - WAW：输出相关。 指令窗口可以通过动态调度，让已经准备好的指令提前执行，从而减少等待时间。 但是对于真正的数据相关，也就是 RAW： $$ 后续指令需要读取前面指令产生的结果 $$ 这种依赖不能简单消除，只能等待前一条指令产生结果后再执行。 此外，内存访问相关、控制相关、资源冲突等问题也不一定能完全由寄存器重命名和指令窗口解决。 因此该说法错误。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

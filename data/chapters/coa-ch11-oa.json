@@ -1,0 +1,411 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch11",
+  "chapterName": "第十一章指令集：寻址方式与指令格式",
+  "mcq": [
+    {
+      "id": "coa-ch11-001",
+      "stemEn": "Which register in the CPU stores the instruction currently being executed?",
+      "stemCn": "CPU中哪个寄存器存放当前正在执行的指令？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Instruction Register (IR)",
+          "textCn": "指令寄存器（IR）"
+        },
+        {
+          "key": "B",
+          "textEn": "Program Counter (PC)",
+          "textCn": "程序计数器（PC）"
+        },
+        {
+          "key": "C",
+          "textEn": "Accumulator (ACC)",
+          "textCn": "累加器（ACC）"
+        },
+        {
+          "key": "D",
+          "textEn": "Memory Address Register (MAR)",
+          "textCn": "内存地址寄存器 (MAR)"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "指令寄存器 IR 用来保存当前正在执行的指令。 CPU 从主存中取出指令后，会把指令送入 IR，然后控制器根据 IR 中的操作码和地址码进行译码与执行。 其他寄存器作用： PC：保存下一条将要取出的指令地址； ACC：累加器，用于保存运算结果或中间结果； MAR：保存即将访问的主存地址。 所以选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-002",
+      "stemEn": "When a conditional branch instruction is executed, the condition it depends on comes from ( ).",
+      "stemCn": "条件分支指令执行时，其所依赖的条件来自( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Instruction Register (IR)",
+          "textCn": "指令寄存器（IR）"
+        },
+        {
+          "key": "B",
+          "textEn": "Flag Register",
+          "textCn": "标志寄存器"
+        },
+        {
+          "key": "C",
+          "textEn": "Program Counter (PC)",
+          "textCn": "程序计数器（PC）"
+        },
+        {
+          "key": "D",
+          "textEn": "Memory Address Register (MAR)",
+          "textCn": "内存地址寄存器 (MAR)"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "条件转移指令是否发生转移，通常取决于标志寄存器中的条件标志位。 例如零标志 ZF、进位标志 CF、符号标志 SF、溢出标志 OF 等。 这些标志位通常由前面的算术或逻辑运算结果产生。 例如： CMP R1, R2 JE target JE 是否跳转，取决于比较后零标志位是否为 1。 因此条件来自标志寄存器，选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-003",
+      "stemEn": "The CPU does not include ( ).",
+      "stemCn": "CPU不包括( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Memory Address Register (MAR)",
+          "textCn": "内存地址寄存器 (MAR)"
+        },
+        {
+          "key": "B",
+          "textEn": "Instruction Register (IR)",
+          "textCn": "指令寄存器（IR）"
+        },
+        {
+          "key": "C",
+          "textEn": "I/O logic",
+          "textCn": "输入/输出逻辑"
+        },
+        {
+          "key": "D",
+          "textEn": "Program Counter (PC)",
+          "textCn": "程序计数器（PC）"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "CPU 内部通常包括运算器、控制器和若干寄存器，例如 PC、IR、MAR、MBR、ACC 等。 I/O 逻辑主要属于 I/O 模块或 I/O 控制器的范围，不是 CPU 的基本组成部分。 所以 CPU 中不包括的是 I/O logic，选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-004",
+      "stemEn": "The instruction cycle refers to ( ).",
+      "stemCn": "指令周期指( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The time for the CPU to fetch one instruction from main memory",
+          "textCn": "CPU从主存中取出一条指令的时间"
+        },
+        {
+          "key": "B",
+          "textEn": "The time for the CPU to execute one instruction",
+          "textCn": "CPU执行一条指令的时间"
+        },
+        {
+          "key": "C",
+          "textEn": "The time for the CPU to fetch one instruction from main memory plus the time to execute that instruction",
+          "textCn": "CPU从主存中取出一条指令的时间加上执行该指令的时间"
+        },
+        {
+          "key": "D",
+          "textEn": "The clock cycle time",
+          "textCn": "时钟周期时间"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "指令周期是指 CPU 完成一条指令所需要的全过程时间。 一条指令通常至少包括： 取指：从主存中取出指令； 译码：分析指令功能； 执行：完成运算、访存或转移等操作。 因此，指令周期可以理解为： 指令周期=取指时间+执行时间 更完整地说，还可能包括间址周期、中断周期等。 所以选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-005",
+      "stemEn": "The time when the CPU responds to an interrupt is ( ).",
+      "stemCn": "CPU响应中断的时间为( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "After one instruction finishes execution",
+          "textCn": "一条指令执行完毕后"
+        },
+        {
+          "key": "B",
+          "textEn": "When an I/O device raises an interrupt",
+          "textCn": "当 I/O 设备发出中断时"
+        },
+        {
+          "key": "C",
+          "textEn": "At the end of the fetch cycle",
+          "textCn": "在获取周期结束时"
+        },
+        {
+          "key": "D",
+          "textEn": "At the end of the instruction cycle",
+          "textCn": "在指令周期结束时"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "CPU 通常在一条指令执行结束后才响应中断。 这是因为如果在一条指令执行到一半时响应中断，可能导致指令执行状态不完整，难以恢复现场。 一般过程是： 当前指令执行结束； CPU 检查是否有中断请求； 若允许中断，则保存断点和现场； 转入中断服务程序。 因此选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-006",
+      "stemEn": "Which of the following does not cause a pipeline stall?",
+      "stemCn": "下列哪一项不会导致流水线停顿？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Data forwarding",
+          "textCn": "数据转发"
+        },
+        {
+          "key": "B",
+          "textEn": "Data hazard",
+          "textCn": "数据冒险"
+        },
+        {
+          "key": "C",
+          "textEn": "Branch instruction",
+          "textCn": "分支指令"
+        },
+        {
+          "key": "D",
+          "textEn": "Resource conflict",
+          "textCn": "资源冲突"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "流水线停顿通常由以下因素引起： 数据相关：后一条指令需要前一条指令的结果； 控制相关：例如分支指令导致下一条指令地址不确定； 结构相关：多个阶段争用同一硬件资源。 数据旁路，也叫数据转发，是一种解决数据相关、减少流水线停顿的技术。 它把前面指令刚产生但尚未写回寄存器的结果，直接转发给后续指令使用。 因此数据旁路不会引起流水线停顿，反而用于减少停顿，选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-007",
+      "stemEn": "Suppose an instruction is completed by three subcomponents: fetch, decode/analyze, and execute, and each subcomponent takes $\\Delta t$. If an ordinary scalar pipeline processor is used, and no hazards are considered, then the total time required to execute 11 consecutive instructions is ( ).",
+      "stemCn": "假设一条指令经过取指、译码和执行三个流水段，每段耗时 $\\Delta t$。采用普通标量流水线且不考虑流水线冒险时，执行连续 11 条指令共需多少时间？（ ）",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "$12\\Delta t$",
+          "textCn": "$12\\Delta t$"
+        },
+        {
+          "key": "B",
+          "textEn": "$13\\Delta t$",
+          "textCn": "$13\\Delta t$"
+        },
+        {
+          "key": "C",
+          "textEn": "$16\\Delta t$",
+          "textCn": "$16\\Delta t$"
+        },
+        {
+          "key": "D",
+          "textEn": "$17\\Delta t$",
+          "textCn": "$17\\Delta t$"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "流水线共有 3 个阶段： k=3 连续执行 11 条指令： n=11 当各段时间均为 $\\Delta t$，且不考虑冲突时，流水线执行时间公式为： T=(k+n−1)Δt 代入： T=(3+11−1)Δt=13Δt 所以选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-008",
+      "stemEn": "In a pipeline processor, what type of dependency occurs in the following instruction sequence? ADD R1, R2, R3 ; R2 + R3 -> R1 ADD R4, R1, R5 ; R1 + R5 -> R4",
+      "stemCn": "在流水线处理器中，下列指令序列存在何种相关？ADD R1, R2, R3；R2 + R3 -> R1。ADD R4, R1, R5；R1 + R5 -> R4。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Write-after-write dependency",
+          "textCn": "写后写相关（WAW）"
+        },
+        {
+          "key": "B",
+          "textEn": "Read-after-write dependency",
+          "textCn": "写后读相关（RAW）"
+        },
+        {
+          "key": "C",
+          "textEn": "Write-after-read dependency",
+          "textCn": "读后写相关（WAR）"
+        },
+        {
+          "key": "D",
+          "textEn": "Procedural dependency",
+          "textCn": "控制相关"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "第 1 条指令会把结果写入 R1： R1←R2+R3 第 2 条指令需要读取 R1： R4←R1+R5 也就是说，第 2 条指令必须等第 1 条指令把 R1 写好之后才能正确读取 R1。 这是典型的 RAW（Read After Write，先写后读相关），也称真正的数据相关。 所以选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-009",
+      "stemEn": "A computer contains the Program Counter (PC), Instruction Register (IR), Memory Buffer Register (MBR), and Memory Address Register (MAR). If the CPU is going to execute the instruction MOV R0, #100, which transfers the value 100 to register R0, what is the first operation the CPU should complete?",
+      "stemCn": "计算机包含程序计数器（PC）、指令寄存器（IR）、内存缓冲寄存器（MBR）和内存地址寄存器（MAR）。如果CPU要执行指令MOV R0,#100，将值100传送到寄存器R0，CPU应该完成的第一个操作是什么？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "100 -> R0",
+          "textCn": "100 -> R0"
+        },
+        {
+          "key": "B",
+          "textEn": "100 -> MBR",
+          "textCn": "100 -> MBR"
+        },
+        {
+          "key": "C",
+          "textEn": "PC -> IR",
+          "textCn": "PC -> IR"
+        },
+        {
+          "key": "D",
+          "textEn": "PC -> MAR",
+          "textCn": "PC -> MAR"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "CPU 执行任何指令前，首先都要完成取指过程。 取指时，CPU 需要先把 PC 中保存的指令地址送入 MAR，用于访问主存。 第一步是： MAR←PC 然后才会进行主存读操作，把指令取入 MBR，再送入 IR。 因此 CPU 首先要完成的操作是 PC -> MAR，选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-010",
+      "stemEn": "Which of the following instruction groups contains a write-after-read dependency?",
+      "stemCn": "以下哪个指令组包含读后写依赖性？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "I1: SUB R1, R2, R3 ; R2 - R3 -> R1 I2: ADD R4, R5, R1 ; R5 + R1 -> R4",
+          "textCn": "I1: SUB R1, R2, R3；R2 - R3 -> R1。I2: ADD R4, R5, R1；R5 + R1 -> R4"
+        },
+        {
+          "key": "B",
+          "textEn": "I1: STA M, R2      ; R2 -> M I2: ADD R2, R4, R5 ; R4 + R5 -> R2",
+          "textCn": "I1: STA M, R2；R2 -> M。I2: ADD R2, R4, R5；R4 + R5 -> R2"
+        },
+        {
+          "key": "C",
+          "textEn": "I1: MUL R3, R2, R1 ; R2 × R1 -> R3 I2: SUB R3, R4, R5 ; R4 - R5 -> R3",
+          "textCn": "I1: MUL R3, R2, R1；R2 × R1 -> R3。I2: SUB R3, R4, R5；R4 - R5 -> R3"
+        },
+        {
+          "key": "D",
+          "textEn": "None of the above",
+          "textCn": "以上都不是"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "先读后写相关，即 WAR（Write After Read），指后一条指令要写入的寄存器，前一条指令还需要先读取它。 如果后一条指令过早写入，就会破坏前一条指令应读取的旧值。 分析 B： I1: STA M, R2 ; R2 -> M I2: ADD R2, R4, R5 ; R4 + R5 -> R2 I1 需要读取 R2，把 R2 的内容存入主存 M。 I2 需要写 R2，把 R4+R5 的结果写入 R2。 因此必须保证 I1 先读 R2，I2 再写 R2，否则 I1 读到的就不是原来的 R2 内容。 所以 B 存在 WAR 相关。 其他选项： A：I1 写 R1，I2 读 R1，是 RAW 相关； C：I1 写 R3，I2 也写 R3，是 WAW 相关； D 错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-011",
+      "stemEn": "When a conflict occurs in accessing the address of an operand, a ( ) dependency will occur.",
+      "stemCn": "当访问操作数地址时发生冲突时，就会产生( )依赖。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Resource dependency",
+          "textCn": "资源依赖"
+        },
+        {
+          "key": "B",
+          "textEn": "Data dependency",
+          "textCn": "数据依赖"
+        },
+        {
+          "key": "C",
+          "textEn": "Structural dependency",
+          "textCn": "结构依赖性"
+        },
+        {
+          "key": "D",
+          "textEn": "Control dependency",
+          "textCn": "控制依赖性"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "如果多条指令对同一个操作数地址进行访问，并且这些访问之间存在先后顺序要求，就会产生数据相关。 数据相关本质上是指指令之间因为读写同一数据对象而产生依赖关系。 常见的数据相关包括： - RAW：Read After Write，先写后读相关； - WAR：Write After Read，先读后写相关； - WAW：Write After Write，先写后写相关。 题干说“对一个操作数地址的访问发生冲突”，本质上是对同一数据或同一数据地址的访问产生冲突，因此属于 **data dependency**，选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-012",
+      "stemEn": "Generally speaking, in the ( ) stage of a pipeline, ALU operations, Cache access, and register value updates are performed.",
+      "stemCn": "一般来说，在流水线的( )阶段，执行ALU操作、Cache访问和寄存器值更新。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Decode",
+          "textCn": "解码"
+        },
+        {
+          "key": "B",
+          "textEn": "Fetch",
+          "textCn": "取指"
+        },
+        {
+          "key": "C",
+          "textEn": "Write-back",
+          "textCn": "回写"
+        },
+        {
+          "key": "D",
+          "textEn": "Execute",
+          "textCn": "执行"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "在流水线中，取指阶段主要负责从存储器中取出指令，译码阶段主要分析指令功能和读取相关信息，写回阶段主要把结果写回寄存器。 而执行阶段是完成指令实际功能的核心阶段，通常包括算术逻辑运算、访存相关操作以及结果更新等实际执行动作。 需要注意：如果采用更细分的五级流水线，Cache 访问通常会被单独划分到访存阶段，寄存器更新也可能放在写回阶段。 但本题按“广义执行阶段”理解，即真正完成指令功能的阶段，因此选择 **execute**。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "coa-ch11-tf-001",
+      "stemEn": "When executing a branch instruction, the value of the Program Counter (PC) must be changed to the branch target address.",
+      "stemCn": "当执行分支指令时，程序计数器（PC）的值必须更改为分支目标地址。",
+      "answer": "F",
+      "explanationCn": "转移指令不一定都会真正改变 PC 为转移目标地址。 如果是**无条件转移指令**，执行时通常会把目标地址送入 PC；但如果是**条件转移指令**，只有当条件满足时才会转移，条件不满足时，PC 仍然指向顺序执行的下一条指令。 因此，“执行转移指令时一定修改 PC 为转移目标地址”说法过于绝对，错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-tf-002",
+      "stemEn": "Some operations during instruction execution are the same or similar.",
+      "stemCn": "指令执行过程中的一些操作是相同或相似的。",
+      "answer": "T",
+      "explanationCn": "不同指令虽然功能不同，但在执行过程中往往包含一些相同或相似的基本操作。 例如大多数指令都需要经历取指、译码、形成地址、读取操作数、执行运算、写回结果等步骤。 正因为这些操作具有重复性和规律性，CPU 才能采用统一的控制流程和流水线技术来提高执行效率。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-tf-003",
+      "stemEn": "In a computer, the length of a clock cycle is fixed, while the instruction cycle lengths of different instructions may be different.",
+      "stemCn": "在计算机中，时钟周期的长度是固定的，而不同指令的指令周期长度可能不同。",
+      "answer": "T",
+      "explanationCn": "时钟周期由 CPU 的主频决定，在同一台计算机中通常是固定的。 但不同指令的复杂程度不同，所需的机器周期或时钟周期数可能不同。 例如简单寄存器加法指令可能只需要较少周期，而访存指令、乘除法指令、转移指令可能需要更多周期。 因此，时钟周期固定，但指令周期可以不同。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-tf-004",
+      "stemEn": "Pipeline technology in the CPU constructs a processor based on spatial parallelism.",
+      "stemCn": "CPU中的流水线技术构建了一个基于空间并行的处理器。",
+      "answer": "F",
+      "explanationCn": "流水线技术主要依据的是**时间并行性**，也称时间重叠。 它把一条指令的执行过程划分为多个阶段，使多条指令在不同阶段上重叠执行。 例如当第 1 条指令在执行阶段时，第 2 条指令可以在译码阶段，第 3 条指令可以在取指阶段。 空间并行性通常是指增加多个处理部件或多个处理器同时工作，例如多核、多处理器等。 因此，CPU 流水线主要不是依据空间并行性，而是依据时间并行性，该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch11-tf-005",
+      "stemEn": "When instructions flow through an ordinary pipeline in order, among RAW, WAR, and WAW, generally only RAW hazards may occur.",
+      "stemCn": "当指令按顺序流经普通流水线时，在RAW、WAR和WAW中，通常只可能发生RAW危险。",
+      "answer": "T",
+      "explanationCn": "普通按序流水线中，指令按顺序进入流水线，并且通常按顺序完成写回。 在这种情况下，最常见的数据相关是 **RAW（Read After Write，先写后读相关）**，也叫真正的数据相关。 例如： I1: ADD R1, R2, R3 ; R2 + R3 -> R1 I2: ADD R4, R1, R5 ; R1 + R5 -> R4 I2 要读取 R1，但 R1 是 I1 的结果。如果 I1 还没写回，I2 就去读 R1，就会产生 RAW 相关。 而 WAR 和 WAW 通常发生在乱序执行或乱序写回的情况下，普通按序流水线一般不容易出现。 因此该说法正确。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

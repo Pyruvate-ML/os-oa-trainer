@@ -5,6 +5,7 @@ const ROOT = process.cwd();
 const CHAPTER_DIR = path.join(ROOT, "data", "chapters");
 const TERMS_DIR = path.join(ROOT, "data", "terms");
 const OUTPUT_FILE = path.join(ROOT, "data", "question-bank.generated.json");
+const OUTPUT_JS_FILE = path.join(ROOT, "data", "question-bank.generated.js");
 const CHAPTER_FILE_RE = /^(os|coa)-ch(\d{2})-[a-z0-9-]+\.json$/i;
 const TERMS_FILE_RE = /^(os|coa)-terms\.json$/i;
 
@@ -261,6 +262,11 @@ async function main() {
 
   const out = { subjects };
   await fs.writeFile(OUTPUT_FILE, `${JSON.stringify(out, null, 2)}\n`, "utf8");
+  await fs.writeFile(
+    OUTPUT_JS_FILE,
+    `window.__QUESTION_BANK__ = ${JSON.stringify(out)};\n`,
+    "utf8"
+  );
 
   const summary = subjects
     .map((s) => `${s.id}: mcq=${s.mcq.length}, tf=${s.tf.length}, terms=${s.terms.length}`)

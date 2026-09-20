@@ -1,0 +1,370 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch10",
+  "chapterName": "第十章指令集：特征与功能",
+  "mcq": [
+    {
+      "id": "coa-ch10-001",
+      "stemEn": "Among the following addressing modes, which mode requires calculation first and then accesses main memory?",
+      "stemCn": "下列寻址方式中，哪种方式需要先计算，然后访问主存？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Relative addressing",
+          "textCn": "相对寻址"
+        },
+        {
+          "key": "B",
+          "textEn": "Indexed addressing",
+          "textCn": "索引寻址"
+        },
+        {
+          "key": "C",
+          "textEn": "Indirect addressing",
+          "textCn": "间接寻址"
+        },
+        {
+          "key": "D",
+          "textEn": "A and B",
+          "textCn": "A 和 B"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "相对寻址和变址寻址都需要先根据指令中的形式地址和某个寄存器的内容进行地址计算，然后再访问主存取得操作数。 - 相对寻址： $$ EA = PC + A $$ - 变址寻址： $$ EA = X + A $$ 其中 $EA$ 表示有效地址，$A$ 表示指令中的形式地址，$X$ 表示变址寄存器内容。 间接寻址虽然也需要得到有效地址，但它通常是先访问主存取出有效地址，再根据有效地址访问操作数，不属于“先计算再访问主存”的典型形式。 因此选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch10-002",
+      "stemEn": "In various addressing modes, the address-code field of an instruction may contain which of the following? I. Register address II. I/O device address III. Memory unit address IV. Immediate value",
+      "stemCn": "在不同寻址方式下，指令的地址码字段可能包含哪些内容？I. 寄存器地址 II. I/O 设备地址 III. 存储单元地址 IV. 立即数",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "I and II",
+          "textCn": "I、II"
+        },
+        {
+          "key": "B",
+          "textEn": "II and III",
+          "textCn": "II、III"
+        },
+        {
+          "key": "C",
+          "textEn": "I and III",
+          "textCn": "I、III"
+        },
+        {
+          "key": "D",
+          "textEn": "I, II, III, and IV",
+          "textCn": "I、II、III、IV"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "指令中的地址码字段并不一定只表示主存地址，它的含义取决于寻址方式和指令类型。 可能情况包括： - 寄存器地址：如寄存器寻址； - 外设地址：如 I/O 指令中指定设备端口； - 存储器单元地址：如直接寻址、间接寻址； - 数值本身：如立即数寻址。 所以 I、II、III、IV 都可能出现，选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch10-003",
+      "stemEn": "Suppose a computer has a main memory space of 4 GB, a word length of 32 bits, uses byte addressing, and adopts a 32-bit fixed-length instruction format. If instructions are stored aligned on word boundaries, then the minimum numbers of bits of the Program Counter (PC) and the Instruction Register (IR) are respectively ( ).",
+      "stemCn": "假设一台计算机的主存空间为4GB，字长为32位，采用字节寻址，采用32位定长指令格式。如果指令按字边界对齐存储，则程序计数器 (PC) 和指令寄存器 (IR) 的最小位数分别为 ( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "30, 30",
+          "textCn": "30, 30"
+        },
+        {
+          "key": "B",
+          "textEn": "30, 32",
+          "textCn": "30, 32"
+        },
+        {
+          "key": "C",
+          "textEn": "32, 30",
+          "textCn": "32, 30"
+        },
+        {
+          "key": "D",
+          "textEn": "32, 32",
+          "textCn": "32, 32"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "主存空间为： $$ 4GB = 2^{32}B $$ 如果按字节编址，完整的字节地址需要 32 位。 但是题目说明指令按字边界对齐存放，字长为 32 位，即： $$ 32bit = 4B $$ 所以指令地址一定是 4 的倍数，低 2 位恒为 0，不需要在 PC 中保存。 可存放指令的位置数为： $$ \\frac{2^{32}B}{4B} = 2^{30} $$ 因此 PC 至少需要： $$ 30 $$ 位。 IR 用来保存当前正在执行的指令，题目给出指令长度为 32 位定长，因此 IR 至少需要： $$ 32 $$ 位。 所以答案为： $$ PC = 30,\\quad IR = 32 $$ 选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch10-004",
+      "stemEn": "Suppose the operand of an instruction uses indexed addressing. The value in the index register is `007CH`, the content at address `007CH` is `0124H`, the formal address given in the instruction is `B000H`, and the content at address `B000H` is `C000H`. What is the effective address of the operand?",
+      "stemCn": "假设指令的操作数使用索引寻址。变址寄存器中的值为‘007CH’，地址‘007CH’处的内容为‘0124H’，指令中给出的形式地址为‘B000H’，地址‘B000H’处的内容为‘C000H’。操作数的有效地址是多少？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "`B124H`",
+          "textCn": "`B124H`"
+        },
+        {
+          "key": "B",
+          "textEn": "`C124H`",
+          "textCn": "`C124H`"
+        },
+        {
+          "key": "C",
+          "textEn": "`B07CH`",
+          "textCn": "`B07CH`"
+        },
+        {
+          "key": "D",
+          "textEn": "`C07CH`",
+          "textCn": "`C07CH`"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "变址寻址的有效地址计算公式为： $$ EA = A + X $$ 其中： - $A$：指令中给出的形式地址； - $X$：变址寄存器中的内容。 题中： $$ A = B000H $$ $$ X = 007CH $$ 所以： $$ EA = B000H + 007CH = B07CH $$ 题目中给出的 `007CH` 地址内容、`B000H` 地址内容都是干扰信息。 因此有效地址为 `B07CH`，选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch10-005",
+      "stemEn": "The function of an unconditional jump instruction using direct addressing is to send the address code in the instruction to ( ).",
+      "stemCn": "使用直接寻址的无条件跳转指令的作用是将指令中的地址码发送到( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Program Counter PC",
+          "textCn": "程序计数器PC"
+        },
+        {
+          "key": "B",
+          "textEn": "Accumulator ACC",
+          "textCn": "累加器 ACC"
+        },
+        {
+          "key": "C",
+          "textEn": "Instruction Register IR",
+          "textCn": "指令寄存器IR"
+        },
+        {
+          "key": "D",
+          "textEn": "Memory Address Register MAR",
+          "textCn": "内存地址寄存器 MAR"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "转移指令的作用是改变程序执行顺序。 程序下一条指令的地址由程序计数器 PC 保存，因此无条件转移指令执行时，需要把目标地址送入 PC。 即： $$ PC \\leftarrow 目标地址 $$ 这样 CPU 下一次取指时，就会从新的目标地址开始取指。 所以选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch10-006",
+      "stemEn": "In register indirect addressing, the operand is located in ( ).",
+      "stemCn": "在寄存器间接寻址中，操作数位于( )中。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "General-purpose register",
+          "textCn": "通用寄存器"
+        },
+        {
+          "key": "B",
+          "textEn": "Main memory unit",
+          "textCn": "主存储单元"
+        },
+        {
+          "key": "C",
+          "textEn": "Stack",
+          "textCn": "堆"
+        },
+        {
+          "key": "D",
+          "textEn": "The instruction itself",
+          "textCn": "指令本身"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "寄存器间接寻址中，寄存器中保存的不是操作数本身，而是操作数所在主存单元的地址。 其含义是： $$ EA = (R) $$ $$ Operand = M[EA] $$ 也就是说，寄存器内容是有效地址，真正的操作数在主存中。 所以选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch10-007",
+      "stemEn": "Among the following addressing modes, which is most suitable for accessing a one-dimensional array sequentially according to subscript order?",
+      "stemCn": "下列寻址方式中，哪一种最适合按照下标顺序顺序访问一维数组？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Indexed addressing",
+          "textCn": "索引寻址"
+        },
+        {
+          "key": "B",
+          "textEn": "Register addressing",
+          "textCn": "寄存器寻址"
+        },
+        {
+          "key": "C",
+          "textEn": "Direct addressing",
+          "textCn": "直接寻址"
+        },
+        {
+          "key": "D",
+          "textEn": "Relative addressing",
+          "textCn": "相对寻址"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "数组元素通常连续存放在主存中。 访问数组时，可以把数组首地址作为形式地址，把下标或偏移量放入变址寄存器中，通过变址寻址计算元素地址： $$ EA = A + X $$ 其中： - $A$：数组首地址； - $X$：数组下标对应的偏移量。 这样非常适合顺序访问数组元素。 所以选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch10-008",
+      "stemEn": "Which of the following statements about addressing modes is incorrect?",
+      "stemCn": "下列关于寻址模式的表述哪一项是不正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Immediate addressing is faster than register addressing.",
+          "textCn": "立即寻址比寄存器寻址更快。"
+        },
+        {
+          "key": "B",
+          "textEn": "Direct addressing is faster than register addressing.",
+          "textCn": "直接寻址比寄存器寻址更快。"
+        },
+        {
+          "key": "C",
+          "textEn": "Register indirect addressing is faster than indexed addressing.",
+          "textCn": "寄存器间接寻址比索引寻址更快。"
+        },
+        {
+          "key": "D",
+          "textEn": "Indexed addressing is faster than indirect addressing.",
+          "textCn": "索引寻址比间接寻址更快。"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "寄存器寻址的操作数直接在 CPU 内部寄存器中，不需要访问主存，因此速度通常很快。 直接寻址需要根据指令中的地址访问主存取得操作数，因此一般慢于寄存器寻址。 所以 B“直接寻址快于寄存器寻址”是错误的。 其他选项可按一般情况理解： - 立即数寻址：操作数就在指令中，取指时已经取得； - 寄存器间接寻址：寄存器给出主存地址，再访问一次主存； - 变址寻址：需要地址加法计算后访问主存； - 间接寻址：通常需要先访问主存得到有效地址，再访问主存取操作数，访问次数更多。 因此本题选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch10-009",
+      "stemEn": "In order to reduce the number of bits of an address field in an instruction, an effective method is to use ( ).",
+      "stemCn": "为了减少指令中地址字段的位数，有效的方法是使用( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Immediate addressing",
+          "textCn": "立即寻址"
+        },
+        {
+          "key": "B",
+          "textEn": "Indexed addressing",
+          "textCn": "索引寻址"
+        },
+        {
+          "key": "C",
+          "textEn": "Register addressing",
+          "textCn": "寄存器寻址"
+        },
+        {
+          "key": "D",
+          "textEn": "Direct addressing",
+          "textCn": "直接寻址"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "如果指令直接给出主存地址，需要较长的地址字段。 例如主存地址空间很大时，地址码可能需要十几位、几十位。 而寄存器寻址只需要在指令中指出寄存器编号。 如果 CPU 有 $n$ 个寄存器，则寄存器编号只需要： $$ \\log_2 n $$ 位。 例如 16 个寄存器只需要 4 位寄存器编号。 因此，为了缩短指令中某个地址段的位数，常采用寄存器寻址。 所以选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch10-010",
+      "stemEn": "If the address-code part of an instruction gives the address of the effective address of the operand, then the instruction uses ( ).",
+      "stemCn": "如果指令的地址代码部分给出了操作数的有效地址的地址，则该指令使用（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Direct addressing",
+          "textCn": "直接寻址"
+        },
+        {
+          "key": "B",
+          "textEn": "Immediate addressing",
+          "textCn": "立即寻址"
+        },
+        {
+          "key": "C",
+          "textEn": "Register addressing",
+          "textCn": "寄存器寻址"
+        },
+        {
+          "key": "D",
+          "textEn": "Indirect addressing",
+          "textCn": "间接寻址"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "题干说“地址码部分给出的是操作数有效地址的地址”，也就是说，指令中的地址字段并不是操作数的有效地址，而是保存有效地址的那个主存单元地址。 间接寻址的过程为： $$ EA = M[A] $$ $$ Operand = M[EA] $$ 其中： - $A$：指令中的地址码； - $M[A]$：地址 $A$ 中存放的内容，即有效地址； - $M[EA]$：真正的操作数。 因此该指令采用间接寻址，选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch10-011",
+      "stemEn": "In ( ) addressing mode, the address field in the instruction gives a memory address, and the referenced register contains a positive offset relative to this address. It can be used to implement user access to array elements.",
+      "stemCn": "在( )寻址模式下，指令中的地址字段给出了内存地址，所引用的寄存器包含相对于该地址的正偏移量。它可用于实现用户对数组元素的访问。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Indexed addressing",
+          "textCn": "索引寻址"
+        },
+        {
+          "key": "B",
+          "textEn": "Base-register addressing",
+          "textCn": "基址寄存器寻址"
+        },
+        {
+          "key": "C",
+          "textEn": "Relative addressing",
+          "textCn": "相对寻址"
+        },
+        {
+          "key": "D",
+          "textEn": "All of the above",
+          "textCn": "上述所有的"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "题干描述的是变址寻址。 变址寻址中，指令地址字段通常给出一个基准地址，例如数组首地址；变址寄存器中保存相对于该地址的偏移量，例如数组下标偏移。 有效地址为： $$ EA = A + (X) $$ 这种方式非常适合访问数组元素。 例如： $$ EA = 数组首地址 + 下标偏移量 $$ 因此选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch10-012",
+      "stemEn": "Which of the following factors affects the determination of the number of address bits?",
+      "stemCn": "以下哪些因素影响地址位数的确定？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The number of operands",
+          "textCn": "操作数的数量"
+        },
+        {
+          "key": "B",
+          "textEn": "The number of registers in the register set",
+          "textCn": "寄存器集中的寄存器数量"
+        },
+        {
+          "key": "C",
+          "textEn": "The address range",
+          "textCn": "地址范围"
+        },
+        {
+          "key": "D",
+          "textEn": "All of the above",
+          "textCn": "上述所有的"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "地址位数的确定受到多种因素影响： 1. **操作数个数** 指令中需要几个地址字段，会影响每个地址字段可分配的位数。 2. **寄存器组个数** 如果采用寄存器寻址，需要用若干位表示寄存器编号。 若有 $n$ 个寄存器，需要： $$ \\log_2 n $$ 位寄存器编号。 3. **地址范围** 如果需要访问更大的主存地址空间，则地址字段需要更多位。 因此 A、B、C 都会影响地址位数的确定，选 D。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [],
+  "terms": []
+}

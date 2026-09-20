@@ -1,0 +1,359 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch03",
+  "chapterName": "第三章计算机功能与互连的顶层视图",
+  "mcq": [
+    {
+      "id": "coa-ch03-001",
+      "stemEn": "Which of the following cannot be transmitted on the data bus?",
+      "stemCn": "以下哪项不能在数据总线上传输？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Instructions",
+          "textCn": "指令"
+        },
+        {
+          "key": "B",
+          "textEn": "Source operands",
+          "textCn": "源操作数"
+        },
+        {
+          "key": "C",
+          "textEn": "Interrupt request signals",
+          "textCn": "中断请求信号"
+        },
+        {
+          "key": "D",
+          "textEn": "Destination operands",
+          "textCn": "目标操作数"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "数据总线用于传输数据，包括指令、源操作数和目的操作数等。中断请求信号属于控制信息，应通过控制总线传输，而不是通过数据总线传输。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-002",
+      "stemEn": "In one bus transaction, the master module only needs to provide a starting address, and the slave device can read or write multiple data items from several consecutive address units starting from that address. This type of bus data transfer is called ( ).",
+      "stemCn": "在一次总线事务中，主控模块只需要提供一个起始地址，从属设备就可以从该地址开始的几个连续的地址单元中读取或写入多个数据项。这种类型的总线数据传输称为（ ）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Parallel transfer",
+          "textCn": "并行传输"
+        },
+        {
+          "key": "B",
+          "textEn": "Serial transfer",
+          "textCn": "串行传输"
+        },
+        {
+          "key": "C",
+          "textEn": "Synchronous transfer",
+          "textCn": "同步传输"
+        },
+        {
+          "key": "D",
+          "textEn": "Block transfer / burst transfer",
+          "textCn": "块传输/突发传输"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "块传输，也称突发传输，是指主设备给出一个起始地址后，连续传输多个相邻地址中的数据。这样可以减少每次传输都重新给出地址的开销，提高总线传输效率。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-003",
+      "stemEn": "Multiple components connected to a bus ( ).",
+      "stemCn": "连接到总线的多个组件 ( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Can only send data to the bus at different times, but may receive data from the bus at the same time",
+          "textCn": "只能在不同时间向总线发送数据，但可能同时从总线接收数据"
+        },
+        {
+          "key": "B",
+          "textEn": "Can only send data to the bus at different times, and can only receive data from the bus at different times",
+          "textCn": "只能在不同时间向总线发送数据，并且只能在不同时间从总线接收数据"
+        },
+        {
+          "key": "C",
+          "textEn": "Can send data to the bus at the same time, but can only receive data from the bus at different times",
+          "textCn": "可以同时向总线发送数据，但只能分时从总线接收数据"
+        },
+        {
+          "key": "D",
+          "textEn": "Can send data to the bus at the same time, and may receive data from the bus at the same time",
+          "textCn": "可以同时向总线发送数据，也可以同时从总线接收数据"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "总线是共享传输介质，同一时刻只能有一个部件向总线发送数据，否则会产生冲突。但多个部件可以同时从总线上接收同一份数据，因此选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-004",
+      "stemEn": "The system bus is used to connect components such as ( ).",
+      "stemCn": "系统总线用于连接( )等组件。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Registers and arithmetic units",
+          "textCn": "寄存器和算术单元"
+        },
+        {
+          "key": "B",
+          "textEn": "CPU, main memory, and I/O modules",
+          "textCn": "CPU、主存和I/O模块"
+        },
+        {
+          "key": "C",
+          "textEn": "Arithmetic units and controllers",
+          "textCn": "算术单元和控制器"
+        },
+        {
+          "key": "D",
+          "textEn": "Interfaces and peripherals",
+          "textCn": "接口及外围设备"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "系统总线是计算机系统中的公共通信通道，主要用于连接 CPU、主存储器和 I/O 模块。寄存器与运算器之间通常通过 CPU 内部总线连接，接口和外设之间也不是系统总线的主要连接对象。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-005",
+      "stemEn": "Which of the following statements about bus design is incorrect?",
+      "stemCn": "以下关于总线设计的表述哪一项是不正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "A parallel bus must be faster than a serial bus",
+          "textCn": "并行总线必须比串行总线更快"
+        },
+        {
+          "key": "B",
+          "textEn": "Signal-line multiplexing can reduce the number of signal lines",
+          "textCn": "信号线复用可以减少信号线数量"
+        },
+        {
+          "key": "C",
+          "textEn": "Block transfer / burst transfer can improve the bus data transfer rate",
+          "textCn": "块传输/突发传输可以提高总线数据传输速率"
+        },
+        {
+          "key": "D",
+          "textEn": "Split-transaction communication can improve bus utilization",
+          "textCn": "分割事务通信可以提高总线利用率"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "并行总线一次可以传输多位数据，但并不一定总比串行总线快。高速串行总线通过提高时钟频率、减少信号干扰和简化线路设计，也可以达到很高的数据传输速率。因此 A 的说法过于绝对，是错误的。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-006",
+      "stemEn": "If counter-polling arbitration is used for bus arbitration, and each count starts from the stopping point of the previous count, then ( ).",
+      "stemCn": "如果总线仲裁采用计数器轮询仲裁，并且每次计数都从前一次计数的停止点开始，则( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Devices with smaller device numbers have higher priority",
+          "textCn": "设备编号越小的设备优先级越高"
+        },
+        {
+          "key": "B",
+          "textEn": "Devices with larger device numbers have higher priority",
+          "textCn": "设备编号越大的设备优先级越高"
+        },
+        {
+          "key": "C",
+          "textEn": "Each device has an equal opportunity to use the bus",
+          "textCn": "每个设备都有平等的机会使用总线"
+        },
+        {
+          "key": "D",
+          "textEn": "The priority of devices cannot be determined",
+          "textCn": "无法确定设备的优先级"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "如果计数器每次都从上一次停止的位置继续计数，那么总线使用机会会在各设备之间轮流分配，不会固定偏向编号小或编号大的设备。因此每个设备获得总线的机会基本相等。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-007",
+      "stemEn": "Synchronous control is ( ).",
+      "stemCn": "同步控制为（ ）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "A control method only used for CPU control",
+          "textCn": "仅用于CPU控制的控制方式"
+        },
+        {
+          "key": "B",
+          "textEn": "A control method only used for I/O control",
+          "textCn": "仅用于I/O控制的控制方式"
+        },
+        {
+          "key": "C",
+          "textEn": "A control method controlled by a unified timing signal",
+          "textCn": "一种统一定时信号控制的控制方法"
+        },
+        {
+          "key": "D",
+          "textEn": "A control method in which all instructions have the same execution time",
+          "textCn": "所有指令执行时间相同的控制方法"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "同步控制方式的特点是各操作按照统一的时钟信号或统一的时序信号进行控制。它并不是只适用于 CPU 或 I/O，也不表示所有指令执行时间都完全相同。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-008",
+      "stemEn": "Asynchronous bus communication is ( ).",
+      "stemCn": "异步总线通信是( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "It requires neither clock signals nor handshake signals",
+          "textCn": "它既不需要时钟信号也不需要握手信号"
+        },
+        {
+          "key": "B",
+          "textEn": "It only requires clock signals and does not require handshake signals",
+          "textCn": "只需要时钟信号，不需要握手信号"
+        },
+        {
+          "key": "C",
+          "textEn": "It requires both clock signals and handshake signals",
+          "textCn": "它需要时钟信号和握手信号"
+        },
+        {
+          "key": "D",
+          "textEn": "It does not require clock signals and only requires handshake signals",
+          "textCn": "不需要时钟信号，只需要握手信号"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "异步通信不使用统一的时钟信号，而是通过请求、应答等握手信号来协调发送方和接收方的工作。因此它适合速度不同的模块之间通信。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-009",
+      "stemEn": "According to the different components connected by buses, buses can be divided into ( ).",
+      "stemCn": "根据总线连接的部件不同，总线可分为（ ）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Data bus, address bus, and control bus",
+          "textCn": "数据总线、地址总线和控制总线"
+        },
+        {
+          "key": "B",
+          "textEn": "On-chip bus, system bus, and external bus",
+          "textCn": "片内总线、系统总线、外部总线"
+        },
+        {
+          "key": "C",
+          "textEn": "Memory bus, I/O bus, and DMA bus",
+          "textCn": "内存总线、I/O 总线和 DMA 总线"
+        },
+        {
+          "key": "D",
+          "textEn": "ISA bus, VESA bus, and PCI bus",
+          "textCn": "ISA总线、VESA总线、PCI总线"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "按照连接部件的不同，总线可以分为片内总线、系统总线和外部总线。按照传输信息的不同，才可分为数据总线、地址总线和控制总线。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-010",
+      "stemEn": "In bus design, which of the following factors does not need to be considered?",
+      "stemCn": "在总线设计中，以下哪一个因素不需要考虑？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Bus length",
+          "textCn": "总线长度"
+        },
+        {
+          "key": "B",
+          "textEn": "Bus arbitration method",
+          "textCn": "总线仲裁方式"
+        },
+        {
+          "key": "C",
+          "textEn": "Bus width",
+          "textCn": "总线宽度"
+        },
+        {
+          "key": "D",
+          "textEn": "Bus type",
+          "textCn": "总线类型"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "总线设计中通常重点考虑总线类型、总线宽度、总线仲裁方式、通信方式、传输方式等。总线长度虽然会影响物理实现中的信号质量，但在本题所考查的总线逻辑设计因素中，不作为主要设计因素，因此选 A。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "coa-ch03-tf-001",
+      "stemEn": "In synchronous communication, the clock signal used for synchronization is provided independently by each device connected to the bus.",
+      "stemCn": "在同步通信中，用于同步的时钟信号由连接到总线的每个设备独立提供。",
+      "answer": "F",
+      "explanationCn": "同步通信方式中，各部件必须按照统一的时钟节拍进行通信。同步时钟通常由总线控制逻辑或系统统一提供，而不是由总线上各设备自行提供，否则不同设备之间无法保持统一的时序关系。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-tf-002",
+      "stemEn": "In centralized bus arbitration methods, the required number of control lines from few to many is: daisy-chain arbitration, counter-polling arbitration, and independent-request arbitration.",
+      "stemCn": "在集中式总线仲裁方法中，所需控制线数量从少到多依次为：菊花链仲裁、计数器轮询仲裁、独立请求仲裁。",
+      "answer": "T",
+      "explanationCn": "集中式总线仲裁常见方式包括链式查询、计数器轮询和独立请求。链式查询所需控制线最少；计数器轮询需要设备编号相关的控制线；独立请求方式每个设备通常都有独立请求线，因此控制线最多。所以该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-tf-003",
+      "stemEn": "At a certain moment, the bus may allow multiple pairs of master and slave modules to communicate at the same time.",
+      "stemCn": "在某一时刻，总线可以允许多对主从模块同时通信。",
+      "answer": "F",
+      "explanationCn": "总线是共享传输介质，同一时刻通常只能允许一个主模块占用总线，并与一个或多个从模块进行通信。如果多个主模块同时使用总线，会造成总线冲突。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-tf-004",
+      "stemEn": "Asynchronous timing allows multiple modules with large speed differences to be connected together and work cooperatively.",
+      "stemCn": "异步时序允许多个速度差异较大的模块连接在一起并协同工作。",
+      "answer": "T",
+      "explanationCn": "异步通信不依赖统一的时钟信号，而是通过应答、握手等信号来协调通信。因此，它适合速度差异较大的模块之间进行数据交换。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-tf-005",
+      "stemEn": "In a system bus, the address lines and data bus can be multiplexed.",
+      "stemCn": "在系统总线中，地址线和数据总线可以复用。",
+      "answer": "T",
+      "explanationCn": "地址线和数据线可以采用分时复用方式，即在不同时间段传输地址信息和数据信息。这样可以减少总线引脚数量和信号线数量，但通常会增加控制复杂度。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch03-tf-006",
+      "stemEn": "A computer system contains different types of buses, and these buses provide communication paths for components at different levels of the hierarchical structure of the computer system.",
+      "stemCn": "计算机系统包含不同类型的总线，这些总线为计算机系统分层结构的不同级别的组件提供通信路径。",
+      "answer": "T",
+      "explanationCn": "计算机系统中通常存在多种总线，例如片内总线、系统总线、外部总线等。它们连接的部件层次不同，作用也不同，但本质上都是为不同层次的部件提供通信通路。因此该说法正确。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

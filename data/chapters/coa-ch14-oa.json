@@ -1,0 +1,367 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch14",
+  "chapterName": "第十四章指令级并行性和超标量处理",
+  "mcq": [
+    {
+      "id": "coa-ch14-001",
+      "stemEn": "In a single-bus CPU, which of the following is correct?",
+      "stemCn": "在单总线 CPU 中，以下哪项是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The ALU has only one input connected to the bus, while the other input must be connected to the bus through a register.",
+          "textCn": "ALU 只有一个输入连接到总线，而另一输入必须通过寄存器连接到总线。"
+        },
+        {
+          "key": "B",
+          "textEn": "Both input ports of the ALU are connected to the bus, but the output port must be connected to the bus through a register.",
+          "textCn": "ALU 的两个输入端口都连接到总线，但输出端口必须通过寄存器连接到总线。"
+        },
+        {
+          "key": "C",
+          "textEn": "One input port of the ALU is connected to the bus, and its output port can also be connected to the bus.",
+          "textCn": "ALU的一个输入端口连接到总线，其输出端口也可以连接到总线。"
+        },
+        {
+          "key": "D",
+          "textEn": "Both input ports and the output port of the ALU can be connected to the bus.",
+          "textCn": "ALU 的输入端口和输出端口都可以连接到总线。"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "在单总线结构中，同一时刻总线上通常只能传送一个数据。如果 ALU 的两个输入端都直接连接到同一条总线，那么同一时刻无法同时从总线上取得两个操作数。 因此常见做法是： 一个操作数可以直接来自总线； 另一个操作数需要先送入暂存寄存器，再作为 ALU 的另一个输入。 所以正确答案是 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-002",
+      "stemEn": "Compared with a datapath that does not use an internal CPU bus, a datapath that uses an internal CPU bus has which of the following characteristics?",
+      "stemCn": "与不使用内部CPU总线的数据路径相比，使用内部CPU总线的数据路径具有以下哪些特征？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The former has higher performance.",
+          "textCn": "前者性能更高。"
+        },
+        {
+          "key": "B",
+          "textEn": "The latter has more serious data conflict problems.",
+          "textCn": "后者存在更严重的数据冲突问题。"
+        },
+        {
+          "key": "C",
+          "textEn": "The former has a large amount of hardware and is difficult to implement.",
+          "textCn": "前者硬件量大，实现难度大。"
+        },
+        {
+          "key": "D",
+          "textEn": "None of the above statements is correct.",
+          "textCn": "上述说法均不正确。"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "采用 CPU 内部总线的数据通路可以减少部件之间的直接连线，使硬件结构更简单，但由于多个部件共享总线，可能会限制并行传送能力。 不采用内部总线的数据通路往往需要更多专用连线，硬件复杂度更高，但可能具有更好的并行性。 选项 A、B、C 的说法都不准确或表述混乱，因此选择 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-003",
+      "stemEn": "The function of the CPU read/write control signal is to determine which of the following?",
+      "stemCn": "CPU读/写控制信号的作用是确定下列哪项？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The direction of data flow on the data bus.",
+          "textCn": "数据总线上数据流的方向。"
+        },
+        {
+          "key": "B",
+          "textEn": "The read/write type of memory operation.",
+          "textCn": "内存操作的读/写类型。"
+        },
+        {
+          "key": "C",
+          "textEn": "The direction in which information flows into or out of memory.",
+          "textCn": "信息流入或流出内存的方向。"
+        },
+        {
+          "key": "D",
+          "textEn": "All of the above.",
+          "textCn": "上述所有的。"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "CPU 的读/写控制信号用于说明当前总线操作是读操作还是写操作。 如果是读操作，数据通常从存储器或 I/O 设备流向 CPU； 如果是写操作，数据通常从 CPU 流向存储器或 I/O 设备。 因此它既决定数据总线上的数据流向，也决定存储器操作类型，还决定信息是流入还是流出存储器，所以选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-004",
+      "stemEn": "In a controller implemented by combinational logic, the formation of micro-operation control signals is related to which of the following?",
+      "stemCn": "在组合逻辑实现的控制器中，微操作控制信号的形成与以下哪项有关？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Instruction opcode and address code.",
+          "textCn": "指令操作码和地址码。"
+        },
+        {
+          "key": "B",
+          "textEn": "Instruction opcode signal, timing, and flags.",
+          "textCn": "指令操作码信号、时序和标志。"
+        },
+        {
+          "key": "C",
+          "textEn": "Opcode and condition code.",
+          "textCn": "操作码和条件码。"
+        },
+        {
+          "key": "D",
+          "textEn": "Status information and conditions.",
+          "textCn": "状态信息和条件。"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "组合逻辑控制器又称硬布线控制器，其控制信号通常由以下信息共同决定： 指令操作码：决定当前是什么指令； 时序信号：决定当前处于哪个节拍或周期； 状态标志：决定是否满足某些条件，例如是否溢出、是否为零、是否有中断等。 因此微操作控制信号的形成与“指令译码信号、时钟/时序信号和标志”有关，答案选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-005",
+      "stemEn": "Compared with a microprogrammed controller, the characteristic of a hardwired controller is which of the following?",
+      "stemCn": "与微程序控制器相比，硬连线控制器的特点是以下哪一项？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Instruction execution speed is fast, and instruction functions are easy to modify and extend.",
+          "textCn": "指令执行速度快，指令功能易于修改和扩展。"
+        },
+        {
+          "key": "B",
+          "textEn": "Instruction execution speed is fast, but instruction functions are difficult to modify and extend.",
+          "textCn": "指令执行速度快，但指令功能难以修改和扩展。"
+        },
+        {
+          "key": "C",
+          "textEn": "Instruction execution speed is slow, and instruction functions are easy to modify and extend.",
+          "textCn": "指令执行速度慢，指令功能易于修改和扩展。"
+        },
+        {
+          "key": "D",
+          "textEn": "Instruction execution speed is slow, and instruction functions are difficult to modify and extend.",
+          "textCn": "指令执行速度慢，指令功能难以修改和扩展。"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "硬布线控制器用组合逻辑电路直接产生控制信号，不需要逐条读取微指令，因此执行速度较快。 但是它的控制逻辑固定在硬件电路中，如果要修改或扩展指令功能，就需要改动硬件设计，因此修改和扩展比较困难。 微程序控制器则相反：速度相对较慢，但通过修改微程序可以比较方便地扩展或修改控制功能。 所以答案选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-006",
+      "stemEn": "The purpose of the indirect cycle is to do which of the following?",
+      "stemCn": "间接循环的目的是执行以下哪项操作？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Fetch the effective address of the operand.",
+          "textCn": "获取操作数的有效地址。"
+        },
+        {
+          "key": "B",
+          "textEn": "Fetch the operand.",
+          "textCn": "获取操作数。"
+        },
+        {
+          "key": "C",
+          "textEn": "Fetch the instruction address.",
+          "textCn": "获取指令地址。"
+        },
+        {
+          "key": "D",
+          "textEn": "Fetch the instruction.",
+          "textCn": "获取指令。"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "间址周期出现在间接寻址方式中。 指令中的地址字段并不是操作数的真实地址，而是存放操作数地址的地址。 例如： Instruction address field = A Memory[A] = EA Memory[EA] = Operand 间址周期的作用就是根据指令地址字段 A，从存储器中取出真正的操作数地址 EA，也就是有效地址。 所以答案选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-007",
+      "stemEn": "After the interrupt cycle, the program counter PC points to which of the following?",
+      "stemCn": "中断周期后，程序计数器PC指向以下哪一个？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The address of the data to be processed.",
+          "textCn": "要处理的数据的地址。"
+        },
+        {
+          "key": "B",
+          "textEn": "The address of the user instruction to return to after the interrupt.",
+          "textCn": "中断后返回的用户指令的地址。"
+        },
+        {
+          "key": "C",
+          "textEn": "The first address of the interrupt service routine.",
+          "textCn": "中断服务程序的首地址。"
+        },
+        {
+          "key": "D",
+          "textEn": "None of the above.",
+          "textCn": "以上都不是。"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "中断周期的主要任务包括： 保存断点，也就是保存原程序下一条要执行的指令地址； 根据中断类型找到中断服务程序入口地址； 将中断服务程序入口地址送入 PC。 因此中断周期结束后，PC 指向的是中断服务程序的首地址，CPU 接下来会去执行中断服务程序。 所以答案选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-008",
+      "stemEn": "Which of the following statements is correct?",
+      "stemCn": "下列说法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The execution cycle of an addition instruction must access memory.",
+          "textCn": "加法指令的执行周期必须访问内存。"
+        },
+        {
+          "key": "B",
+          "textEn": "The execution cycle of an addition instruction must not access memory.",
+          "textCn": "加法指令的执行周期不得访问存储器。"
+        },
+        {
+          "key": "C",
+          "textEn": "If the address code of an addition instruction gives a memory address, then this instruction must access memory during the execution cycle.",
+          "textCn": "如果加法指令的地址码给出了内存地址，则该指令必须在执行周期内访问内存。"
+        },
+        {
+          "key": "D",
+          "textEn": "If the address code of an addition instruction gives a memory address, then this instruction does not need to access memory during the execution cycle.",
+          "textCn": "如果加法指令的地址码给出了内存地址，则该指令在执行周期内不需要访问内存。"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "加法指令是否需要在执行周期访问存储器，取决于操作数的位置。 如果操作数在寄存器中，例如： ADD R1, R2 执行周期可以只在 CPU 内部完成，不一定访存。 但如果指令地址码给出的是存储器地址，例如： ADD A 则需要从存储器地址 A 中取出操作数，再进行加法运算，因此执行周期一定要访存。 所以答案选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-009",
+      "stemEn": "After the indirect cycle, what is stored in the memory buffer register MBR?",
+      "stemCn": "间接循环结束后，内存缓冲寄存器MBR中存储了什么？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The address of the operand.",
+          "textCn": "操作数的地址。"
+        },
+        {
+          "key": "B",
+          "textEn": "The operand.",
+          "textCn": "操作数。"
+        },
+        {
+          "key": "C",
+          "textEn": "The instruction.",
+          "textCn": "指令。"
+        },
+        {
+          "key": "D",
+          "textEn": "The instruction address.",
+          "textCn": "指令地址。"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "间址周期的作用是取得操作数的有效地址，而不是取得操作数本身。 典型过程可以理解为： Ad(IR) -> MAR M(MAR) -> MBR MBR -> address field of IR 其中 M(MAR) 读出的内容是操作数的有效地址，所以 MBR 中保存的是操作数的地址。 因此答案选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-010",
+      "stemEn": "After the fetch cycle, what is stored in the memory address register MAR?",
+      "stemCn": "取指周期结束后，存储器地址寄存器MAR中存储了什么？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The address of the operand.",
+          "textCn": "操作数的地址。"
+        },
+        {
+          "key": "B",
+          "textEn": "The operand.",
+          "textCn": "操作数。"
+        },
+        {
+          "key": "C",
+          "textEn": "The instruction.",
+          "textCn": "指令。"
+        },
+        {
+          "key": "D",
+          "textEn": "The instruction address.",
+          "textCn": "指令地址。"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "取指周期的基本过程通常是： PC -> MAR M(MAR) -> MDR/MBR MDR/MBR -> IR PC + 1 -> PC MAR 的作用是保存当前要访问的存储单元地址。 在取指周期中，CPU 要访问的是“指令所在的存储单元”，所以 MAR 中保存的是指令地址。 因此答案选 D。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "coa-ch14-tf-001",
+      "stemEn": "The output signals of the control unit include control signals inside the CPU and control signals sent to the control bus.",
+      "stemCn": "控制单元的输出信号包括CPU内部的控制信号和发送到控制总线的控制信号。",
+      "answer": "T",
+      "explanationCn": "控制单元（Control Unit, CU）的任务是根据指令、时序信号和状态信息产生控制信号。这些控制信号一部分用于 CPU 内部，例如控制寄存器之间的数据传送、ALU 运算、程序计数器 PC 更新等；另一部分用于 CPU 外部，例如通过控制总线发出读/写、中断响应等控制信号。因此该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-tf-002",
+      "stemEn": "In the instruction cycle of every instruction, the fetch cycle, indirect cycle, execution cycle, and interrupt cycle must all be included.",
+      "stemCn": "每条指令的指令周期中都必须包含取指周期、间接周期、执行周期和中断周期。",
+      "answer": "F",
+      "explanationCn": "不是每条指令都一定包含所有周期。 一条指令通常一定需要**取指周期（fetch cycle）**和**执行周期（execution cycle）**，但： - **间址周期（indirect cycle）**只有在指令使用间接寻址时才需要； - **中断周期（interrupt cycle）**只有在执行完指令后检测到中断请求，并且允许响应中断时才进入。 所以“所有指令都一定包含取指、间址、执行、中断周期”是错误的。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-tf-003",
+      "stemEn": "The controller not only needs to care about what the data or result currently being processed is, but also needs to care about the properties of the result, such as overflow and sign, and then control the next step accordingly.",
+      "stemCn": "控制器不仅需要关心当前正在处理的数据或结果是什么，还需要关心结果的属性，例如溢出和符号，然后相应地控制下一步。",
+      "answer": "F",
+      "explanationCn": "控制器主要根据**指令操作码、时序信号、状态标志**等产生控制信号。 它通常不直接关心“数据本身是什么”，而是关心运算后形成的**状态标志**，例如： - 零标志 `Z` - 符号标志 `S` - 进位标志 `C` - 溢出标志 `V` 这些状态标志会影响后续控制，例如条件转移指令是否跳转。 题干中说控制器还要关心“数据或结果本身是什么”，这个表述不严谨，因此判错。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-tf-004",
+      "stemEn": "The basic task of the controller is to arrange and execute micro-operations.",
+      "stemCn": "控制器的基本任务是安排和执行微操作。",
+      "answer": "T",
+      "explanationCn": "控制器的核心功能就是按照指令执行过程的要求，在合适的时刻发出控制信号，使各个部件完成相应的微操作。 例如取指周期中可能包括： PC -> MAR M(MAR) -> MDR MDR -> IR PC + 1 -> PC 这些都是微操作。控制器要安排这些微操作的先后顺序，并控制它们正确执行，所以该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-tf-005",
+      "stemEn": "A micro-operation is the simplest or most primitive operation in a CPU.",
+      "stemCn": "微操作是CPU中最简单或最原始的操作。",
+      "answer": "T",
+      "explanationCn": "微操作是 CPU 内部能够直接完成的基本操作，通常不能再继续分解成更小的控制步骤。 例如： PC -> MAR MDR -> IR R1 + R2 -> R3 这些都属于微操作。 一条机器指令的执行过程通常由多个微操作组成，因此该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-tf-006",
+      "stemEn": "The operations “read a word from memory” and “increment PC by 1” cannot be performed at the same time, because they interfere with each other.",
+      "stemCn": "“从内存中读取一个字”和“PC加1”操作不能同时执行，因为它们会互相干扰。",
+      "answer": "F",
+      "explanationCn": "“从内存读取字”和“PC 自增 1”通常可以并行进行，因为它们使用的硬件资源不同。 例如在取指周期中： M(MAR) -> MDR PC + 1 -> PC 读取存储器使用的是 MAR、MDR、存储器和总线； PC 自增主要使用 PC 及加法逻辑。 如果数据通路允许，这两个微操作可以安排在同一个节拍中完成，并不会必然相互干扰。 所以该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch14-tf-007",
+      "stemEn": "In order to perform its function, the control unit must have inputs that can determine the system state and outputs that can control the behavior of the entire system.",
+      "stemCn": "为了执行其功能，控制单元必须具有可以确定系统状态的输入和可以控制整个系统行为的输出。",
+      "answer": "T",
+      "explanationCn": "控制单元要完成控制任务，必须具备两类基本信息： 输入信息：用于判断当前系统状态，例如指令操作码、时序信号、状态标志、中断请求等； 输出信息：用于控制 CPU 和系统其他部件的动作，例如寄存器装入、ALU 运算、存储器读写、总线控制等。 因此，控制单元必须能够根据输入状态产生对应的控制输出，从而控制整个系统的运行。 所以该说法正确。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

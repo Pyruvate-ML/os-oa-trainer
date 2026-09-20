@@ -1,0 +1,435 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch07",
+  "chapterName": "第七章输入输出",
+  "mcq": [
+    {
+      "id": "coa-ch07-001",
+      "stemEn": "When the system uses memory-mapped I/O, the instruction used to perform input/output operations is ( ).",
+      "stemCn": "当系统使用内存映射I/O时，用于执行输入/输出操作的指令是（ ）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Control instruction",
+          "textCn": "控制指令"
+        },
+        {
+          "key": "B",
+          "textEn": "Memory access instruction",
+          "textCn": "内存访问指令"
+        },
+        {
+          "key": "C",
+          "textEn": "Input/output instruction",
+          "textCn": "输入输出指令"
+        },
+        {
+          "key": "D",
+          "textEn": "None of the above",
+          "textCn": "以上都不是"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "存储映射式 I/O 把 I/O 设备的寄存器地址映射到主存地址空间中。 因此 CPU 访问 I/O 设备时，就像访问主存单元一样，可以使用普通的访存指令，例如 load/store 指令。 这种方式不需要专门的输入/输出指令。 所以选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-002",
+      "stemEn": "Which of the following statements about I/O modules is incorrect?",
+      "stemCn": "以下关于 I/O 模块的描述哪一项是不正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The status register and the control register may share the same register.",
+          "textCn": "状态寄存器和控制寄存器可以共享同一个寄存器。"
+        },
+        {
+          "key": "B",
+          "textEn": "The CPU usually sends the I/O device address to the I/O module, rather than sending it directly to the I/O device.",
+          "textCn": "CPU通常将I/O设备地址发送给I/O模块，而不是直接发送给I/O设备。"
+        },
+        {
+          "key": "C",
+          "textEn": "In isolated I/O, the I/O device address and the main memory address may be the same.",
+          "textCn": "在隔离I/O中，I/O设备地址和主存储器地址可能相同。"
+        },
+        {
+          "key": "D",
+          "textEn": "In memory-mapped I/O, the CPU cannot use memory access instructions to access I/O devices.",
+          "textCn": "在内存映射I/O中，CPU不能使用内存访问指令来访问I/O设备。"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "D 错误。存储映射式 I/O 的核心特点就是：I/O 端口或 I/O 设备寄存器被编入主存地址空间，CPU 可以使用访存指令访问这些 I/O 地址。 其他选项分析： - A 正确：某些设备中，状态寄存器和控制寄存器可能共用同一个寄存器，通过不同位表示不同含义。 - B 正确：CPU 通常把设备地址或端口地址发送给 I/O 模块，由 I/O 模块选择具体设备。 - C 正确：分离式 I/O 中，I/O 地址空间和主存地址空间是分开的，所以二者地址编号可能相同，但通过不同指令或控制信号区分。 所以错误的是 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-003",
+      "stemEn": "In isolated I/O, memory units and I/O devices are distinguished by ( ).",
+      "stemCn": "在隔离I/O中，存储器单元和I/O设备用( )来区分。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Different memories",
+          "textCn": "不同的存储器"
+        },
+        {
+          "key": "B",
+          "textEn": "Different address lines",
+          "textCn": "不同的地址线"
+        },
+        {
+          "key": "C",
+          "textEn": "Different instructions",
+          "textCn": "不同的指令"
+        },
+        {
+          "key": "D",
+          "textEn": "Different data lines",
+          "textCn": "不同的数据线"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "分离式 I/O 又称独立编址 I/O。 在这种方式下，主存地址空间和 I/O 地址空间相互独立，可能出现相同的地址编号。 CPU 通过不同类型的指令来区分访问对象： - 访问主存：使用访存指令； - 访问 I/O 设备：使用专门的 I/O 指令。 因此区分存储单元和 I/O 设备的关键是**不同的指令**，选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-004",
+      "stemEn": "When the CPU responds to an interrupt, the first step it completes is ( ).",
+      "stemCn": "当CPU响应中断时，它完成的第一步是( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Enable interrupts",
+          "textCn": "启用中断"
+        },
+        {
+          "key": "B",
+          "textEn": "Save the breakpoint",
+          "textCn": "保存断点"
+        },
+        {
+          "key": "C",
+          "textEn": "Disable interrupts",
+          "textCn": "禁用中断"
+        },
+        {
+          "key": "D",
+          "textEn": "Transfer to the interrupt service routine",
+          "textCn": "转移到中断服务程序"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "CPU 响应中断时，首先需要关中断，防止在当前中断响应过程尚未完成时又被新的中断打断，造成现场混乱。 一般中断响应的大致过程为： 1. 关中断； 2. 保存断点，例如保存 PC； 3. 保存必要的硬件状态，例如 PSW； 4. 转入中断服务程序； 5. 中断处理完成后恢复现场； 6. 开中断并返回原程序。 所以最先完成的是关中断，选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-005",
+      "stemEn": "When the CPU responds to an interrupt, the two important hardware states that need to be protected are ( ).",
+      "stemCn": "当CPU响应中断时，需要保护的两个重要的硬件状态是( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "PC and PSW",
+          "textCn": "PC（程序计数器）和 PSW（程序状态字）"
+        },
+        {
+          "key": "B",
+          "textEn": "PC and IR",
+          "textCn": "PC（程序计数器）和 IR（指令寄存器）"
+        },
+        {
+          "key": "C",
+          "textEn": "MAR and IR",
+          "textCn": "MAR（存储器地址寄存器）和 IR（指令寄存器）"
+        },
+        {
+          "key": "D",
+          "textEn": "MBR and PSW",
+          "textCn": "MBR（存储器缓冲寄存器）和 PSW（程序状态字）"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "CPU 响应中断时，必须保证中断处理结束后能够回到原程序继续执行，因此需要保存： - **PC，Program Counter，程序计数器**：保存下一条将要执行的指令地址，也就是断点； - **PSW，Program Status Word，程序状态字**：保存当前程序运行状态，例如条件码、中断允许位、处理器状态等。 IR、MAR、MBR 虽然也是重要寄存器，但通常不是中断响应中最核心、必须保护的两个硬件状态。 所以选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-006",
+      "stemEn": "Which of the following statements about interrupts is incorrect?",
+      "stemCn": "以下关于中断的描述哪一项是不正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The CPU responds to an interrupt only after an instruction finishes execution.",
+          "textCn": "CPU只有在指令执行完毕后才会响应中断。"
+        },
+        {
+          "key": "B",
+          "textEn": "When the CPU is executing an interrupt service routine, it can no longer respond to interrupts.",
+          "textCn": "当CPU正在执行中断服务程序时，它不能再响应中断。"
+        },
+        {
+          "key": "C",
+          "textEn": "The occurrence of an interrupt is independent of the execution of the current instruction.",
+          "textCn": "中断的发生与当前指令的执行无关。"
+        },
+        {
+          "key": "D",
+          "textEn": "The CPU detects interrupt request signals to know whether there is an interrupt.",
+          "textCn": "CPU通过检测中断请求信号来知道是否有中断发生。"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "B 错误。CPU 在执行中断服务程序时，并不是绝对不能响应新的中断。 在支持多级中断或中断嵌套的系统中，如果更高优先级的中断请求到来，并且系统允许中断嵌套，CPU 可以暂停当前中断服务程序，转去响应更高优先级的中断。 其他选项分析： - A 正确：一般外部中断通常在一条指令执行结束后响应。 - C 正确：外部中断通常由外设或外部事件产生，与当前指令本身无直接关系。 - D 正确：CPU 通过检测中断请求线或中断请求信号判断是否有中断发生。 所以错误的是 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-007",
+      "stemEn": "In DMA mode, during the data transfer process, the control of the bus is held by ( ).",
+      "stemCn": "在DMA模式下，在数据传输过程中，总线的控制权由( )保持。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Peripheral device",
+          "textCn": "周边设备"
+        },
+        {
+          "key": "B",
+          "textEn": "CPU",
+          "textCn": "CPU（中央处理器）"
+        },
+        {
+          "key": "C",
+          "textEn": "Main memory",
+          "textCn": "主存储器"
+        },
+        {
+          "key": "D",
+          "textEn": "DMA controller",
+          "textCn": "DMA控制器"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "DMA 方式下，数据传送由 DMA 控制器负责。 CPU 初始化 DMA 控制器后，DMA 控制器会请求总线控制权，并在获得总线后控制主存和外设之间的数据传送。 因此，在 DMA 数据传送过程中，总线控制权由 DMA 控制器掌握。 所以选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-008",
+      "stemEn": "Which of the following statements is correct?",
+      "stemCn": "下列说法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Both interrupt-driven I/O and DMA require interrupt requests to implement data transfer.",
+          "textCn": "中断驱动的I/O和DMA都需要中断请求来实现数据传输。"
+        },
+        {
+          "key": "B",
+          "textEn": "Interrupt-driven I/O requires interrupt requests, while DMA does not require interrupt requests.",
+          "textCn": "中断驱动的I/O需要中断请求，而DMA不需要中断请求。"
+        },
+        {
+          "key": "C",
+          "textEn": "Both interrupt-driven I/O and DMA require interrupt requests, but their purposes are different.",
+          "textCn": "中断驱动的I/O和DMA都需要中断请求，但它们的目的不同。"
+        },
+        {
+          "key": "D",
+          "textEn": "DMA must wait until the instruction cycle ends before cycle stealing can be performed.",
+          "textCn": "DMA 必须等到指令周期结束才能执行周期窃取。"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "中断驱动式 I/O 和 DMA 都可能使用中断请求，但目的不同。 - **中断驱动式 I/O**：设备每次准备好数据或需要服务时，向 CPU 发中断请求，CPU 进入中断服务程序完成具体数据传送。 - **DMA 方式**：数据块传送过程中主要由 DMA 控制器完成，传送结束后通常通过中断通知 CPU，表示本次 DMA 操作完成。 因此两者都可能发中断请求，但中断的用途不同。 所以选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-009",
+      "stemEn": "In the I/O channel mode, the I/O program is stored in ( ).",
+      "stemCn": "在I/O通道模式下，I/O程序存储在( )中。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Main memory",
+          "textCn": "主存储器"
+        },
+        {
+          "key": "B",
+          "textEn": "I/O channel",
+          "textCn": "输入输出通道"
+        },
+        {
+          "key": "C",
+          "textEn": "CPU",
+          "textCn": "CPU（中央处理器）"
+        },
+        {
+          "key": "D",
+          "textEn": "Hard disk",
+          "textCn": "硬盘"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "I/O 通道方式中，CPU 会在主存中准备好通道程序，然后启动通道。 通道从主存中取出并执行通道程序，控制外设完成输入输出操作。 因此，I/O 程序，即通道程序，存放在主存中。 所以选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-010",
+      "stemEn": "Which of the following devices is more suitable to be connected to a byte multiplexor channel?",
+      "stemCn": "下列设备中，哪一种更适合连接字节多路通道？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Hard disk",
+          "textCn": "硬盘"
+        },
+        {
+          "key": "B",
+          "textEn": "Communication line",
+          "textCn": "通讯线"
+        },
+        {
+          "key": "C",
+          "textEn": "High-speed network card",
+          "textCn": "高速网卡"
+        },
+        {
+          "key": "D",
+          "textEn": "Keyboard",
+          "textCn": "键盘"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "字节多路通道适合连接多个低速字符设备，它以字节为单位在多个设备之间交替传送数据。 键盘属于典型低速输入设备，数据量小、传输速度低，适合连接在字节多路通道上。 硬盘和高速网卡属于高速设备，更适合数组多路通道或选择通道等方式。 所以选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-011",
+      "stemEn": "An I/O module needs to include the function of ( ) in order to coordinate the data flow between internal resources and external devices.",
+      "stemCn": "I/O 模块需要包含 ( ) 的功能，以协调内部资源和外部设备之间的数据流。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Periodic polling",
+          "textCn": "定期轮询"
+        },
+        {
+          "key": "B",
+          "textEn": "Status reporting",
+          "textCn": "状态报告"
+        },
+        {
+          "key": "C",
+          "textEn": "Control and timing",
+          "textCn": "控制和计时"
+        },
+        {
+          "key": "D",
+          "textEn": "Error detection",
+          "textCn": "错误检测"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "I/O 模块的核心功能之一是**控制和定时**。 由于 CPU、主存和外设之间速度不同、工作方式不同，I/O 模块必须通过控制信号和时序安排来协调它们之间的数据流。 例如： - 什么时候启动设备； - 什么时候读写数据； - 什么时候通知 CPU； - 什么时候进行状态检查或结束传输。 因此用于协调内部资源和外部设备之间数据流的是 **control and timing**，选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-012",
+      "stemEn": "If an I/O module can provide a high-level interface to the processor and handle most specific I/O operations, this type of I/O module is generally called a ( ).",
+      "stemCn": "如果一个I/O模块可以向处理器提供高级接口并处理大多数特定的I/O操作，则这种类型的I/O模块通常被称为( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "I/O channel",
+          "textCn": "输入输出通道"
+        },
+        {
+          "key": "B",
+          "textEn": "DMA",
+          "textCn": "DMA"
+        },
+        {
+          "key": "C",
+          "textEn": "I/O controller",
+          "textCn": "输入/输出控制器"
+        },
+        {
+          "key": "D",
+          "textEn": "Device controller",
+          "textCn": "设备控制器"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "I/O 通道是一种功能较强的 I/O 部件，可以看作专门负责 I/O 操作的处理器。 它能够向 CPU 提供较高级的接口，并能执行通道程序，承担大部分具体 I/O 事务的处理。 CPU 只需要启动通道并提供相关参数，之后由 I/O 通道独立控制设备完成输入输出操作。 因此，这种能够分担 CPU I/O 管理工作的模块称为 **I/O channel**，选 A。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "coa-ch07-tf-001",
+      "stemEn": "A disk belongs to external storage, so it has no relationship with the I/O system.",
+      "stemCn": "磁盘属于外部存储，与I/O系统没有关系。",
+      "answer": "F",
+      "explanationCn": "磁盘虽然属于外部存储器，但它本质上也是一种外部设备。CPU 不能像访问寄存器或主存那样直接访问磁盘，而必须通过 I/O 控制器、设备驱动、总线以及相应的 I/O 操作完成数据交换。 因此，磁盘和 I/O 系统关系非常密切，该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-tf-002",
+      "stemEn": "In DMA mode, since the CPU does not need to participate in the specific data transfer operation, it has relatively high transfer efficiency.",
+      "stemCn": "在DMA模式下，由于CPU不需要参与具体的数据传输操作，因此具有相对较高的传输效率。",
+      "answer": "T",
+      "explanationCn": "DMA，即 Direct Memory Access，直接存储器访问。 在 DMA 方式下，数据可以在外设和主存之间直接传送，CPU 只需要在传送开始前进行初始化设置，在传送结束后处理中断即可，不需要逐字节或逐字地参与数据搬运。 因此 DMA 减少了 CPU 干预，提高了数据传送效率，该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-tf-003",
+      "stemEn": "Interrupt-driven I/O has a higher data transfer rate than programmed I/O.",
+      "stemCn": "中断驱动的 I/O 比编程 I/O 具有更高的数据传输速率。",
+      "answer": "F",
+      "explanationCn": "中断驱动式 I/O 的主要优点是减少 CPU 的无效等待，使 CPU 不必一直查询设备状态。 但它并不一定提高数据传输率，因为每次数据传送仍然需要 CPU 参与，并且还会引入中断响应、中断处理和现场恢复等开销。 程序式 I/O 和中断驱动式 I/O 的区别主要在于 CPU 是否需要持续轮询，而不是一定谁的数据传输率更高。 因此该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-tf-004",
+      "stemEn": "An I/O module can connect to only one I/O device.",
+      "stemCn": "一个 I/O 模块只能连接一个 I/O 设备。",
+      "answer": "F",
+      "explanationCn": "一个 I/O 模块可以连接一个或多个 I/O 设备。 例如一个磁盘控制器可以控制多个磁盘，一个 USB 控制器也可以通过集线器连接多个 USB 设备。 I/O 模块的作用是作为 CPU、主存与外设之间的接口，并不限制只能连接一个设备。 因此该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-tf-005",
+      "stemEn": "In a system with I/O channels, the I/O program is still specifically executed by the CPU.",
+      "stemCn": "在有I/O通道的系统中，I/O程序仍然由CPU专门执行。",
+      "answer": "F",
+      "explanationCn": "I/O 通道是一种专门负责 I/O 操作的处理部件。 在具有 I/O 通道的系统中，CPU 只需要启动通道，并指定通道程序的位置，之后由 I/O 通道执行通道程序并控制具体的 I/O 操作。 CPU 不再亲自执行具体的 I/O 程序，因此该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-tf-006",
+      "stemEn": "An I/O module must be able to recognize the unique address of each peripheral device connected to it.",
+      "stemCn": "I/O 模块必须能够识别与其连接的每个外围设备的唯一地址。",
+      "answer": "T",
+      "explanationCn": "I/O 模块通常连接一个或多个外部设备。为了让 CPU 能够准确访问某一个具体设备，I/O 模块必须能够识别其所连接设备的唯一地址。 当 CPU 发出 I/O 地址或设备地址后，I/O 模块根据地址选择对应的外设进行数据传送或控制操作。 因此该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-tf-007",
+      "stemEn": "In all cases, the processor must periodically check the status of the I/O module until the operation is completed.",
+      "stemCn": "在所有情况下，处理器必须定期检查 I/O 模块的状态，直到操作完成。",
+      "answer": "F",
+      "explanationCn": "该说法只适用于**程序查询方式 I/O**。 在程序查询方式中，CPU 需要不断读取 I/O 模块的状态寄存器，检查设备是否就绪或操作是否完成。 但并不是所有 I/O 方式都需要 CPU 定时检查状态： - **中断驱动 I/O**：设备完成准备或操作后主动向 CPU 发中断请求； - **DMA 方式**：数据块传送由 DMA 控制器完成，CPU 不需要持续检查； - **I/O 通道方式**：通道可独立执行 I/O 程序，CPU 干预更少。 所以“在所有情况下都需要处理器定时检查”说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch07-tf-008",
+      "stemEn": "A disadvantage of memory-mapped I/O is that valuable memory address space may be easily exhausted.",
+      "stemCn": "内存映射 I/O 的缺点是宝贵的内存地址空间可能很容易耗尽。",
+      "answer": "T",
+      "explanationCn": "存储映射式 I/O 把 I/O 设备寄存器映射到主存地址空间中，CPU 可以使用普通访存指令访问 I/O 设备。 这种方式的优点是编程方便、指令统一，但缺点是 I/O 地址会占用一部分主存地址空间。 如果系统地址空间有限，而 I/O 设备很多，就可能导致可用于主存的地址空间减少，甚至出现地址资源紧张的问题。 因此该说法正确。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

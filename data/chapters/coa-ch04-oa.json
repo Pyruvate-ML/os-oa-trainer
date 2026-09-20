@@ -1,0 +1,465 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch04",
+  "chapterName": "第四章高速缓存",
+  "mcq": [
+    {
+      "id": "coa-ch04-001",
+      "stemEn": "Which of the following factors does not affect the Cache hit rate?",
+      "stemCn": "以下哪个因素不影响Cache命中率？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Cache capacity",
+          "textCn": "缓存容量"
+        },
+        {
+          "key": "B",
+          "textEn": "Main memory access time",
+          "textCn": "主存存取时间"
+        },
+        {
+          "key": "C",
+          "textEn": "Cache line size",
+          "textCn": "缓存行大小"
+        },
+        {
+          "key": "D",
+          "textEn": "The replacement algorithm used",
+          "textCn": "使用的替换算法"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "Cache 命中率主要受以下因素影响： - Cache 容量 - Cache 行大小 - 映射方式 - 替换算法 - 程序访问局部性 主存访问时间会影响**缺失代价**和系统平均访问时间，但它不会直接决定 Cache 是否命中。 因此不会影响 Cache 命中率的是 **main memory access time**，选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-002",
+      "stemEn": "Which of the following statements about Cache write policies in a uniprocessor system is incorrect?",
+      "stemCn": "以下关于单处理器系统中的 Cache 写入策略的表述哪一项是不正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "If iterative operations are very frequent, write-back is suitable.",
+          "textCn": "如果迭代操作非常频繁，则适合回写。"
+        },
+        {
+          "key": "B",
+          "textEn": "Write-through can strictly guarantee the consistency of Cache data and main memory data.",
+          "textCn": "Write-through可以严格保证Cache数据和主存数据的一致性。"
+        },
+        {
+          "key": "C",
+          "textEn": "In general, write-through generates much more write traffic than write-back.",
+          "textCn": "一般来说，直写产生的写流量比回写多得多。"
+        },
+        {
+          "key": "D",
+          "textEn": "Write-back is suitable for systems in which I/O modules are directly connected to main memory.",
+          "textCn": "回写式适用于 I/O 模块直接连接到主存储器的系统。"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "写策略主要包括： 1. **Write-through（写直达）** CPU 写 Cache 时，同时写入主存，因此主存和 Cache 数据一致性较好，但写主存次数多，写流量大。 2. **Write-back（写回）** CPU 修改 Cache 后，先只修改 Cache，并设置修改位；当该块被替换时才写回主存。它可以减少写主存次数，适合频繁修改同一数据的场景。 D 错误的原因是： 如果 I/O 模块直接访问主存，而 CPU 修改的数据暂时只保存在 Cache 中没有写回主存，那么 I/O 设备从主存读到的可能是旧数据，会造成 Cache 与主存一致性问题。 因此写回法并不适合直接主存访问频繁且缺少一致性维护机制的系统。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-003",
+      "stemEn": "The main purpose of separating instruction Cache and data Cache is ( ).",
+      "stemCn": "分离指令Cache和数据Cache的主要目的是（ ）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "To improve the Cache hit rate",
+          "textCn": "提高Cache命中率"
+        },
+        {
+          "key": "B",
+          "textEn": "To reduce possible resource conflicts",
+          "textCn": "减少可能的资源冲突"
+        },
+        {
+          "key": "C",
+          "textEn": "To reduce the system average access time",
+          "textCn": "减少系统平均访问时间"
+        },
+        {
+          "key": "D",
+          "textEn": "To improve Cache utilization",
+          "textCn": "提高缓存利用率"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "指令 Cache 和数据 Cache 分离的主要目的，是减少取指令和访问数据之间的冲突。 在流水线处理器中，CPU 可能一边取指令，一边访问数据。如果指令和数据共用一个 Cache，就可能发生资源竞争。 采用分离的 I-Cache 和 D-Cache 后，取指和访存可以同时进行，从而减少结构相关和资源冲突。 因此选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-004",
+      "stemEn": "In Cache replacement algorithms, which algorithm takes both the locality principle and the residence time factor into account?",
+      "stemCn": "Cache替换算法中，哪种算法同时考虑了局部性原则和停留时间因素？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Random replacement algorithm (RAND)",
+          "textCn": "随机替换算法（RAND）"
+        },
+        {
+          "key": "B",
+          "textEn": "First-in first-out algorithm (FIFO)",
+          "textCn": "先进先出算法（FIFO）"
+        },
+        {
+          "key": "C",
+          "textEn": "Least frequently used algorithm (LFU)",
+          "textCn": "最不常用算法 (LFU)"
+        },
+        {
+          "key": "D",
+          "textEn": "Least recently used algorithm (LRU)",
+          "textCn": "最近最少使用算法（LRU）"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "LRU，即最近最少使用算法，会替换最长时间没有被访问过的 Cache 块。 它的依据是程序的**时间局部性**：最近被访问过的数据，在不久的将来很可能再次被访问。 同时，LRU 也考虑了块在 Cache 中的“近期使用情况”，即某个块已经多久没有被访问。 因此 LRU 兼顾了局部性原理和驻留时间因素，选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-005",
+      "stemEn": "When a Cache miss occurs, the main memory not only needs to send information to the CPU, but also needs to write information into the Cache. In this process, the widths of the information transferred from main memory to the CPU and from main memory to the Cache are respectively ( ).",
+      "stemCn": "当发生Cache miss时，主存不仅需要向CPU发送信息，还需要将信息写入Cache中。在此过程中，从主存到CPU和从主存到Cache传输的信息宽度分别为( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Block, block",
+          "textCn": "块，块"
+        },
+        {
+          "key": "B",
+          "textEn": "Block, word",
+          "textCn": "块、字"
+        },
+        {
+          "key": "C",
+          "textEn": "Word, block",
+          "textCn": "字、块"
+        },
+        {
+          "key": "D",
+          "textEn": "Word, word",
+          "textCn": "字、字"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "当 Cache 未命中时，CPU 当前真正需要的是某一个具体的数据字或指令字，因此主存给 CPU 传送的信息宽度通常是**字**。 但是为了利用空间局部性，系统会把包含该字的整个主存块调入 Cache，所以主存给 Cache 传送的信息宽度是**块**。 因此： $$ 主存 \\to CPU：字 $$ $$ 主存 \\to Cache：块 $$ 选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-006",
+      "stemEn": "A Cache system has a main memory capacity of 16 MB and a Cache capacity of 128 KB. The capacity of this Cache system is ( ).",
+      "stemCn": "Cache系统的主存容量为16MB，Cache容量为128KB。该Cache系统的容量为( )。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "16 MB + 128 KB",
+          "textCn": "16MB + 128KB"
+        },
+        {
+          "key": "B",
+          "textEn": "16 MB",
+          "textCn": "16MB"
+        },
+        {
+          "key": "C",
+          "textEn": "16 MB - 128 KB",
+          "textCn": "16 MB - 128 KB"
+        },
+        {
+          "key": "D",
+          "textEn": "128 KB",
+          "textCn": "128KB"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "Cache 是主存中部分内容的副本，并不是在主存地址空间之外额外增加的一块可编址存储空间。 因此，系统的存储容量仍然由主存容量决定，而不是主存容量加 Cache 容量。 所以该 Cache 系统的容量为： $$ 16MB $$ 选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-007",
+      "stemEn": "When the CPU executes a program segment, the number of Cache hits is 1900 and the number of memory accesses caused by Cache misses is 100. The Cache access cycle is 50 ns, and the main memory access cycle is 250 ns. The average access time of the system is ( ).",
+      "stemCn": "CPU执行一个程序段时，Cache命中次数为1900次，Cache未命中导致的内存访问次数为100次。Cache访问周期为50 ns，主存访问周期为250 ns。系统的平均访问时间为（ ）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "62.5 ns",
+          "textCn": "62.5纳秒"
+        },
+        {
+          "key": "B",
+          "textEn": "50 ns",
+          "textCn": "50纳秒"
+        },
+        {
+          "key": "C",
+          "textEn": "250 ns",
+          "textCn": "250纳秒"
+        },
+        {
+          "key": "D",
+          "textEn": "58 ns",
+          "textCn": "58纳秒"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "已知： - Cache 命中次数：$1900$ - Cache 未命中次数：$100$ - 总访问次数： $$ 1900 + 100 = 2000 $$ Cache 命中率为： $$ H = \\frac{1900}{2000} = 0.95 $$ Cache 未命中率为： $$ 1 - H = 0.05 $$ 命中时，只需要访问 Cache： $$ T_{hit} = 50ns $$ 未命中时，通常需要先访问 Cache 发现未命中，再访问主存： $$ T_{miss} = 50ns + 250ns = 300ns $$ 平均访问时间为： $$ T = H \\times T_{hit} + (1-H) \\times T_{miss} $$ 代入数据： $$ T = 0.95 \\times 50 + 0.05 \\times 300 $$ $$ T = 47.5 + 15 = 62.5ns $$ 所以选 A。 也可以写成： $$ T = 50 + 0.05 \\times 250 = 62.5ns $$",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-008",
+      "stemEn": "The computer storage system consists of ( ).",
+      "stemCn": "计算机存储系统由( )组成。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Cache",
+          "textCn": "缓存"
+        },
+        {
+          "key": "B",
+          "textEn": "Register set",
+          "textCn": "寄存器组"
+        },
+        {
+          "key": "C",
+          "textEn": "Cache, main memory, and auxiliary memory",
+          "textCn": "高速缓存、主存储器和辅助存储器"
+        },
+        {
+          "key": "D",
+          "textEn": "Auxiliary memory",
+          "textCn": "辅助存储器"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "计算机存储系统通常是一个层次结构，包括： - Cache：速度快、容量小 - Main memory：CPU 可直接访问，容量较大 - Auxiliary memory：容量大、速度较慢，例如硬盘、SSD 等 因此，计算机存储系统不是单独的 Cache 或辅存，而是由 Cache、主存和辅存共同构成。 选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-009",
+      "stemEn": "Among the following types of memory, which one must be accessed by the CPU through an I/O process?",
+      "stemCn": "下列存储器中，哪一种必须由 CPU 通过 I/O 过程访问？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Hard disk",
+          "textCn": "硬盘"
+        },
+        {
+          "key": "B",
+          "textEn": "Main memory",
+          "textCn": "主存储器"
+        },
+        {
+          "key": "C",
+          "textEn": "Cache",
+          "textCn": "缓存"
+        },
+        {
+          "key": "D",
+          "textEn": "Registers",
+          "textCn": "寄存器"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "CPU 可以直接访问寄存器、Cache 和主存。 但是硬盘属于外部存储设备，CPU 不能像访问主存一样直接访问硬盘中的数据，而需要通过 I/O 控制器、设备驱动、总线等 I/O 过程完成读写。 因此选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-010",
+      "stemEn": "A magnetic disk belongs to which type of memory?",
+      "stemCn": "磁盘属于哪种类型的存储器？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Random access memory",
+          "textCn": "随机存取存储器"
+        },
+        {
+          "key": "B",
+          "textEn": "Read-only memory",
+          "textCn": "只读存储器"
+        },
+        {
+          "key": "C",
+          "textEn": "Sequential access memory",
+          "textCn": "顺序存取存储器"
+        },
+        {
+          "key": "D",
+          "textEn": "Direct access memory",
+          "textCn": "直接存取存储器"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "磁盘可以根据磁道、扇区等地址信息直接定位到较小的数据区域，而不需要像磁带那样必须从头顺序读到目标位置。 因此磁盘属于**直接存取存储器**。 注意区分： - 磁带：典型顺序存取 - 磁盘：典型直接存取 - RAM：随机存取 所以选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-011",
+      "stemEn": "For internal memory, its ( ) should be equal to the number of data lines connected to the memory module.",
+      "stemCn": "对于内部存储器，其 ( ) 应等于连接到存储器模块的数据线的数量。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Access time",
+          "textCn": "访问时间"
+        },
+        {
+          "key": "B",
+          "textEn": "Transfer unit",
+          "textCn": "传送单位"
+        },
+        {
+          "key": "C",
+          "textEn": "Capacity",
+          "textCn": "容量"
+        },
+        {
+          "key": "D",
+          "textEn": "Storage rate",
+          "textCn": "存储率"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "内部存储器每次和外部交换数据的位数，取决于连接到存储器模块的数据线条数。 例如数据线有 32 条，则一次可以传送 32 位数据。这个一次传送的数据位数称为**传送单位**。 因此： $$ 传送单位 = 数据线条数对应的数据位数 $$ 所以选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-012",
+      "stemEn": "( ) is equal to the access time plus the additional time required before the next memory access can begin.",
+      "stemCn": "( ) 等于访问时间加上下一次内存访问开始之前所需的额外时间。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Latency time",
+          "textCn": "延迟时间"
+        },
+        {
+          "key": "B",
+          "textEn": "Direct access time",
+          "textCn": "直接访问时间"
+        },
+        {
+          "key": "C",
+          "textEn": "Transfer rate",
+          "textCn": "传输率"
+        },
+        {
+          "key": "D",
+          "textEn": "Memory cycle time",
+          "textCn": "存储器存取周期"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "存储器的访问时间指从发出读写请求到完成数据访问所需的时间。 但是一次存储器访问结束后，存储器可能还需要一定的恢复时间，才能开始下一次访问。 因此，存取周期时间包括两部分： $$ 存取周期时间 = 访问时间 + 恢复时间或附加时间 $$ 所以题干所描述的是 **Memory cycle time（存取周期时间）**，选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-013",
+      "stemEn": "When the ( ) policy is used, every write operation to the Cache must also be performed in main memory.",
+      "stemCn": "当使用( )策略时，对Cache的每个写操作也必须在主存中执行。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Write-through",
+          "textCn": "直写式"
+        },
+        {
+          "key": "B",
+          "textEn": "Write-back",
+          "textCn": "回写"
+        },
+        {
+          "key": "C",
+          "textEn": "LRU",
+          "textCn": "LRU"
+        },
+        {
+          "key": "D",
+          "textEn": "FIFO",
+          "textCn": "FIFO（先进先出）"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "写直达策略中，CPU 写 Cache 的同时，也要把相同内容写入主存。 这样可以保证 Cache 和主存中的数据始终保持一致。 写直达的特点是： - 优点：一致性好，主存数据始终较新； - 缺点：每次写 Cache 都要写主存，写流量较大，速度可能较慢。 与之相对，写回策略只在 Cache 块被替换时才把修改过的数据写回主存。 因此本题选 A。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "coa-ch04-tf-001",
+      "stemEn": "Main memory uses associative access to access stored data.",
+      "stemCn": "主存储器使用关联访问来访问存储的数据。",
+      "answer": "F",
+      "explanationCn": "主存通常采用**按地址访问**的方式，即 CPU 给出地址，主存根据地址找到对应存储单元并读写数据。 关联访问是按照“内容”进行查找，常见于相联存储器或 Cache 标记比较等场景，不是普通主存的基本访问方式。 因此该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-tf-002",
+      "stemEn": "The data in Cache will always remain consistent with the data in main memory.",
+      "stemCn": "Cache中的数据将始终与主存中的数据保持一致。",
+      "answer": "F",
+      "explanationCn": "Cache 中的数据是主存中部分数据的副本，但二者并不一定始终完全一致。 例如采用**写回法**时，CPU 修改 Cache 中的数据后，可能暂时不立即写回主存，此时 Cache 和主存的数据就可能不一致。 只有在采用适当的写策略和一致性维护机制时，才能保证或恢复 Cache 与主存的一致性。 因此该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-tf-003",
+      "stemEn": "Generally speaking, L1 Cache uses a split Cache organization, while L2 Cache uses a unified Cache organization.",
+      "stemCn": "一般来说，L1 Cache采用分离式Cache组织，而L2 Cache采用统一Cache组织。",
+      "answer": "T",
+      "explanationCn": "一般情况下，一级 Cache 常分为**指令 Cache** 和 **数据 Cache**，即 split Cache。这样可以让取指令和访问数据并行进行，减少资源冲突。 二级 Cache 通常采用统一 Cache，即指令和数据共用同一个 Cache 空间。 因此该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-tf-004",
+      "stemEn": "The larger the Cache line size is, the higher the Cache hit rate will be.",
+      "stemCn": "Cache line size越大，Cache命中率越高。",
+      "answer": "F",
+      "explanationCn": "Cache 行越大，确实可以更好地利用**空间局部性**，因为一次调入的数据块中可能包含后续要访问的数据。 但是 Cache 行并不是越大越好。行太大时，在 Cache 总容量不变的情况下，Cache 行数会减少，可能导致更多冲突失效和容量失效；同时一次缺失时需要从主存调入更多数据，缺失代价也会变大。 因此 Cache 行大小增大不一定会使命中率持续升高，该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-tf-005",
+      "stemEn": "The larger the Cache capacity is, the higher the Cache hit rate will be.",
+      "stemCn": "Cache容量越大，Cache命中率越高。",
+      "answer": "T",
+      "explanationCn": "一般来说，在其他条件相同的情况下，Cache 容量越大，能够保存的主存块越多，数据被替换出去的概率越小，因此容量失效和部分冲突失效会减少，命中率通常会提高。 不过实际提升会有边际递减，即容量增加到一定程度后，命中率提升会变得不明显。 因此该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-tf-006",
+      "stemEn": "The length of data transferred by the system each time must be equal to the number of bits in one word or in one addressable unit.",
+      "stemCn": "系统每次传输的数据长度必须等于一个字或一个可寻址单元中的位数。",
+      "answer": "F",
+      "explanationCn": "系统每次传送数据的长度不一定必须等于一个字的位数，也不一定必须等于一个可寻址单元的位数。 在实际计算机系统中，数据传送单位可能是： - 字节（Byte） - 字（Word） - 双字 - 存储块 - Cache 行 - 总线一次能够传送的数据宽度 例如 Cache 和主存之间通常按**块**传送，而 CPU 和寄存器之间可能按字或双字传送。 所以“每次传送数据长度必须等于一个字或一个可寻址单元的位数”说法过于绝对，错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-tf-007",
+      "stemEn": "In the write-back policy, write updates occur only in the Cache.",
+      "stemCn": "在回写策略中，写更新仅发生在Cache中。",
+      "answer": "F",
+      "explanationCn": "写回策略下，CPU 对数据进行写操作时，通常先只修改 Cache 中的副本，并设置修改位。 但是这并不表示写更新永远只发生在 Cache 中。 当被修改过的 Cache 块需要被替换时，系统必须把该块写回主存，以保证主存中的数据最终正确。 因此： - 写操作刚发生时：可能只更新 Cache； - 被替换或需要保持一致性时：仍然要写回主存。 所以“写更新只会发生在 Cache 中”说法不严谨，错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch04-tf-008",
+      "stemEn": "Cache is a type of internal memory.",
+      "stemCn": "高速缓存是一种内部存储器。",
+      "answer": "T",
+      "explanationCn": "Cache 是位于 CPU 和主存之间的高速小容量存储器，用来保存主存中近期可能被访问的数据副本。 它属于计算机存储层次中的高速内部存储部件，因此可以看作一种内存。 但需要注意，Cache 不是主存容量的一部分，它只是主存内容的高速副本。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

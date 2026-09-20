@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OS & COA 英文刷题</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=horde-1" />
   </head>
   <body>
     <div class="bg-shape bg-shape-1"></div>
@@ -12,9 +12,10 @@
 
     <main class="app-shell">
       <header class="hero">
-        <p class="kicker">Exam Trainer</p>
+        <p class="kicker">为了部落 · Exam Trainer</p>
         <h1>操作系统 & 计算机组成 英文刷题</h1>
         <p class="sub">题库来自本地章节 JSON。把文件放进固定目录，重建题库后网页自动加载。</p>
+        <div class="war-divider" aria-hidden="true"></div>
       </header>
 
       <section class="panel controls">
@@ -52,6 +53,7 @@
       <section id="workspace" class="panel workspace"></section>
     </main>
 
-    <script src="./app.js?v=20260529-2"></script>
+    <script src="./data/question-bank.generated.js?v=horde-1"></script>
+    <script src="./app.js?v=horde-1"></script>
   </body>
 </html>

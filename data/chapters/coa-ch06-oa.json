@@ -1,0 +1,277 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch06",
+  "chapterName": "第六章外部存储器",
+  "mcq": [
+    {
+      "id": "coa-ch06-001",
+      "stemEn": "Which of the following statements about disk storage is incorrect?",
+      "stemCn": "以下关于磁盘存储的说法哪一项是不正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The formatted capacity of a disk is smaller than its unformatted capacity.",
+          "textCn": "磁盘格式化后的容量小于未格式化的容量。"
+        },
+        {
+          "key": "B",
+          "textEn": "A sector contains data, address information, and check information.",
+          "textCn": "扇区包含数据、地址信息和校验信息。"
+        },
+        {
+          "key": "C",
+          "textEn": "The minimum read/write unit of a disk storage device is a byte.",
+          "textCn": "磁盘存储设备的最小读/写单位是字节。"
+        },
+        {
+          "key": "D",
+          "textEn": "A disk drive may contain multiple platters, and the heads of all platters generally move together.",
+          "textCn": "磁盘驱动器可能包含多个盘片，并且所有盘片的磁头通常一起移动。"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "磁盘的最小读写单位不是字节，而是扇区。 也就是说，即使只需要访问某一个字节，磁盘实际读写时通常也要以扇区为单位进行数据传输。 其他选项分析： - A 正确：磁盘格式化后要划分扇区，并加入地址、同步、校验等控制信息，所以格式化容量小于非格式化容量。 - B 正确：扇区中不仅有用户数据，还包含地址标识、校验码等信息。 - D 正确：多盘片磁盘中通常每个盘面有磁头，这些磁头安装在同一组磁臂上，一般一起移动。 所以错误的是 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-002",
+      "stemEn": "If the rotational speed of a disk doubles, then ( ).",
+      "stemCn": "如果磁盘转速加倍，则（ ）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The average access time will be halved.",
+          "textCn": "平均访问时间将减半。"
+        },
+        {
+          "key": "B",
+          "textEn": "The average seek time will be halved.",
+          "textCn": "平均寻道时间将减半。"
+        },
+        {
+          "key": "C",
+          "textEn": "The storage density will be doubled.",
+          "textCn": "存储密度将增加一倍。"
+        },
+        {
+          "key": "D",
+          "textEn": "The rotational latency will be halved.",
+          "textCn": "旋转延迟将减半。"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "磁盘访问时间一般包括： $$ T_a = T_s + T_r + T_t $$ 其中： - $T_s$：寻道时间 - $T_r$：旋转延迟 - $T_t$：数据传输时间 当磁盘转速翻倍时，盘片转一圈所需时间减半，因此平均旋转延迟也会减半。 但要注意： - 平均寻道时间主要由磁头移动机构决定，与转速无直接关系。 - 存储密度由磁记录技术和磁道布局决定，不会因为转速翻倍而直接翻倍。 - 平均访问时间包含寻道时间、旋转延迟和传输时间，不能简单认为整体减半。 所以选 D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-003",
+      "stemEn": "Which measures can be used to improve RAID reliability? I. Disk mirroring II. Striping III. Parity checking IV. Increasing the Cache mechanism",
+      "stemCn": "哪些措施可以提高 RAID 的可靠性？I. 磁盘镜像 II. 数据条带化 III. 奇偶校验 IV. 增加 Cache 机制",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "I and II only",
+          "textCn": "仅限 I 和 II"
+        },
+        {
+          "key": "B",
+          "textEn": "I and III only",
+          "textCn": "仅限 I 和 III"
+        },
+        {
+          "key": "C",
+          "textEn": "I, II, and IV only",
+          "textCn": "仅 I、II 和 IV"
+        },
+        {
+          "key": "D",
+          "textEn": "II, III, and IV only",
+          "textCn": "仅限 II、III 和 IV"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "用于提高 RAID 可靠性的主要措施是： - **Disk mirroring（磁盘镜像）**：例如 RAID 1，把相同数据写入多个磁盘，一块盘损坏后仍可由镜像盘恢复。 - **Parity checking（奇偶校验）**：例如 RAID 5、RAID 6，通过校验信息恢复故障磁盘中的数据。 条带化主要用于提高并行访问性能，本身不提供冗余保护。 增加 Cache 机制主要提高访问速度，也不是 RAID 可靠性的核心冗余措施。 因此正确的是 I 和 III，选 B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-004",
+      "stemEn": "Which of the following optical discs can be both read and written?",
+      "stemCn": "下列哪种光盘既可以读取又可以写入？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "CD-ROM",
+          "textCn": "CD-ROM（只读光盘）"
+        },
+        {
+          "key": "B",
+          "textEn": "CD-R",
+          "textCn": "CD-R（一次写入型光盘）"
+        },
+        {
+          "key": "C",
+          "textEn": "CD-RW",
+          "textCn": "CD-RW（可擦写光盘）"
+        },
+        {
+          "key": "D",
+          "textEn": "DVD",
+          "textCn": "DVD"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": "CD-RW 中的 RW 表示 ReWritable，即可重写。它既可以读取，也可以多次写入和擦除。 其他选项： - CD-ROM：只读光盘，不能写入。 - CD-R：一次写入，多次读取，不能反复擦写。 - DVD：只是光盘类别，普通 DVD-ROM 只读，不能笼统认为一定可读写。 所以选 C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-005",
+      "stemEn": "Which of the following statements about DVD is incorrect?",
+      "stemCn": "以下关于 DVD 的说法哪一项是不正确的？",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The pits and grooves of DVD are arranged more densely than those of CD.",
+          "textCn": "DVD 的凹坑和凹槽排列得比 CD 更密集。"
+        },
+        {
+          "key": "B",
+          "textEn": "One side of a DVD can use a double-layer structure, and data in each layer can be read by adjusting the laser focus.",
+          "textCn": "DVD的一面可以采用双层结构，通过调整激光焦点可以读取每一层的数据。"
+        },
+        {
+          "key": "C",
+          "textEn": "The track pitch of DVD is smaller than that of CD.",
+          "textCn": "DVD 的磁道间距比 CD 的小。"
+        },
+        {
+          "key": "D",
+          "textEn": "DVD cannot record data on both sides.",
+          "textCn": "DVD 无法双面记录数据。"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": "DVD 相比 CD 具有更高的数据密度，主要原因包括： - 坑点更小、排列更密； - 磁道间距或光道间距更小； - 可以采用单面双层结构； - 也可以采用双面结构存储数据。 因此 D“DVD 不能用双面记录数据”是错误的。DVD 可以有单面单层、单面双层、双面单层、双面双层等形式。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-006",
+      "stemEn": "Adjacent tracks on a disk are separated by ( ).",
+      "stemCn": "磁盘上的相邻磁道由 ( ) 分隔。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Gaps",
+          "textCn": "间隙"
+        },
+        {
+          "key": "B",
+          "textEn": "Sectors",
+          "textCn": "扇区"
+        },
+        {
+          "key": "C",
+          "textEn": "Bits",
+          "textCn": "位"
+        },
+        {
+          "key": "D",
+          "textEn": "Heads",
+          "textCn": "磁头"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": "磁盘上的相邻磁道之间需要留出一定的间隙，防止读写时相互干扰。 这些间隙称为 gaps。 扇区是磁道上的分区，磁头是读写部件，位是数据的最小单位，都不是用来分隔相邻磁道的结构。 所以选 A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-007",
+      "stemEn": "The disadvantage of ( ) is that the amount of data stored on inner and outer tracks is the same.",
+      "stemCn": "()的缺点是内外磁道上存储的数据量是相同的。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "SSD",
+          "textCn": "SSD（固态硬盘）"
+        },
+        {
+          "key": "B",
+          "textEn": "CAV",
+          "textCn": "CAV（恒定角速度）"
+        },
+        {
+          "key": "C",
+          "textEn": "ROM",
+          "textCn": "ROM（只读存储器）"
+        },
+        {
+          "key": "D",
+          "textEn": "CLV",
+          "textCn": "CLV（恒定线速度）"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": "CAV 是 Constant Angular Velocity，即恒定角速度。 在 CAV 方式下，磁盘转速保持不变，通常每条磁道划分的扇区数相同，因此内圈磁道和外圈磁道存储的数据量相同。 但外圈磁道周长更长，如果仍然只存储与内圈相同的数据量，就会导致外圈空间利用率较低。 这就是 CAV 的一个缺点。 CLV 是恒定线速度，可以让不同半径处的数据通过速度相近，常见于一些光盘系统。 所以选 B。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [
+    {
+      "id": "coa-ch06-tf-001",
+      "stemEn": "Hard disks, floppy disks, and optical disks all use contact-type magnetic heads.",
+      "stemCn": "硬盘、软盘、光盘均采用接触式磁头。",
+      "answer": "F",
+      "explanationCn": "该说法错误。软盘通常采用接触式磁头，但硬盘的磁头一般是悬浮在高速旋转的盘片表面上方工作的，并不是接触式读写；光盘则使用激光进行读写，不使用磁头。因此不能说硬盘、软盘和光盘都采用接触式磁头。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-tf-002",
+      "stemEn": "The smaller the magnetic head of a disk is, the narrower the track becomes, and the higher the data density of the disk becomes.",
+      "stemCn": "磁盘的磁头越小，磁道就越窄，磁盘的数据密度就越高。",
+      "answer": "T",
+      "explanationCn": "磁头越小，能够读写的磁道宽度就可以越窄。磁道越窄，在同样大小的盘面上就可以安排更多磁道，因此磁道密度提高，磁盘的数据存储密度也会增大。所以该说法正确。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-tf-003",
+      "stemEn": "All magnetic disks and optical disks organize their tracks or optical tracks in concentric circles.",
+      "stemCn": "所有磁盘和光盘都将其轨道或光轨组织在同心圆中。",
+      "answer": "F",
+      "explanationCn": "磁盘通常采用同心圆方式组织磁道，每一圈是一个磁道。 但光盘不一定采用同心圆结构，很多光盘采用的是从内向外连续展开的螺旋形光道。因此不能说所有磁盘和光盘都采用同心圆方式组织磁道或光道。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-tf-004",
+      "stemEn": "Generally speaking, both magnetic disks and optical disks rotate with constant angular velocity (CAV) to scan all data bits.",
+      "stemCn": "一般来说，磁盘和光盘都以恒定角速度（CAV）旋转来扫描所有数据位。",
+      "answer": "F",
+      "explanationCn": "磁盘一般采用恒定角速度 CAV，即盘片转速保持不变。这样外圈线速度大，内圈线速度小。 但光盘常见方式不完全相同，例如 CD 等光盘常采用恒定线速度 CLV 或类似方式，使读写位置处的数据通过速度保持相对稳定。 因此不能说磁盘和光盘都采用 CAV 扫描所有数据位，该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-tf-005",
+      "stemEn": "All RAID levels contain redundant information used to improve the reliability of the disk system.",
+      "stemCn": "所有RAID级别都包含用于提高磁盘系统可靠性的冗余信息。",
+      "answer": "F",
+      "explanationCn": "并不是所有 RAID 级别都包含冗余信息。 例如 RAID 0 只进行数据条带化，主要目的是提高并行读写性能，并不提供冗余保护。如果其中一块磁盘损坏，数据可能无法恢复。 而 RAID 1、RAID 5、RAID 6 等才通过镜像或奇偶校验等方式提供可靠性。因此该说法错误。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-tf-006",
+      "stemEn": "During disk reading or writing, the magnetic head rotates while the platter below it remains stationary.",
+      "stemCn": "在磁盘读取或写入过程中，磁头旋转，而其下方的盘片保持静止。",
+      "answer": "F",
+      "explanationCn": "该说法正好相反。磁盘读写时，是盘片高速旋转，磁头一般不随盘片旋转。 磁头通过沿半径方向移动来定位到不同磁道，然后等待目标扇区旋转到磁头下方进行读写。 因此“磁头旋转而盘片静止”是错误的。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch06-tf-007",
+      "stemEn": "RAID consists of a group of physical disk drives, and this group of disks is viewed by the operating system as a single logical disk.",
+      "stemCn": "RAID 由一组物理磁盘驱动器组成，操作系统将这组磁盘视为单个逻辑磁盘。",
+      "answer": "T",
+      "explanationCn": "RAID 将多个物理磁盘组合起来，通过条带化、镜像、奇偶校验等技术提高性能或可靠性。 对操作系统来说，这组物理磁盘通常表现为一个逻辑磁盘，因此操作系统可以像访问一个普通磁盘一样访问 RAID 阵列。 所以该说法正确。",
+      "explanationEn": ""
+    }
+  ],
+  "terms": []
+}

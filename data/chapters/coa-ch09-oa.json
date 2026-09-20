@@ -1,0 +1,430 @@
+{
+  "subjectId": "coa",
+  "subjectName": "Computer Organization",
+  "chapterId": "ch09",
+  "chapterName": "第九章计算机算数",
+  "mcq": [
+    {
+      "id": "coa-ch09-001",
+      "stemEn": "A negative number smaller than $-(2 - 2^{-23}) \\times 2^{128}$ is called ().",
+      "stemCn": "小于 $-(2 - 2^{-23}) \\times 2^{128}$ 的负数称为 ()。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Negative overflow",
+          "textCn": "负溢出"
+        },
+        {
+          "key": "B",
+          "textEn": "Negative underflow",
+          "textCn": "负下溢"
+        },
+        {
+          "key": "C",
+          "textEn": "Positive overflow",
+          "textCn": "正溢出"
+        },
+        {
+          "key": "D",
+          "textEn": "Positive underflow",
+          "textCn": "正下溢"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": ": 在 IEEE 754 单精度浮点数标准中： 能够表示的最大正数是 $(2 - 2^{-23}) \\times 2^{127}$（由于本题中给出的公式阶码部分写作 $2^{128}$ 通常代表超出表数最大极限的区域）。 无论如何，当一个数值由于运算结果负得太多，以至于它的绝对值超出了浮点格式所能表示的最大负数边界时，在数轴上它落在了最左侧无法触及的区域。这种情况被称为**负溢出（Negative overflow）**。故选A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-002",
+      "stemEn": "When a positive exponent exceeds the maximum allowable range, this condition is known as ().",
+      "stemCn": "当正指数超出最大允许范围时，这种情况称为（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Significand underflow",
+          "textCn": "尾数下溢"
+        },
+        {
+          "key": "B",
+          "textEn": "Radix overflow",
+          "textCn": "基数溢出"
+        },
+        {
+          "key": "C",
+          "textEn": "Exponent overflow",
+          "textCn": "指数溢出"
+        },
+        {
+          "key": "D",
+          "textEn": "Exponent underflow",
+          "textCn": "指数下溢"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": ": 浮点数的取值范围主要是由阶码（指数）的位数和它的范围决定的。当运算结果的阶码（即指数）超过了机器所能允许的最大正指数限制时，阶码部分无法正确存储，在硬件上被称为**阶码上溢（Exponent overflow）**或指数上溢。故选C。 ### Chapter 9: Instruction System (指令系统)",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-003",
+      "stemEn": "Which of the following statements about a one-address instruction is correct? ()",
+      "stemCn": "下列关于单地址指令的表述哪一项是正确的？ ()",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "It has only one operand.",
+          "textCn": "它只有一个操作数。"
+        },
+        {
+          "key": "B",
+          "textEn": "It must have two operands, one of which is implicit.",
+          "textCn": "它必须有两个操作数，其中之一是隐式的。"
+        },
+        {
+          "key": "C",
+          "textEn": "If there are two operands, they must be identical.",
+          "textCn": "如果有两个操作数，它们必须相同。"
+        },
+        {
+          "key": "D",
+          "textEn": "It may involve two operands or only one operand.",
+          "textCn": "它可能涉及两个操作数或仅涉及一个操作数。"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": ": 单地址指令（One-address instruction）是指在指令格式中只显式给出一个地址码字段。 1. 它可能只对一个操作数进行单目运算，如取反、加1、减1、自增（如 `INC AC`），此时确实**只有一个操作数**。 2. 它也常常用于双目运算，此时指令只给出第二个操作数的地址，而第一个操作数被默认**隐含在累加器（ACC）**中。比如加法指令 `ADD X` 的功能是 $(ACC) + (X) \\rightarrow ACC$，这里**有两个操作数**。 综上所述，单地址指令可能隐式涉及两个操作数，也可能只涉及一个操作数。故选D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-004",
+      "stemEn": "Generally, in a two-address instruction, the physical locations of the operands can be arranged in (). I. A main memory cell and a buffer memory II. Two data registers III. A main memory cell and a data register IV. A data register and a control memory V. A main memory cell and an external memory cell",
+      "stemCn": "一般情况下，二地址指令的操作数可分别位于何处？I. 主存单元和缓冲存储器 II. 两个数据寄存器 III. 主存单元和数据寄存器 IV. 数据寄存器和控制存储器 V. 主存单元和外存单元",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "II, III, IV",
+          "textCn": "二、三、四"
+        },
+        {
+          "key": "B",
+          "textEn": "II, III",
+          "textCn": "二、三"
+        },
+        {
+          "key": "C",
+          "textEn": "I, II, III",
+          "textCn": "一、二、三"
+        },
+        {
+          "key": "D",
+          "textEn": "I, II, III, V",
+          "textCn": "一、二、三、五"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": ": 指令系统中的操作数必须能被CPU的执行部件（ALU）直接或通过总线快速访问。常见的操作数寻址物理位置包括：**通用数据寄存器（Registers）**以及**主存储器单元（Main Memory）**。 **II (两个数据寄存器)**：即 RR (Register-Register) 型指令，非常普遍。 **III (一个主存单元和一个数据寄存器)**：即 RS (Register-Storage) 型指令，同样属于基本核心寻址。 其他选项中：I 中的高级缓存/缓冲存储器对程序员是硬件透明的，不用来在指令格式中显式作为物理源安排；IV 控制存储器属于微程序控制器内部，不对普通指令开放；V 外存（如磁盘）无法直接参与算术指令流执行。故选B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-005",
+      "stemEn": "When a two-address instruction is used to complete an arithmetic operation, the result is generally stored in ().",
+      "stemCn": "当使用二地址指令完成算术运算时，结果一般存放在()中。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The location specified by one of the address codes",
+          "textCn": "由地址代码之一指定的位置"
+        },
+        {
+          "key": "B",
+          "textEn": "The top of the stack",
+          "textCn": "栈顶"
+        },
+        {
+          "key": "C",
+          "textEn": "The accumulator (ACC)",
+          "textCn": "累加器（ACC）"
+        },
+        {
+          "key": "D",
+          "textEn": "None of the above",
+          "textCn": "以上都不是"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": ": 二地址指令的通用格式为 `OP A1, A2`。它显式给出了两个操作数地址 $A_1$ 和 $A_2$。在绝大多数通用计算机体系结构中，为了节省目标代码空间和减少多余的地址段，运算结果完成之后，通常默认覆盖并存回其中一个地址码所指向的空间（通常是目的操作数地址 $A_1$）。即运算逻辑为：$(A_1) \\text{ OP } (A_2) \\rightarrow A_1$。故选A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-006",
+      "stemEn": "During the process of instruction execution by the CPU, the address of the next instruction to be executed is generally provided by the ().",
+      "stemCn": "CPU在执行指令的过程中，下一条要执行的指令的地址一般由()提供。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Address code field of the current instruction",
+          "textCn": "当前指令的地址码字段"
+        },
+        {
+          "key": "B",
+          "textEn": "Program Counter (PC)",
+          "textCn": "程序计数器（PC）"
+        },
+        {
+          "key": "C",
+          "textEn": "Compiler",
+          "textCn": "编译器"
+        },
+        {
+          "key": "D",
+          "textEn": "Programmer",
+          "textCn": "程序员"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": ": *程序计数器（PC, Program Counter）**是 CPU 内部的关键控制寄存器，用来存放当前正在执行或即将执行的下一条指令在主存中的地址。在顺序执行程序时，每取出一个字节或一条指令，PC 的值会自动加上该指令所占的存储单元数，从而指向下一条相邻指令。故选B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-007",
+      "stemEn": "Which of the following statements about instructions is INCORRECT? ()",
+      "stemCn": "下列关于指令的说法哪一项不正确？（ ）",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "For a one-address instruction, its instruction length is always fixed.",
+          "textCn": "对于单地址指令，其指令长度始终是固定的。"
+        },
+        {
+          "key": "B",
+          "textEn": "To facilitate instruction fetching, the length of an instruction is usually an integer multiple of the memory word length.",
+          "textCn": "为了方便取指令，指令的长度通常是存储器字长的整数倍。"
+        },
+        {
+          "key": "C",
+          "textEn": "A zero-address instruction may have no operands.",
+          "textCn": "零地址指令可以没有操作数。"
+        },
+        {
+          "key": "D",
+          "textEn": "A one-address instruction may involve one operand or two operands.",
+          "textCn": "一地址指令可以涉及一个操作数或两个操作数。"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": ": A 选项错误：指令中含有几个地址码（单地址、双地址）和指令本身的机器物理长度（字长）之间没有绝对的固定死绑定关系。在变长指令系统（如 x86）中，即便同为单地址指令，也会因为寻址方式的不同（变址、间接、立即数大小）导致最终机器码长度不同。 B 选项正确：指令长度设为存储字长的整数倍可以极大地简化控制器的取指硬件逻辑，提高访存对齐效率。 C 选项正确：零地址指令通常分为两类，一类是无需操作数的控制指令（如 `NOP`, `CLI`），另一类是操作数隐含在堆栈顶部的堆栈指令（如 `ADD`）。 D 选项正确：如前面所述，单地址指令可能操作ACC与主存单元（两个操作数），也可能只是对单个寄存器执行取反（一个操作数）。 题干要求选择错误的一项，故选A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-008",
+      "stemEn": "The function of a two-address instruction `OP A1, A2` is $(A_1) \\text{ OP } (A_2) \\rightarrow A_1$. Suppose $A_1$ represents a register address and $A_2$ represents a main memory address. If instructions are fetched from the main memory by default, how many times must the main memory be accessed to complete this instruction? ()",
+      "stemCn": "二地址指令‘OP A1, A2’的功能为$(A_1) \\text{ OP } (A_2) \\rightarrow A_1$。假设$A_1$代表寄存器地址，$A_2$代表主存地址。如果默认从主存取指令，那么需要访问主存多少次才能完成这条指令？ ()",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "5",
+          "textCn": "5"
+        },
+        {
+          "key": "B",
+          "textEn": "4",
+          "textCn": "4"
+        },
+        {
+          "key": "C",
+          "textEn": "3",
+          "textCn": "3"
+        },
+        {
+          "key": "D",
+          "textEn": "2",
+          "textCn": "2"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": ": 我们来细分整个指令执行周期中的访存（访问主存）次数： 1. **第一步（取指令）**：指令默认存储在主存中，CPU 必须访问一次主存将该指令取出送到指令寄存器（IR）中。**（访存 1 次）** 2. **第二步（取操作数）**： 操作数 1 在 $A_1$（寄存器），取它不需要访问主存。 操作数 2 在 $A_2$（主存），CPU 需要根据 $A_2$ 地址访问一次主存储器读取操作数。**（访存 1 次）** 3. **第三步（执行并写回结果）**：运算完成后，结果写回 $A_1$。由于 $A_1$ 属于 CPU 内部的通用寄存器，写回操作不需要访问主存。**（访存 0 次）** 综上所述，整个过程一共访问主存储器 $1 + 1 + 0 = 2$ 次。故选D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-009",
+      "stemEn": "In a computer, some stack-based zero-address arithmetic instructions do not explicitly provide the addresses of operands in the instruction format. The two operands participating in the operation come from ().",
+      "stemCn": "在计算机中，一些基于堆栈的零地址算术指令在指令格式中并未明确提供操作数的地址。参与运算的两个操作数来自()。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Accumulator and Register",
+          "textCn": "累加器和寄存器"
+        },
+        {
+          "key": "B",
+          "textEn": "The top of the stack and the next-to-top unit of the stack",
+          "textCn": "栈顶和次栈顶单元"
+        },
+        {
+          "key": "C",
+          "textEn": "The top of the stack and a temporary register",
+          "textCn": "栈顶和临时寄存器"
+        },
+        {
+          "key": "D",
+          "textEn": "Accumulator and a temporary register",
+          "textCn": "累加器和临时寄存器"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": ": 堆栈型计算机中的零地址运算指令（例如堆栈加法指令 `ADD`），其操作数都是**隐式寻址**的。执行该指令时，硬件会自动从系统堆栈的顶部弹出（Pop）连续的两个数据作为源操作数。这两个数原本分别存放在**栈顶（Top of the stack）**以及紧随其下的**次栈顶单元（Next-to-top unit of the stack）**。运算得出的结果最后还会被自动压入栈顶。故选B。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-010",
+      "stemEn": "Which of the following instructions CANNOT be used by an application program? ()",
+      "stemCn": "应用程序不能使用以下哪条指令？ ()",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Shift instructions",
+          "textCn": "移位指令"
+        },
+        {
+          "key": "B",
+          "textEn": "Conversion instructions",
+          "textCn": "转换指令"
+        },
+        {
+          "key": "C",
+          "textEn": "Privileged instructions",
+          "textCn": "特权指令"
+        },
+        {
+          "key": "D",
+          "textEn": "Conditional branch instructions",
+          "textCn": "条件分支指令"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": ": 为了保证计算机系统的安全与稳定，防止普通的应用程序破坏操作系统或恶意控制硬件资源，计算机的指令集被划分为： 1. **用户级指令（非特权指令）**：如普通的算术运算、移位、逻辑转换、条件转移指令等，任何普通应用程序（运行在用户态/目态）均可自由使用。 2. **特权指令（Privileged instructions）**：诸如启动I/O设备、修改主存保护键、停机、改变系统工作状态等危及系统全局安全的指令。这类指令只允许操作系统内核（运行在核心态/管态）调用，应用程序绝对无权直接执行。故选C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-011",
+      "stemEn": "The function of program control instructions is to ().",
+      "stemCn": "程序控制指令的功能是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Perform arithmetic and logical operations",
+          "textCn": "执行算术和逻辑运算"
+        },
+        {
+          "key": "B",
+          "textEn": "Transfer data between main memory and I/O devices",
+          "textCn": "在主存和I/O设备之间传输数据"
+        },
+        {
+          "key": "C",
+          "textEn": "Change data formats",
+          "textCn": "更改数据格式"
+        },
+        {
+          "key": "D",
+          "textEn": "Change the sequence of program execution",
+          "textCn": "改变程序执行顺序"
+        }
+      ],
+      "answerKey": "D",
+      "explanationCn": ": 指令按功能分类中，**程序控制类指令**（如无条件转移 `JMP`、条件转移 `JZ`/`JC`、子程序调用 `CALL` 和返回 `RET`）其核心作用不是为了加工数据，而是为了控制和改写程序计数器（PC）的值，从而打断原本单一的自增顺序，**改变程序执行的先后顺序**，实现分支、循环或函数调用。故选D。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-012",
+      "stemEn": "Which of the following statements about the instruction system is INCORRECT? ()",
+      "stemCn": "下列关于指令系统的说法哪一项不正确？（ ）",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "The instruction system has nothing to do with machine language.",
+          "textCn": "指令系统与机器语言无关。"
+        },
+        {
+          "key": "B",
+          "textEn": "The instruction system is the complete set of instructions that a computer's hardware can execute.",
+          "textCn": "指令系统是计算机硬件能够执行的完整指令集。"
+        },
+        {
+          "key": "C",
+          "textEn": "The instruction system is the interface/boundary between computer software and hardware.",
+          "textCn": "指令系统是计算机软件和硬件之间的接口/边界。"
+        },
+        {
+          "key": "D",
+          "textEn": "Any program must be translated into a machine language program before it can be executed by the machine hardware.",
+          "textCn": "任何程序都必须先翻译成机器语言程序，然后才能被机器硬件执行。"
+        }
+      ],
+      "answerKey": "A",
+      "explanationCn": ": A 选项错误：**机器语言（Machine Language）**就是由无数条机器指令按照特定编码规则组成的。指令系统（ISA）规范了每一条指令的二进制机器码格式，因此指令系统正是机器语言的根本基石，两者紧密相关。 B 选项正确：一个处理器硬件设计完成之后，它能够识别并执行的所有机器指令的集合，就是该硬件的指令系统。 C 选项正确：指令系统是软件（编译器、操作系统、应用软件）能向硬件下达命令的最高官方准则，被称为软硬件的基本分界线或接口。 D 选项正确：计算机硬件直接看懂并执行的只有全由 `0` 和 `1` 组成的机器语言。高级语言（C++, Java, Python等）或者汇编语言在运行之前，必须经过编译、汇编或解释器转换为对应的机器指令流，才能上机运行。 题干要求选择错误的一项，故选A。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-013",
+      "stemEn": "Data transfer between the memory (main memory) and CPU registers must rely on () instructions.",
+      "stemCn": "内存（主存）和CPU寄存器之间的数据传输必须依赖（）指令。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Branch (Jump)",
+          "textCn": "分支（跳跃）"
+        },
+        {
+          "key": "B",
+          "textEn": "Logical",
+          "textCn": "逻辑性"
+        },
+        {
+          "key": "C",
+          "textEn": "Transfer (Load/Store)",
+          "textCn": "传输（加载/存储）"
+        },
+        {
+          "key": "D",
+          "textEn": "I/O",
+          "textCn": "输入/输出"
+        }
+      ],
+      "answerKey": "C",
+      "explanationCn": ": 在计算机指令集中，用于在主存储器（Memory）和通用寄存器（Registers）之间进行纯粹数据搬运的指令被称为**数据传送类指令**（Data Transfer Instructions）。 在一些架构中（如 RISC / 汇编中），这种操作被具体实现为 `LOAD`（从主存加载到寄存器）和 `STORE`（从寄存器写入主存）指令。故选C。",
+      "explanationEn": ""
+    },
+    {
+      "id": "coa-ch09-014",
+      "stemEn": "Among machine instructions, the most fundamental and frequently used instructions should be ().",
+      "stemCn": "在机器指令中，最基本、最常用的指令应该是（）。",
+      "options": [
+        {
+          "key": "A",
+          "textEn": "Conversion instructions",
+          "textCn": "转换指令"
+        },
+        {
+          "key": "B",
+          "textEn": "Data transfer instructions",
+          "textCn": "数据传输指令"
+        },
+        {
+          "key": "C",
+          "textEn": "Arithmetic operation instructions",
+          "textCn": "算术运算指令"
+        },
+        {
+          "key": "D",
+          "textEn": "Logical operation instructions",
+          "textCn": "逻辑运算指令"
+        }
+      ],
+      "answerKey": "B",
+      "explanationCn": ": 根据计算机程序运行的统计规律，在一套指令系统执行的所有常规指令流中，**数据传送类指令（Data transfer instructions）** 所占的比例是最高的（通常达到 $30\\% \\sim 50\\%$ 以上）。因为无论是做加减法算术运算，还是做逻辑判断，首先都必须把操作数从主存或外部搬运到 CPU 内部的寄存器中，运行完也需要搬回主存。因此，它是最基本、最核心的指令。故选B。",
+      "explanationEn": ""
+    }
+  ],
+  "tf": [],
+  "terms": []
+}
